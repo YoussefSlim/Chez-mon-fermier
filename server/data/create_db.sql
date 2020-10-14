@@ -30,14 +30,30 @@ CREATE TABLE "category" (
     "updatedAt" TIMESTAMPTZ
 );
 
+CREATE TABLE "customer" (
+    "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    "first_name" TEXT NOT NULL,
+    "last_name" TEXT NOT NULL,
+    "address" TEXT NOT NULL,
+    "additional address" TEXT,
+    "postcode" TEXT NOT NULL,
+    "city" TEXT NOT NULL,
+    "phone_number" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
+    "password" TEXT NOT NULL,
+    "createdAt" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    "updatedAt" TIMESTAMPTZ
+);
+
 CREATE TABLE "order" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "order_number" INT UNIQUE NOT NULL,
     "amount" INT NOT NULL,
-    "customer_id" INT NOT NULL REFERENCES customer(id),
+    "customer_id" INT REFERENCES customer(id) NOT NULL ,
     "createdAt" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     "updatedAt" TIMESTAMPTZ
 );
+
 CREATE TYPE delivery AS ENUM ('Livraison à domicile', 'Retrait chez le producteur');
 
 CREATE TABLE "shop" (
@@ -58,17 +74,14 @@ CREATE TABLE "shop" (
     "updatedAt" TIMESTAMPTZ
 );
 
-CREATE TABLE "CUSTOMER" (
+CREATE TABLE "admin" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "first_name" TEXT NOT NULL,
     "last_name" TEXT NOT NULL,
-    "address" TEXT NOT NULL,
-    "additional address" TEXT,
-    "postcode" TEXT NOT NULL,
-    "city" TEXT NOT NULL,
-    "phone_number" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "password" TEXT NOT NULL,
+    "shop_id" INT NOT NULL REFERENCES shop(id),
+    "customer_id" INT NOT NULL REFERENCES customer(id),
     "createdAt" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     "updatedAt" TIMESTAMPTZ
 );
