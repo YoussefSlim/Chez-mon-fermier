@@ -129,4 +129,4 @@ Pour lancer le projet, il suffit de faire ```npm i```, puis de taper la commande
 
 Côté front, l'api sera consommer sur le serveur ```http://localhost:3000```
 
-Afin de lancer le serveur, il suffit de faire ```yarn install``` puis ``` yarn start```
+Afin de lancer le serveur, il suffit de faire ```yarn add``` puis ``` yarn start```
