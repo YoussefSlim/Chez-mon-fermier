@@ -34,10 +34,11 @@ CREATE TABLE "order" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "order_number" INT UNIQUE NOT NULL,
     "amount" INT NOT NULL,
-    "customer_id" int NOT NULL REFERENCES customer(id),
+    "customer_id" INT NOT NULL REFERENCES customer(id),
     "createdAt" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     "updatedAt" TIMESTAMPTZ
 );
+CREATE TYPE delivery AS ENUM ('Livraison à domicile', 'Retrait chez le producteur');
 
 CREATE TABLE "shop" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -52,7 +53,7 @@ CREATE TABLE "shop" (
     "logo" TEXT,
     "siret" TEXT UNIQUE NOT NULL,
     "tva" REAL NOT NULL,
-    "delivery_method" AS ENUM ('Livraison à domicile', 'Retrait chez le producteur'),
+    "delivery_method" delivery,
     "createdAt" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     "updatedAt" TIMESTAMPTZ
 );
@@ -73,7 +74,7 @@ CREATE TABLE "CUSTOMER" (
 );
 
 CREATE TABLE "product_has_order" (
-    "orderid" INT NOT NULL,
+    "order_id" INT NOT NULL,
     "product_id" INT NOT NULL
 );
 
