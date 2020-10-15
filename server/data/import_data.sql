@@ -42,14 +42,23 @@ INSERT INTO "category"("id", "name", "description", "parent_id", "image") VALUES
 ;
 
 -- ------------------------
+-- table shop
+-- ------------------------
+
+INSERT INTO "shop"("id", "name", "address", "additional_adress", "postcode", "city", "phone_number", "email", "password", "logo", "siret", "tva", "delivery_method", "createdAt", "updatedAt") VALUES
+('1', 'La Ferme de Jean', '1 rue des datas', 'lieu-dit des apis', '63000', ''2, 10, 12, 'roti-de-boeuf', 1, 10),
+('2', 'Rôti de veau', 'Ceci est un rôti de veau tendre et certifié français!', 2, 10, 12, 'roti-de-veau', 1, 11),
+('3', 'Lot de Pommes Pink Lady au cageot', 'Une cagette de pomme de variété Pink Lady', 4, 100, 120, 'lot-pommes-pink-lady', 1, 2),
+('4', 'Jambons de pays au kilo', 'Ceci est un jambon de pays débité au kilogrammes, tendre et certifié français!', 2, 10, 12, 'jambon-de-pays-a-kilo', 1, 27),
+('5', 'Camembert veritable de normandie à la pièce', 'Ceci est un véritable camembert de Normandie vendu à la pièce et certifié français!', 2, 10, 12, 'camembert-veritable-de-normandie-a-la-piece', 3, 17);
+
+-- ------------------------
 -- table product
 -- ------------------------
 
 INSERT INTO "product"("id", "title", "description", "quantity", "price_ht", "price_ttc", "url", "shop_id", "category_id") VALUES
-('1', 'Rôti de boeuf', 'Ceci est un rôti de boeuf tendre et certifié français!'),
-('2', 'Potter'),
-('3', 'Evans'),
-('4', 'Weasley'),
-('5', 'Malefoy'),
-('6', 'Dumbledore'),
-('7', 'Black');
+('1', 'Rôti de boeuf', 'Ceci est un rôti de boeuf tendre et certifié français!', 2, 10, 12, 'roti-de-boeuf', 1, 10),
+('2', 'Rôti de veau', 'Ceci est un rôti de veau tendre et certifié français!', 2, 10, 12, 'roti-de-veau', 1, 11),
+('3', 'Lot de Pommes Pink Lady au cageot', 'Une cagette de pomme de variété Pink Lady', 4, 100, 120, 'lot-pommes-pink-lady', 1, 2),
+('4', 'Jambons de pays au kilo', 'Ceci est un jambon de pays débité au kilogrammes, tendre et certifié français!', 2, 10, 12, 'jambon-de-pays-a-kilo', 1, 27),
+('5', 'Camembert veritable de normandie à la pièce', 'Ceci est un véritable camembert de Normandie vendu à la pièce et certifié français!', 2, 10, 12, 'camembert-veritable-de-normandie-a-la-piece', 3, 17);
