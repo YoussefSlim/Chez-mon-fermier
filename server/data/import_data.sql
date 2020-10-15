@@ -45,12 +45,11 @@ INSERT INTO "category"("id", "name", "description", "parent_id", "image") VALUES
 -- table shop
 -- ------------------------
 
-INSERT INTO "shop"("id", "name", "address", "additional_adress", "postcode", "city", "phone_number", "email", "password", "logo", "siret", "tva", "delivery_method", "createdAt", "updatedAt") VALUES
-('1', 'La Ferme de Jean', '1 rue des datas', 'lieu-dit des apis', '63000', ''2, 10, 12, 'roti-de-boeuf', 1, 10),
-('2', 'Rôti de veau', 'Ceci est un rôti de veau tendre et certifié français!', 2, 10, 12, 'roti-de-veau', 1, 11),
-('3', 'Lot de Pommes Pink Lady au cageot', 'Une cagette de pomme de variété Pink Lady', 4, 100, 120, 'lot-pommes-pink-lady', 1, 2),
-('4', 'Jambons de pays au kilo', 'Ceci est un jambon de pays débité au kilogrammes, tendre et certifié français!', 2, 10, 12, 'jambon-de-pays-a-kilo', 1, 27),
-('5', 'Camembert veritable de normandie à la pièce', 'Ceci est un véritable camembert de Normandie vendu à la pièce et certifié français!', 2, 10, 12, 'camembert-veritable-de-normandie-a-la-piece', 3, 17);
+INSERT INTO "shop"("id", "name", "address", "additional_adress", "postcode", "city", "phone_number", "email", "password", "logo", "siret", "tva", "delivery_method") VALUES
+('1', 'La Ferme de Jeannot', '1 rue des datas', 'lieu-dit des apis', '63000', 'Clermont-Ferrand', '04 04 04 04 04', 'jean@oclock.io', 'js4life', 'ferme-de-jean.jpg', '12345678901234', 'FR123456789', 'livraison à domicile'),
+('2', 'La Foire de Etienne', '1 rue des helpers', 'lieu-dit des cool-cool', '91000', 'Evry', '04 01 01 04 04', 'etienne@oclock.io', 'js4life', 'foire-etienne.jpg', '12345678901235', 'FR012345678', 'Retrait'),
+('3', 'Le verger de Charles', '1 rue des vergers', 'lieu-dit des arbres', '45300', 'Pithiviers', '02 02 04 04 04', 'charles@oclock.io', 'js4life', 'verger-charles.jpg', '01234567890123', 'FR012345671', 'Retrait'),
+;
 
 -- ------------------------
 -- table product
@@ -62,3 +61,27 @@ INSERT INTO "product"("id", "title", "description", "quantity", "price_ht", "pri
 ('3', 'Lot de Pommes Pink Lady au cageot', 'Une cagette de pomme de variété Pink Lady', 4, 100, 120, 'lot-pommes-pink-lady', 1, 2),
 ('4', 'Jambons de pays au kilo', 'Ceci est un jambon de pays débité au kilogrammes, tendre et certifié français!', 2, 10, 12, 'jambon-de-pays-a-kilo', 1, 27),
 ('5', 'Camembert veritable de normandie à la pièce', 'Ceci est un véritable camembert de Normandie vendu à la pièce et certifié français!', 2, 10, 12, 'camembert-veritable-de-normandie-a-la-piece', 3, 17);
+
+-- ------------------------
+-- table customer
+-- ------------------------
+
+
+
+-- ------------------------
+-- table order
+-- ------------------------
+
+INSERT INTO "order"("id", "order_number", "amount", "customer_id") VALUES
+('1', 00001, '10', 1),
+('2', 00002, '100', 2);
+
+-- ------------------------
+-- table admin
+-- ------------------------
+
+
+-- ------------------------
+-- table product_has_order
+-- ------------------------
+
