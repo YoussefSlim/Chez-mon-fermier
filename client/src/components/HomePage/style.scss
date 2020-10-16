@@ -1,8 +1,18 @@
 .HomePage {
-    margin-left: 9em;
-    overflow-x: hidden;
 
-    &__slider {
+    width: 79%;
+    height: 100%;
+    background-color: #F2F4EC;
+    //background-color: #41AFB2;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    top: 23%;
+    overflow-x: hidden;
+    /*margin-left: 9em;
+    
+
+    /*&__slider {
        
     }
     &__products {
@@ -19,5 +29,5 @@
              border-radius: 4px;
              margin-top: 2px;
          }
-    }
+    } */
 }

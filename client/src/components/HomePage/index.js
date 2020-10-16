@@ -1,9 +1,15 @@
 import React from 'react';
+import LeftSideBar from '../LeftSideBar';
+import StaticHeader from '../StaticHeader';
+
 import './style.scss';
 
 const HomePage = () => {
   return (
+    
     <div className="HomePage">
+      <StaticHeader />
+      <LeftSideBar />
       <div className="HomePage__slider">
         <img className="slider" src="../maquette-web-01.png" alt="SLIDER" />
       </div>
