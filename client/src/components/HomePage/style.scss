@@ -1,0 +1,23 @@
+.HomePage {
+    margin-left: 9em;
+    overflow-x: hidden;
+
+    &__slider {
+       
+    }
+    &__products {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 50%;
+         &--product {
+             display: flex;
+             flex-direction: column;
+             max-width: 40%;
+             border: .5px solid lightgray;
+             border-radius: 4px;
+             margin-top: 2px;
+         }
+    }
+}
