@@ -1,16 +1,27 @@
 {
-  "name": "client",
+  "name": "projet-chez-mon-fermier",
   "version": "1.0.0",
-  "description": "",
+  "description": "La genèse du projet est née suite à une volonté de consommer des aliments produits localement, dans un souci économique, dans une période sanitaire compliquée, et de manger mieux et plus responsable.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/O-clock-Jason/projet-chez-mon-fermier.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/O-clock-Jason/projet-chez-mon-fermier/issues"
+  },
+  "homepage": "https://github.com/O-clock-Jason/projet-chez-mon-fermier#readme",
   "dependencies": {
+    "bcrypt": "^5.0.0",
     "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
     "email-validator": "^2.0.4",
     "express": "^4.17.1",
     "express-session": "^1.17.1",

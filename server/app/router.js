@@ -18,7 +18,10 @@ const adminMiddleware = require('./middlewares/admin');
 const router = express.Router();
 
 // home Page
-router.get('/', mainController.homePage);
+//router.get('/', mainController.homePage);
+router.get('/', (_, res) => {
+    res.json('Bienvenue chez mon fermier');
+});
 /*
 // product's detail page
 router.get('/product/:id', productController.findOne);

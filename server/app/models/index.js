@@ -1,8 +1,8 @@
 const Product = require('./product');
 const Category = require('./category');
-const Shop = require('.shop');
+//const Shop = require('./shop');
 //const User = require('.user');
-
+/*
 // Product has once shop
 Product.belongsTo(Shop, {
     foreignKey : "shop_id",
@@ -13,7 +13,7 @@ Product.belongsTo(Shop, {
 Shop.hasMany(Product, {
     foreignKey: "shop_id",
     as: "product"
-});
+});*/
 
 // product's has many category
 Product.belongsToMany(Category, {
