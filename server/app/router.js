@@ -19,9 +19,8 @@ const router = express.Router();
 
 // home Page
 //router.get('/', mainController.homePage);
-router.get('/', (_, res) => {
-    res.json('Bienvenue chez mon fermier');
-});
+router.get('/', mainController.homePage);
+
 /*
 // product's detail page
 router.get('/product/:id', productController.findOne);
