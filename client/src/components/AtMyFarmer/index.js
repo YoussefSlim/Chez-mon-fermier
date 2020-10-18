@@ -1,6 +1,6 @@
 import React from "react";
 import HomePage from "../HomePage";
-import Footer from "../Footer";
+import Footer from "../../components/Footer";
 import LegalNotice from "../Footer/LegalNotice";
 //import TermsAndConditions from "../Footer/TermsAndConditions";
 //import Confidentiality from "../Footer/Confidentiality";
