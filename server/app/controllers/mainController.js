@@ -12,7 +12,10 @@ const mainController = {
       console.trace(err);
       res.status(500).send(err);
     }
-  }
+  },
+  error404: (_, res) => {
+    res.status(404).json('Hop là ! Tu t\'es perdu ? Y\'a rien par ici ...');
+}
 };
 
 

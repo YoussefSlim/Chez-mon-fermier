@@ -1,37 +1,49 @@
-const { Product, Category } = require('../models');
+const Product = require('../models');
 
 const productController = {
+    init: async() => {
+        //productController.findById();
+        const id = request.params.product;
 
-    productDetail: async (req, res) => {
-        try {
-            const productId = parseInt(req.params.id);
-            const product = await Product.findByPk(productId, {
-                include: [
-                    { association: 'category' },
-                    { association: 'shop' }
-                ]
-            });
-            res.render(req.session.user ? 'cart' : 'product', { product });
-        } catch (error) {
-            console.trace(error);
-            res.status(500).send(error);
-        }
+        const isProduct = await Product.findById(id);
+
     },
 
-    listByCategory: async (req, res) =>{
+    findById: async (req, res) => {
+        //res.json(await Product.findById(req.body))
+        res.json(await Product.findById(req.body));
+        
+        // try {
+        //     const product = await Product.findById();
+        //     // envoyer une réponse
+        //     res.json(product);
+        // } catch(error) {
+        //     console.trace(error);
+        //     res.status(500).json(error.toString());
+        //   }
+    },
+    
+    findAll: async (req, res) => {
         try {
-            const categoryId = parseInt(req.params.id);
-            const category = await Category.findByPk(categoryId, {
-                include: [{
-                    association: 'products'
-                }]
+            const products = await Product.findAll({
+                limit: 12,
+                order : [
+                    ['id', 'DESC'],
+                ],
             });
-            const products = category.products;
-            res.render('home', { products });
-        } catch (error) {
+            // envoyer une réponse
+            res.json(products);
+        } catch(error) {
             console.trace(error);
-            res.status(500).send(error);
-        }
+            res.status(500).json(error.toString());
+          }
+     },
+
+    addProduct: async (req, res) => {
+        const newProduct = new Product(req.body);
+        await newProduct.save();
+
+        res.json(newProduct);
     }
 };
 
