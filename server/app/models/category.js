@@ -1,22 +1,26 @@
 const client = require('../database');
 
-
-const Category = {
+const category = {
     
-  getAllCategories: (callback) => {
-      // 1. we writes the request
-      const sql = `SELECT * FROM category`;
+    getAllCategories: async (callback) => {
+        // 1. we writes the request
+        const sql = await client.query(`SELECT * FROM category`);
+        return sql.rows;
+    },
 
-      // 2. we execute the requête
-      client.query(sql, (err, data) => {
-          // 3. We get the result of the request, and we pass it to the callback
-          if (err) {
-              console.log(err);
-          } else {
-              callback(data.rows);
-          }
-      });
-  },
-}
+    getCategoryById: async (callback) => {
+        const sql = await client.query(`SELECT * FROM "category" WHERE "id" = ${1};`);
+       return sql.rows;
+    },
 
-module.exports = Category;
+    getCategoryByParentId: async (callback) => {
+        const sql =  await client.query(`
+          SELECT * 
+          FROM "category" 
+          WHERE category.parent_id = ${1};
+      `);
+      return sql.rows;
+    }
+};
+
+module.exports = category;

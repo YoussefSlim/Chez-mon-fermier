@@ -45,9 +45,9 @@ const cartController = {
       return id === product.id;
     });
  
-    // If the product is not in the cart, retrieve the product from the database with Product.getProductByID.
+    // If the product is not in the cart, retrieve the product from the database with productModel.getproductModelByID.
     if (!foundProduct) {
-      Product.getProductByID(id, (error, product) => {
+      productModel.getProductByID(id, (error, product) => {
         // if there was an error
 
         if (error) {

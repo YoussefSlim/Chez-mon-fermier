@@ -71,6 +71,7 @@ CREATE TABLE "shop" (
     "siret" TEXT UNIQUE NOT NULL,
     "tva" Text NOT NULL,
     "delivery_method" delivery,
+    "department_number" INT NOT NULL,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     "updated_at" TIMESTAMPTZ
 );

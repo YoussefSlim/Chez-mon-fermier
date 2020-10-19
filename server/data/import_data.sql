@@ -100,9 +100,9 @@ INSERT INTO "category"("id", "name", "description", "parent_id", "image") VALUES
 -- ------------------------
 
 INSERT INTO "shop"("name", "address", "additional_address", "postcode", "city", "phone_number", "email", "password", "logo", "siret", "tva", "delivery_method") VALUES
-('La Ferme de Jeannot', '1 rue des datas', 'lieu-dit des apis', '63000', 'Clermont-Ferrand', '04 04 04 04 04', 'jean@oclock.io', 'js4life', 'ferme-de-jean.jpg', 12345678901234, 'FR123456789', 'Livraison à domicile'),
-('La Foire de Etienne', '1 rue des helpers', 'lieu-dit des cool-cool', '91000', 'Evry', '04 01 01 04 04', 'etienne@oclock.io', 'js4life', 'foire-etienne.jpg', 12345678901235, 'FR012345678', 'Retrait chez le producteur'),
-('Le verger de Charles', '1 rue des vergers', 'lieu-dit des arbres', '45300', 'Pithiviers', '02 02 04 04 04', 'charles@oclock.io', 'js4life', 'verger-charles.jpg', 01234567890123, 'FR012345671', 'Retrait chez le producteur');
+('La Ferme de Jeannot', '1 rue des datas', 'lieu-dit des apis', '63000', 'Clermont-Ferrand', '04 04 04 04 04', 'jean@oclock.io', 'js4life', 'ferme-de-jean.jpg', 12345678901234, 'FR123456789', 'Livraison à domicile', 63),
+('La Foire de Etienne', '1 rue des helpers', 'lieu-dit des cool-cool', '91000', 'Evry', '04 01 01 04 04', 'etienne@oclock.io', 'js4life', 'foire-etienne.jpg', 12345678901235, 'FR012345678', 'Retrait chez le producteur', 91),
+('Le verger de Charles', '1 rue des vergers', 'lieu-dit des arbres', '45300', 'Pithiviers', '02 02 04 04 04', 'charles@oclock.io', 'js4life', 'verger-charles.jpg', 01234567890123, 'FR012345671', 'Retrait chez le producteur', 45);
 
 -- ------------------------
 -- table product

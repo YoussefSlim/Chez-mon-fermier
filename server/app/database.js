@@ -1,7 +1,6 @@
-const { Client } = require('pg');
+const pg = require('pg');
 
-// il faut définir les informations de connexion dans un .env
-const client = new Client();
+const client = new pg.Client(process.env.PG_URL);
 
 client.connect();
 

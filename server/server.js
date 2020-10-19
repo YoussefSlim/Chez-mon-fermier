@@ -9,7 +9,7 @@ const app = express();
 const router = require('./app/router');
 
 const PORT = process.env.PORT || 5050;
-app.set('models', './app/models');
+//app.set('models', './app/models');
 /*
 // réglages des views pour le back-office
 app.set('views', 'app/views');

@@ -1,5 +1,5 @@
-const Sequelize = require('sequelize');
-const sequelize = require('../database');
+const client = require('../database');
+
 
 class Order extends Sequelize.Model {};
 

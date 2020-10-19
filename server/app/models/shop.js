@@ -1,26 +1,29 @@
-const Sequelize = require('sequelize');
-const sequelize = require('../database');
+const client = require('../database');
 
-class Shop extends Sequelize.Model {};
+const shop = {
+    
+    getAllShops: async (callback) => {
+        // 1. we writes the request
+        const sql = await client.query(`SELECT * FROM shop`);
+        return sql.rows;
+    },
 
-// Sequelize's initialization
+    getShopById: async (callback) => {
+        const sql = await client.query(`SELECT * FROM "shop" WHERE "id" = ${1};`);
+       return sql.rows;
+    },
 
-Shop.init({
-  name: Sequelize.STRING,
-  adress: Sequelize.STRING,
-  additional_address: Sequelize.STRING,
-  postcode: Sequelize.STRING,
-  city: Sequelize.STRING,
-  phone_number: Sequelize.STRING,
-  email: Sequelize.STRING,
-  password: Sequelize.STRING,
-  logo: Sequelize.STRING,
-  siret: Sequelize.STRING,
-  tva: Sequelize.STRING,
-  delivery_method: Sequelize.delivery
-},{
-  sequelize,
-  tableName: "shop"
-});
+    getShopByDepartment: async (callback) => {
+        const sql =  await client.query(`
+        SELECT * FROM "shop" WHERE "department_number" = ${1};
+      `);
+      return sql.rows;
+    },
+       
+    getShopByCreatedDate: async (callback) => {
+        const sql =  await client.query(`SELECT * FROM "shop" ORDER BY "id" DESC LIMIT 4;`);
+        return sql.rows;
+    },
+};
 
-module.exports = Shop;
+module.exports = shop;
