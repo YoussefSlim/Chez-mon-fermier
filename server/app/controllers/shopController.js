@@ -2,7 +2,7 @@ const shop = require('../models/shop');
 
 const shopController = {
     shopById: async (req, res) => {
-        res.json(await shop.getShopById());
+        res.json(await shop.getShopById(req.params.id));
     },
 
     allShops: async (req, res) => {
@@ -10,7 +10,7 @@ const shopController = {
     },
 
     shopByDepartment: async (req, res) => {
-        res.json(await shop.getShopByDepartment());
+        res.json(await shop.getShopByDepartment(req.body.searchDpt));
     },
     
     shopByCreatedDate: async (req, res) => {

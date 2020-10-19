@@ -27,6 +27,9 @@ router.get('/', mainController.homePage);
 // product's detail page
 router.get('/product/:id', productController.productPage);
 
+// products catalog
+router.get('/products', productController.allProducts);
+
 // router for see the products by the category id
 router.get('/product/category/:id', productController.productsByCategory);
 
@@ -35,10 +38,12 @@ router.get('/product/shop/:id', productController.productsByShop);
 
 //router.post('/product/:id', productController.productAddCart);
 
-// product's catalog
+// category page
 router.get('/category/:id', categoryController.categoryPage);
+
+// all categories page
 router.get('/categories', categoryController.allCategories);
-// router.get('/shop/:id/products', productController.productsByShop);
+
 router.get('/shop/:id', shopController.shopById);
 router.get('/shops', shopController.allShops);
 router.get('/new-shops', shopController.shopByCreatedDate);
