@@ -1,20 +1,24 @@
-const { Product } = require('../models/');
+const productModel = require('../models/productModel');
 
 const mainController = {
 
   homePage: async (req, res) => {
-    try {
-      const products = await Product.findByPk({
-        include: ['category']
-      });
-      res.render('home', { products });
-    } catch (err) {
-      console.trace(err);
-      res.status(500).send(err);
-    }
-  },
-  error404: (_, res) => {
-    res.status(404).json('Hop là ! Tu t\'es perdu ? Y\'a rien par ici ...');
+    productModel.getProductByCreatedDate((error, products) => {
+      // I will be able to see if there is an error
+      if (error) {
+        // if yes, send an error res
+        console.trace(error);
+        // res.status(500).send('Erreur bdd');
+        res.sendStatus(500);
+      }
+      else {
+        // otherwise send the home view with the info of products
+        res.json('/', {
+          products: products,
+        });
+      }
+    });
+    
 }
 };
 

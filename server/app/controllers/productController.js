@@ -1,50 +1,76 @@
-const Product = require('../models');
+const productModel = require('../models/productModel');
 
 const productController = {
-    init: async() => {
-        //productController.findById();
-        const id = request.params.product;
-
-        const isProduct = await Product.findById(id);
-
-    },
-
-    findById: async (req, res) => {
-        //res.json(await Product.findById(req.body))
-        res.json(await Product.findById(req.body));
-        
-        // try {
-        //     const product = await Product.findById();
-        //     // envoyer une réponse
-        //     res.json(product);
-        // } catch(error) {
-        //     console.trace(error);
-        //     res.status(500).json(error.toString());
-        //   }
-    },
+    productPage: (request, response) => {
     
-    findAll: async (req, res) => {
-        try {
-            const products = await Product.findAll({
-                limit: 12,
-                order : [
-                    ['id', 'DESC'],
-                ],
+        const id = parseInt(request.params.id, 10);
+        productModel.getproductModelByID(id, (error, product) => {
+        // if nothing was all right
+        if (error) {
+            // i render an 500's error
+            response.sendStatus(500);
+        }
+        // sinon s'il n'y a pas de figurine
+        else if (!product) {
+            // je renvoie une erreur 404
+            response.sendStatus(404);
+        }
+        // If it's all right
+        else {
+            // I send the infos of the product by json
+            response.json('/product/:id', {
+            product: product,
             });
-            // envoyer une réponse
-            res.json(products);
-        } catch(error) {
-            console.trace(error);
-            res.status(500).json(error.toString());
-          }
-     },
-
-    addProduct: async (req, res) => {
-        const newProduct = new Product(req.body);
-        await newProduct.save();
-
-        res.json(newProduct);
+        }
+        });
+    },
+    AllProducts: (request, response) => {
+    
+        const id = parseInt(request.params.id, 10);
+        productModel.getAllProducts(id, (error, products) => {
+        // if nothing was all right
+        if (error) {
+            // i render an 500's error
+            response.sendStatus(500);
+        }
+        // sinon s'il n'y a pas de figurine
+        else if (!products) {
+            // je renvoie une erreur 404
+            response.sendStatus(404);
+        }
+        // If it's all right
+        else {
+            // I send the infos of the product by json
+            response.json('/products', {
+            products: products,
+            });
+        }
+        });
+    },
+    getProductsByCategory: (request, response) => {
+    
+        const id = parseInt(request.params.id, 10);
+        productModel.getProductsByCategory(id, (error, products) => {
+        // if nothing was all right
+        if (error) {
+            // i render an 500's error
+            response.sendStatus(500);
+        }
+        // sinon s'il n'y a pas de figurine
+        else if (!products) {
+            // je renvoie une erreur 404
+            response.sendStatus(404);
+        }
+        // If it's all right
+        else {
+            // I send the infos of the product by json
+            response.json('/category/products', {
+            products: products,
+            });
+        }
+        });
     }
-};
 
-module.exports = productController;
+  };
+  
+  module.exports = productController;

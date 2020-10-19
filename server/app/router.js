@@ -4,6 +4,7 @@ const express = require('express');
 const mainController = require('./controllers/mainController');
 
 const productController = require('./controllers/productController');
+const cartController = require('./controllers/cartController');
 /*const categoryController = require('./controllers/categoryController');
 const orderController = require('./controllers/orderController');
 const userController = require('./controllers/userController');
@@ -23,10 +24,10 @@ router.get('/', mainController.homePage);
 
 
 // product's detail page
-router.get('/product/:id', productController.findById);
+router.get('/product/:id', productController.productPage);
 //router.post('/product/:id', productController.productAddCart);
 // product's catalog
-router.get('/produtcs', productController.findAll);
+router.get('/products', productController.AllProducts);
 /*// user signup/login
 router.get('/signup', userController.signupPage);
 router.get('/login', userController.loginPage);
@@ -37,4 +38,8 @@ router.get('/my-account', userController.profilePage);
 // admin
 router.get('/admin', adminMiddleware, adminController.adminPage);
 */
+router.get('/cart', cartController.cartPage);
+router.get('/cart/add/:id', cartController.addProduct);
+router.get('/cart/remove/:id', cartController.removeProduct);
+
 module.exports = router;

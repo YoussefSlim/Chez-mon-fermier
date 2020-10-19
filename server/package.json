@@ -1,11 +1,12 @@
 {
   "name": "projet-chez-mon-fermier",
   "version": "1.0.0",
-  "description": "La genèse du projet est née suite à une volonté de consommer des aliments produits localement, dans un souci économique, dans une période sanitaire compliquée, et de manger mieux et plus responsable.",
-  "main": "index.js",
+  "description": "Création d'une plateforme e-commerce axée marketplace, sur laquelle les producteurs pourront proposer à la vente leurs produits, à des clients locaux, qui pourront soit récupérer leur commande chez le producteur, soit être livrés par ce dernier.",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +20,7 @@
   },
   "homepage": "https://github.com/O-clock-Jason/projet-chez-mon-fermier#readme",
   "dependencies": {
-    "bcrypt": "^5.0.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
     "email-validator": "^2.0.4",
@@ -27,7 +28,6 @@
     "express-session": "^1.17.1",
     "nodemon": "^2.0.5",
     "pg": "^8.4.1",
-    "sanitizer": "^0.1.3",
-    "sequelize": "^6.3.5"
+    "sanitizer": "^0.1.3"
   }
 }
