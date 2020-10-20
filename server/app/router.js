@@ -8,11 +8,11 @@ const productController = require('./controllers/productController');
 const categoryController = require('./controllers/categoryController');
 const { productsByShop } = require('./controllers/productController');
 const shopController = require('./controllers/shopController');
-/*const orderController = require('./controllers/orderController');
+//const orderController = require('./controllers/orderController');
 const userController = require('./controllers/userController');
 
-const adminController = require('./controllers/adminController');
-*/
+//const adminController = require('./controllers/adminController');
+
 
 /*
 // importer les middlewares
@@ -48,18 +48,31 @@ router.get('/shop/:id', shopController.shopById);
 router.get('/shops', shopController.allShops);
 router.get('/new-shops', shopController.shopByCreatedDate);
 //router.get('/shops-by-department', shopController.shopByDepartment);
-/*// user signup/login
-router.get('/signup', userController.signupPage);
-router.get('/login', userController.loginPage);
-router.post('/signup', userController.signupAction);
-router.post('/login', userController.loginAction);
-router.get('/disconnect', userController.disconnect);
-router.get('/my-account', userController.profilePage);
-// admin
+
+// custommers
+
+router.get('/customers', userController.allCustomers);
+
+// user signup/login
+router.post('/signup', userController.customerSignup);
+router.post('/login', userController.customerLogin);
+router.post('/logout', userController.logout);
+//router.get('/my-account', userController.profilePage);
+/*// admin
 router.get('/admin', adminMiddleware, adminController.adminPage);
 */
 // router.get('/cart', cartController.cartPage);
 // router.get('/cart/add/:id', cartController.addProduct);
 // router.get('/cart/remove/:id', cartController.removeProduct);
+// router.get('/admin', (req, res) => {
+//     // ici je vais tester si on s'est connecté ou pas
+//     // dès qu'on veut accéder aux données mémorisées pour un utilisateur on peut lire la session
+//     if (req.session.role === 'admin') {
+//         res.json('Page admin secrête');
+//     }
+//     else {
+//         res.send('tu n\'as pas le droit de voir cette page');
+//     }
+// });
 
 module.exports = router;
