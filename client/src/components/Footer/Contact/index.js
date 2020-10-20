@@ -3,69 +3,64 @@ import "./style.scss";
 
 const Contact = () => {
   return (
-    <div class="container my-5">
-      <section class="text-center dark-grey-text mb-5">
-        <div class="card">
-          <div class="card-body rounded-top border-top p-5">
-            <h3 class="font-weight-bold my-4">Contactez nous</h3>
-            <p class="font-weight-light mx-auto mb-4 pb-2">
-              Lorem ipsum dolor, sit amet consectetur
-              <br> adipisicing elit. Id quam sapiente molestiae.</br>
-            </p>
+    <div class="container my-5 py-5 z-depth-1">
+      <div class="col-md-6">
+        <form class="text-center" action="#!" />
 
-            <form class="mb-4 mx-md-5" action="">
-              <div class="row">
-                <div class="col-md-6 mb-4">
-                  <input
-                    type="text"
-                    id="name"
-                    class="form-control"
-                    placeholder="Name"
-                  />
-                </div>
-                <div class="col-md-6 mb-4">
-                  <input
-                    type="email"
-                    id="email"
-                    class="form-control"
-                    placeholder="Email"
-                  />
-                </div>
-              </div>
+        <h3 class="font-weight-bold mb-4">Contactez-nous</h3>
+        <div className="form">
+          <input
+            type="text"
+            id="defaultContactFormName"
+            class="form-control mb-4"
+            placeholder="Nom"
+          />
 
-              <div class="row">
-                <div class="col-md-12 mb-4">
-                  <input
-                    type="text"
-                    id="subject"
-                    class="form-control"
-                    placeholder="Subject"
-                  />
-                </div>
-              </div>
+          <input
+            type="email"
+            id="defaultContactFormEmail"
+            class="form-control mb-4"
+            placeholder="E-mail"
+          />
 
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group mb-4">
-                    <textarea
-                      class="form-control rounded"
-                      id="message"
-                      rows="3"
-                      placeholder="How can we help?"
-                    ></textarea>
-                  </div>
+          <label>Sujet</label>
+          <select class="browser-default custom-select mb-4">
+            <option value="" disabled>
+              Choisir les options
+            </option>
+            <option value="1" selected>
+              Retour
+            </option>
+            <option value="2">Signaler un bogue</option>
+            <option value="3">Demande de fonctionnalité</option>
+            <option value="4">Demande de fonctionnalité</option>
+          </select>
 
-                  <div class="text-center">
-                    <button type="submit" class="btn btn-info btn-md">
-                      Envoyer
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </form>
+          <div class="form-group">
+            <textarea
+              class="form-control rounded-0"
+              id="exampleFormControlTextarea2"
+              rows="3"
+              placeholder="Message"
+            ></textarea>
           </div>
+
+          <div class="custom-control custom-checkbox mb-4">
+            <input
+              type="checkbox"
+              class="custom-control-input"
+              id="defaultContactFormCopy"
+            />
+            <label class="custom-control-label" for="defaultContactFormCopy">
+              Envoie moi une copie de ce message
+            </label>
+          </div>
+
+          <button class="btn btn-info btn-block btn-submit" type="submit">
+            ENVOYER
+          </button>
         </div>
-      </section>
+      </div>
     </div>
   );
 };

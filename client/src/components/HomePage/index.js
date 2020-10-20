@@ -1,6 +1,6 @@
 import React from "react";
-import LeftSideBar from "../LeftSideBar";
-import StaticHeader from "../StaticHeader";
+//import LeftSideBar from "../LeftSideBar";
+//import StaticHeader from "../StaticHeader";
 import Footer from "../Footer";
 
 import "./style.scss";
@@ -8,8 +8,8 @@ import "./style.scss";
 const HomePage = () => {
   return (
     <div className="HomePage">
-      <StaticHeader />
-      <LeftSideBar />
+      {/*<StaticHeader />*/}
+      {/*<LeftSideBar />*/}
       <div className="HomePage__slider">
         <img className="slider" src="../maquette-web-01.png" alt="SLIDER" />
       </div>

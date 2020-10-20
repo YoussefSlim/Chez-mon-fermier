@@ -1,6 +1,5 @@
 .footer-column {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
 }
 
@@ -11,6 +10,7 @@
   background-color: #4DB4B6;
   padding: 1rem;
 }
+
 
 .text-md-right {
   display: flex;
@@ -140,4 +140,9 @@
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
   }
+}
+
+.footer-copyright {
+  text-align: center;
+  margin-bottom: 5rem;
 }

@@ -1,0 +1,25 @@
+.concept {
+    width: 100vw;
+    height: 100vh;
+    background-color: #364059;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    &__logo {
+        padding-top: 6rem;
+    }
+
+    &__text {
+        max-width: 60%;
+        color: whitesmoke;
+        padding: 5rem;
+    }
+}
+
+h2 {
+    text-align: center;
+    color: white;
+    text-decoration: underline;
+    text-decoration-color: #42B1B2;
+}

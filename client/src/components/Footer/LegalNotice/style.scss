@@ -1,0 +1,46 @@
+.legal {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: wrap;
+
+    background-color: #364059;
+    color: white;
+
+
+    &__first {
+        padding: 2rem 20rem 0rem;
+        line-height: 1rem;
+    }
+
+    &__second {
+        padding: 0.5rem 20rem;
+        text-align: left;
+    }
+
+    &__third {
+        padding: 0.5rem 20rem;
+        text-align: left;
+    }
+
+}
+
+ul {
+    list-style-type: none;
+}
+
+strong {
+    color: #42B1B2;
+
+}
+
+span {
+    color: #DB3855;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+h2 {
+    text-decoration: underline;
+    text-decoration-color: #42B1B2;
+}
