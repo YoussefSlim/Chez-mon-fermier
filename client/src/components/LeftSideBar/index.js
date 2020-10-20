@@ -1,49 +1,49 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './style.scss';
 
 const LeftSideBar = () => {
   return (
-    <main class="Homepage_container">
-        <div class="Homepage_container_left">
-            <aside class="menu_left">
-                <ul className="category">
-                    <a href="#">  
-                        <li>Jerry</li>
-                    </a>
-                    <a href="#">  
-                        <li>Christine</li>
-                    </a>
-                    <a href="#">  
-                        <li>Tanguy</li>
-                    </a>
-                    <a href="#">  
-                        <li>Youssef</li>
-                    </a>
-                    <a href="#">  
-                        <li>Organic</li>
-                    </a>
-                    <a href="#">  
-                        <li>Viandes</li>
-                    </a>
-                    <a href="#">  
-                        <li>Dairy</li>
-                    </a>
-                    <a href="#">  
-                        <li>Léquides</li>
-                    </a>
-                    <a href="#">  
-                        <li>Fruits</li>
-                    </a>
-                    <a href="#">  
-                        <li>Légumes</li>
-                    </a>
-                    
-                </ul>
-            </aside>
-        </div>
+    <main className="Homepage_container">
+      <div className="Homepage_container_left">
+        <aside className="menu_left">
+          <ul className="category">
+            <Link to="/">
+              <li>Jerry</li>
+            </Link>
+            <Link to="/">
+              <li>Christine</li>
+            </Link>
+            <Link to="/">
+              <li>Tanguy</li>
+            </Link>
+            <Link to="/">
+              <li>Youssef</li>
+            </Link>
+            <Link to="/">
+              <li>Organic</li>
+            </Link>
+            <Link to="/">
+              <li>Viandes</li>
+            </Link>
+            <Link to="/">
+              <li>Dairy</li>
+            </Link>
+            <Link to="/">
+              <li>Léquides</li>
+            </Link>
+            <Link to="/">
+              <li>Fruits</li>
+            </Link>
+            <Link to="/">
+              <li>Légumes</li>
+            </Link>
+          </ul>
+        </aside>
+      </div>
     </main>
   );
-}
+};
 
 export default LeftSideBar;

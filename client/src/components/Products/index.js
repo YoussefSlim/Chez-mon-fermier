@@ -1,94 +1,94 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 
 import './style.scss';
 
 const Products = () => {
   return (
-  <div className="cards">
-    <div class="card">
-        <img src="../maquette-web-01.png" class="card-img-top" alt="product" />
-        <div class="card-body">
-        <h5 class="card-title">Tomate</h5>
-        <p class="card-text">chez mon fermier</p>
-        <p class="card-price">1€/kg</p>
-        <a href="#" class="btn btn-primary">Ajouter au panier</a>
+    <div className="cards">
+      <div className="card">
+        <img src="../maquette-web-01.png" className="card-img-top" alt="product" />
+        <div className="card-body">
+          <h5 className="card-title">Tomate</h5>
+          <p className="card-text">chez mon fermier</p>
+          <p className="card-price">1€/kg</p>
+          <Link className="btn btn-primary">Ajouter au panier</Link>
         </div>
-    </div>
-    <div class="card">
-        <img src="../maquette-web-01.png" class="card-img-top" alt="product" />
-        <div class="card-body">
-        <h5 class="card-title">Tomate</h5>
-        <p class="card-text">chez mon fermier</p>
-        <p class="card-price">1€/kg</p>
-        <a href="#" class="btn btn-primary">Ajouter au panier</a>
+      </div>
+      <div className="card">
+        <img src="../maquette-web-01.png" className="card-img-top" alt="product" />
+        <div className="card-body">
+          <h5 className="card-title">Tomate</h5>
+          <p className="card-text">chez mon fermier</p>
+          <p className="card-price">1€/kg</p>
+          <Link className="btn btn-primary">Ajouter au panier</Link>
         </div>
-    </div>
-    <div class="card">
-        <img src="../maquette-web-01.png" class="card-img-top" alt="product" />
-        <div class="card-body">
-        <h5 class="card-title">Tomate</h5>
-        <p class="card-text">chez mon fermier</p>
-        <p class="card-price">1€/kg</p>
-        <a href="#" class="btn btn-primary">Ajouter au panier</a>
+      </div>
+      <div className="card">
+        <img src="../maquette-web-01.png" className="card-img-top" alt="product" />
+        <div className="card-body">
+          <h5 className="card-title">Tomate</h5>
+          <p className="card-text">chez mon fermier</p>
+          <p className="card-price">1€/kg</p>
+          <Link className="btn btn-primary">Ajouter au panier</Link>
         </div>
-    </div>
-    <div class="card">
-        <img src="../maquette-web-01.png" class="card-img-top" alt="product" />
-        <div class="card-body">
-        <h5 class="card-title">Tomate</h5>
-        <p class="card-text">chez mon fermier</p>
-        <p class="card-price">1€/kg</p>
-        <a href="#" class="btn btn-primary">Ajouter au panier</a>
+      </div>
+      <div className="card">
+        <img src="../maquette-web-01.png" className="card-img-top" alt="product" />
+        <div className="card-body">
+          <h5 className="card-title">Tomate</h5>
+          <p className="card-text">chez mon fermier</p>
+          <p className="card-price">1€/kg</p>
+          <Link className="btn btn-primary">Ajouter au panier</Link>
         </div>
-    </div>
-    <div class="card">
-        <img src="../maquette-web-01.png" class="card-img-top" alt="product" />
-        <div class="card-body">
-        <h5 class="card-title">Tomate</h5>
-        <p class="card-text">chez mon fermier</p>
-        <p class="card-price">1€/kg</p>
-        <a href="#" class="btn btn-primary">Ajouter au panier</a>
+      </div>
+      <div className="card">
+        <img src="../maquette-web-01.png" className="card-img-top" alt="product" />
+        <div className="card-body">
+          <h5 className="card-title">Tomate</h5>
+          <p className="card-text">chez mon fermier</p>
+          <p className="card-price">1€/kg</p>
+          <Link className="btn btn-primary">Ajouter au panier</Link>
         </div>
-    </div>
-    <div class="card">
-        <img src="../maquette-web-01.png" class="card-img-top" alt="product" />
-        <div class="card-body">
-        <h5 class="card-title">Tomate</h5>
-        <p class="card-text">chez mon fermier</p>
-        <p class="card-price">1€/kg</p>
-        <a href="#" class="btn btn-primary">Ajouter au panier</a>
+      </div>
+      <div className="card">
+        <img src="../maquette-web-01.png" className="card-img-top" alt="product" />
+        <div className="card-body">
+          <h5 className="card-title">Tomate</h5>
+          <p className="card-text">chez mon fermier</p>
+          <p className="card-price">1€/kg</p>
+          <Link className="btn btn-primary">Ajouter au panier</Link>
         </div>
-    </div>
-    <div class="card">
-        <img src="../maquette-web-01.png" class="card-img-top" alt="product" />
-        <div class="card-body">
-        <h5 class="card-title">Tomate</h5>
-        <p class="card-text">chez mon fermier</p>
-        <p class="card-price">1€/kg</p>
-        <a href="#" class="btn btn-primary">Ajouter au panier</a>
+      </div>
+      <div className="card">
+        <img src="../maquette-web-01.png" className="card-img-top" alt="product" />
+        <div className="card-body">
+          <h5 className="card-title">Tomate</h5>
+          <p className="card-text">chez mon fermier</p>
+          <p className="card-price">1€/kg</p>
+          <Link className="btn btn-primary">Ajouter au panier</Link>
         </div>
-    </div>
-    <div class="card">
-        <img src="../maquette-web-01.png" class="card-img-top" alt="product" />
-        <div class="card-body">
-        <h5 class="card-title">Tomate</h5>
-        <p class="card-text">chez mon fermier</p>
-        <p class="card-price">1€/kg</p>
-        <a href="#" class="btn btn-primary">Ajouter au panier</a>
+      </div>
+      <div className="card">
+        <img src="../maquette-web-01.png" className="card-img-top" alt="product" />
+        <div className="card-body">
+          <h5 className="card-title">Tomate</h5>
+          <p className="card-text">chez mon fermier</p>
+          <p className="card-price">1€/kg</p>
+          <Link className="btn btn-primary">Ajouter au panier</Link>
         </div>
-    </div>
-    <div class="card">
-        <img src="../maquette-web-01.png" class="card-img-top" alt="product" />
-        <div class="card-body">
-        <h5 class="card-title">Tomate</h5>
-        <p class="card-text">chez mon fermier</p>
-        <p class="card-price">1€/kg</p>
-        <a href="#" class="btn btn-primary">Ajouter au panier</a>
+      </div>
+      <div className="card">
+        <img src="../maquette-web-01.png" className="card-img-top" alt="product" />
+        <div className="card-body">
+          <h5 className="card-title">Tomate</h5>
+          <p className="card-text">chez mon fermier</p>
+          <p className="card-price">1€/kg</p>
+          <Link className="btn btn-primary">Ajouter au panier</Link>
         </div>
+      </div>
     </div>
-  </div>
   );
-}
+};
 
 export default Products;

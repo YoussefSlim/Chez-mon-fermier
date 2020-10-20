@@ -1,0 +1,10 @@
+.carrousels {
+  width: 100% !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 9px;
+}
+.first-slide img {
+  width: 100%;
+}
