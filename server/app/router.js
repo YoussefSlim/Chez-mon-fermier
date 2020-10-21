@@ -52,6 +52,10 @@ router.get('/new-shops', shopController.shopByCreatedDate);
 // custommers
 
 router.get('/customers', userController.allCustomers);
+router.get('/customer/:id', userController.customerById);
+router.post('/new-customer', userController.newCustomer);
+router.post('/edit-customer/:id', userController.editCustomer);
+router.post('/delete-customer', userController.deleteCustomer);
 
 // user signup/login
 router.post('/signup', userController.customerSignup);

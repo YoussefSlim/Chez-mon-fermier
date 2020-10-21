@@ -20,7 +20,7 @@ const customerController = {
     },
 
     editCustomer: async (req, res) => {
-        const customer = await customer.customerById(null, req.params.id);
+        const customer = await customer.getCustomerById(null, req.params.id);
 
         const customerToEdit = new customer(customer);
 
@@ -30,14 +30,14 @@ const customerController = {
     }, 
 
     deleteCustomer: async (req,res)=> {
-        const customer = await customer.customerById(null, req.params.id);
+        const customer = await customer.getCustomerById(null, req.params.id);
         // console.log(customer.id);
             const customerToDelete = new customer(customer);
             await customerToDelete.deleteCustomer();
             res.json ('suppression effectuée');
     },
     customerLogin: async (req, res) => {
-        const user = await customer.customerByEmail(req.body.email)
+        const user = await customer.getCustomerByEmail(req.body.email)
         if (!user){
             res.json('Client non-reconnu');
         } else {
@@ -67,7 +67,7 @@ const customerController = {
         }
     },
     customerSignup: async (req, res) => {
-        const user = await customer.customerByEmail(req.body.email)
+        const user = await customer.getCustomerByEmail(req.body.email)
         if (user) {
             res.json ('cette adresse email existe déjà');
         } else {

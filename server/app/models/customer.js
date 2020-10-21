@@ -4,8 +4,8 @@ const customer = {
     
     getAllCustomers: async (callback) => {
         // 1. we writes the request
-        const sql = await client.query(`SELECT * FROM customer`);
-        return sql.rows;
+        const customers = await client.query(`SELECT * FROM customer`);
+        return customers.rows;
     },
 
     getCustomerById: async (customerId) => {
