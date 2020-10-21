@@ -1,9 +1,9 @@
-const productModel = require('../models/productModel');
+const Product = require('../models/Product');
 
 const mainController = {
 
   homePage: async (req, res) => {
-    res.json(await productModel.getProductByCreatedDate());
+    res.json(await Product.getProductByCreatedDate());
     }
 
 };

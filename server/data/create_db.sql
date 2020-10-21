@@ -38,6 +38,7 @@ CREATE TABLE "customer" (
     "address" TEXT NOT NULL,
     "additional_address" TEXT,
     "postcode" TEXT NOT NULL,
+    "department" INTEGER NOT NULL,
     "city" TEXT NOT NULL,
     "phone_number" TEXT NOT NULL,
     "email" TEXT NOT NULL,

@@ -1,32 +1,32 @@
-const shop = require('../models/shop');
+const Shop = require('../models/Shop');
 
 const shopController = {
-    shopById: async (req, res) => {
-        res.json(await shop.getShopById(req.params.id));
+    getShopById: async (req, res) => {
+        res.json(await Shop.findAllShops(req.params.id));
     },
 
-    allShops: async (req, res) => {
-            res.json(await shop.getAllShops());
+    getAllShops: async (req, res) => {
+            res.json(await Shop.findAllShops(req.params));
     },
 
-    shopByDepartment: async (req, res) => {
-        res.json(await shop.getShopByDepartment(req.body.searchDpt));
+    getShopByDepartment: async (req, res) => {
+        res.json(await Shop.findShopByDepartment(req.body.searchDpt));
     },
     
-    shopByCreatedDate: async (req, res) => {
-        res.json(await shop.getShopByCreatedDate());
+    getShopByCreatedDate: async (req, res) => {
+        res.json(await Shop.findShopByCreatedDate(req.params));
     },
 
     newShop: async (req,res)=> {
-        const newShop = new shop(req.body);
-        await newShop.saveShop();
+        const newShop = new Shop(req.body);
+        await newShop.save();
         res.json(newShop);
     },
 
     editShop: async (req, res) => {
-        const shop = await shop.shopById(req.params.id);
+        const shop = await Shop.shopById(req.params.id);
 
-        const shopToEdit = new shop(shop);
+        const shopToEdit = new Shop(shop);
 
         if (shopToEdit) {
             shopToEdit.updateShop(req.body);
@@ -36,10 +36,10 @@ const shopController = {
     }, 
 
     deleteShop: async (req,res)=> {
-        const shop = await shop.shopById(req.params.id);
+        const shop = await Shop.shopById(req.params.id);
         // console.log(shop.id);
         if (shop) {
-            const shopToDelete = new shop(shop);
+            const shopToDelete = new Shop(shop);
             await shopToDelete.deleteShop();
             res.json ('suppression effectuée');
         } else {

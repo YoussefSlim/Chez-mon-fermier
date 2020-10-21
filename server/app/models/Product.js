@@ -1,20 +1,20 @@
 const client = require('../database');
 
-const productModel = {
+const Product = {
     
-    getAllProducts: async (callback) => {
+    findAll: async (callback) => {
         // 1. we writes the request
-        const sql = await client.query(`SELECT * FROM product`);
+        const sql = await client.query(`SELECT * FROM "product"`);
         return sql.rows;
     },
 
-    getProductById: async (productId) => {
+    findOne: async (productId) => {
         
-        const product = await client.query('SELECT * FROM product WHERE id = $1', [productId]);
+        const product = await client.query(`SELECT * FROM "product" WHERE "id" = $1`, [productId]);
         return product.rows[0];
     },
 
-    getProductsByCategory: async (categoryId) => {
+    findByCategory: async (categoryId) => {
         const sql =  await client.query(`
           SELECT * 
           FROM "product" 
@@ -22,12 +22,12 @@ const productModel = {
          return sql.rows;
     },
        
-    getProductByCreatedDate: async (createdAt) => {
+    findByCreatedDate: async (createdAt) => {
         const sql =  await client.query(`SELECT * FROM "product" ORDER BY "created_at" DESC;`, [createdAt]);
         return sql.rows;
     },
 
-    getProductsByShop: async (shopId) => {
+    findByShop: async (shopId) => {
         const sql =  await client.query(`
           SELECT * 
           FROM "product" 
@@ -36,4 +36,4 @@ const productModel = {
     }
 };
 
-module.exports = productModel;
+module.exports = Product;

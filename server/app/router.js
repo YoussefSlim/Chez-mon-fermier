@@ -6,7 +6,6 @@ const mainController = require('./controllers/mainController');
 const productController = require('./controllers/productController');
 //const cartController = require('./controllers/cartController');
 const categoryController = require('./controllers/categoryController');
-const { productsByShop } = require('./controllers/productController');
 const shopController = require('./controllers/shopController');
 //const orderController = require('./controllers/orderController');
 const userController = require('./controllers/userController');
@@ -25,37 +24,39 @@ router.get('/', mainController.homePage);
 
 
 // product's detail page
-router.get('/product/:id', productController.productPage);
+router.get('/product/:id', productController.getProductById);
 
 // products catalog
-router.get('/products', productController.allProducts);
+router.get('/products', productController.getAllProducts);
 
 // router for see the products by the category id
-router.get('/product/category/:id', productController.productsByCategory);
+router.get('/category/:id/products', productController.getProductsByCategory);
 
 // router for see the products by the shop id
-router.get('/product/shop/:id', productController.productsByShop);
+router.get('/shop/:id/product', productController.getProductsByShop);
 
 //router.post('/product/:id', productController.productAddCart);
 
 // category page
-router.get('/category/:id', categoryController.categoryPage);
+router.get('/category/:id', categoryController.getCategoryById);
 
 // all categories page
-router.get('/categories', categoryController.allCategories);
+router.get('/categories', categoryController.getAllCategory);
 
-router.get('/shop/:id', shopController.shopById);
-router.get('/shops', shopController.allShops);
-router.get('/new-shops', shopController.shopByCreatedDate);
-//router.get('/shops-by-department', shopController.shopByDepartment);
+router.get('/shop/:id', shopController.getShopById);
+router.get('/shops', shopController.getAllShops);
+
+// a corriger
+//router.get('/new-shops', shopController.getShopByCreatedDate);
+//router.get('/shops-by-department', shopController.getShopByDepartment);
 
 // custommers
 
 router.get('/customers', userController.allCustomers);
 router.get('/customer/:id', userController.customerById);
-router.post('/new-customer', userController.newCustomer);
-router.post('/edit-customer/:id', userController.editCustomer);
-router.post('/delete-customer', userController.deleteCustomer);
+router.post('/customer', userController.newCustomer);
+router.patch('/customer/:id', userController.editCustomer);
+router.delete('/customer/:id', userController.deleteCustomer);
 
 // user signup/login
 router.post('/signup', userController.customerSignup);

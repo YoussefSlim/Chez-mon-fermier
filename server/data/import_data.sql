@@ -119,18 +119,19 @@ INSERT INTO "product"("title", "description", "quantity", "price_ht", "price_ttc
 -- table customer
 -- ------------------------
 
-INSERT INTO "customer" ("first_name", "last_name", "address", "additional_address", "postcode", "city", "phone_number", "email", "password") VALUES
+INSERT INTO "customer" ("first_name", "last_name", "address", "additional_address", "postcode", "department", "city", "phone_number", "email", "password") VALUES
 
-('Michel', 'Haché', '18, rue des Lacs', '', '78800 ', 'HOUILLES', '0131694631', 'michel.hache@gmail.com', '1234'),
-('Denise ', 'Lavallée', '92, rue des lieutemants Thomazo', '', '39100 ', 'DOLE', '0336259557', 'deniselavallee@hotmail.com', '1234'),
-('Maureen ', 'Bédard', '33, cours Jean Jaures', 'chemin des lilas', '33300 ', 'BORDEAUX', '0500051680', 'bedard-maureen@gmail.com', '1234'),
-('Fleurette ', 'Rocheleau', '24, rue Victor Hugo', '', '91100 ', 'CORBEIL-ESSONNES', '0168237575', 'frocheleau@mailto.com', '1234'),
-('Baptiste ', 'Garceau', '21, boulevard de la Liberation', '', '13015 ', 'MARSEILLE', '0441273732', 'baptiste-garceau@gmail.com', '1234'),
-('Martin', 'Desjardins', '78, rue Adolphe Wurtz', 'allée des mouettes', '43000  ', 'LE PUY-EN-VELAY', '0495109796', 'martin-desjardins@gmail.com', '1234'),
-('Tristan', 'Lacroix', '16, Avenue De Marlioz', '', '74100 ', 'ANNEMASSE', '0475473982', 'tristanlacroix@free.fr', '1234'),
-('Léon', 'Déziel', '66, rue Clement Marot', '', '66000 ', 'PERPIGNAN', '0447857612', 'leaondeziel@gmail.com', '1234'),
-('Lucille ', 'Pinette', '93, rue Bonneterie', '', '12100 ', 'MILLAU', '0514815164', 'lucillepinette@gmail.com', '1234'),
-('William ', 'Ducharme', '43, rue Gontier-Patin', '', '13100 ', 'AIX-EN-PROVENCE', '0479708508', 'williamducharme@mailto.com', '1234');
+('Michel', 'Haché', '18, rue des Lacs', '', '78800 ', 78, 'HOUILLES', '0131694631', 'michel.hache@gmail.com', '1234'),
+('Denise ', 'Lavallée', '92, rue des lieutemants Thomazo', '', '39100 ', 39, 'DOLE', '0336259557', 'deniselavallee@hotmail.com', '1234'),
+('Maureen ', 'Bédard', '33, cours Jean Jaures', 'chemin des lilas', '33300 ', 33, 'BORDEAUX', '0500051680', 'bedard-maureen@gmail.com', '1234'),
+('Fleurette ', 'Rocheleau', '24, rue Victor Hugo', '', '91100 ', 91, 'CORBEIL-ESSONNES', '0168237575', 'frocheleau@mailto.com', '1234'),
+('Baptiste ', 'Garceau', '21, boulevard de la Liberation', '', '13015 ', 13, 'MARSEILLE', '0441273732', 'baptiste-garceau@gmail.com', '1234'),
+('Martin', 'Desjardins', '78, rue Adolphe Wurtz', 'allée des mouettes', '43000', 43, 'LE PUY-EN-VELAY', '0495109796', 'martin-desjardins@gmail.com', '1234'),
+('Tristan', 'Lacroix', '16, Avenue De Marlioz', '', '74100 ', 74, 'ANNEMASSE', '0475473982', 'tristanlacroix@free.fr', '1234'),
+('Léon', 'Déziel', '66, rue Clement Marot', '', '66000 ', 66, 'PERPIGNAN', '0447857612', 'leaondeziel@gmail.com', '1234'),
+('Lucille ', 'Pinette', '93, rue Bonneterie', '', '12100 ', 12, 'MILLAU', '0514815164', 'lucillepinette@gmail.com', '1234'),
+('William ', 'Ducharme', '43, rue Gontier-Patin', '', '45300 ', 45, 'PITHIVIERS', '0479708508', 'williamducharme@mailto.com', '1234'),
+('Jerry', 'Dumont', '6 rue traversière', 'lieu-dit le grun du vert', '63930', 63, 'AUGEROLLES', '0404040404', 'jerry.estelle.dumont@gmail.com', '123456');
 
 -- ------------------------
 -- table order

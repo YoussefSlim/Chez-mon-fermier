@@ -1,4 +1,6 @@
-require('dotenv').config();
+if (!process.env.NODE_ENV || process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
 
 const express = require('express');
 
@@ -20,7 +22,7 @@ app.use(express.static('public'));
 */
 
 // on rajoute la gestion des POST body
-//app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({extended: true}));
 // et on rajoute la gestion des sessions
 
 app.use(session({
@@ -35,7 +37,13 @@ app.use(session({
 app.use(userMiddleware);*/
 
 // app.use(express.static( __dirname + './app/public' ));
-
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:5050');
+    res.header('Access-Control-Allow-Credentials', true);
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PATCH, DELETE');
+next();
+});
 app.use(express.json());
 app.use(router);
 
