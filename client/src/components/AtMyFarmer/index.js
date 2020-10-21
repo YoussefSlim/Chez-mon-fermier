@@ -7,13 +7,14 @@ import routes from '../Router';
 
 import LeftSideBar from '../LeftSideBar';
 import StaticHeader from '../StaticHeader';
-import LegalNotice from '../LegalNotice';
+import LegalNotice from '../Footer/LegalNotice';
 import ProjectTeam from '../ProjectTeam';
-import TermsAndConditions from '../TermsAndConditions';
-import TheConcept from '../TheConcept';
+import TermsAndConditions from '../Footer/TermsOfSales';
+import TheConcept from '../Footer/TheConcept';
 import { HomePage } from '../HomePage';
 import ContactUs from '../ContactUs';
 import NotFound from '../NotFound';
+import Footer from '../Footer';
 
 import './style.scss';
 
@@ -34,6 +35,7 @@ const AtMyFarmer = () => {
         <Route>
           <NotFound />
         </Route>
+        <Footer />
       </Switch>
     </>
   );
@@ -41,6 +43,5 @@ const AtMyFarmer = () => {
 
 export default AtMyFarmer;
 
-//<Footer />
 //<StaticHeader />
 //<LeftSideBar />
