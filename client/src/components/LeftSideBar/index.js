@@ -1,11 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./style.scss";
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+import './style.scss';
 
 const LeftSideBar = () => {
   return (
     <main className="Homepage_container">
       <div className="Homepage_container_left">
+
         <Link className="menu_left">
           <ul className="category">
             <Link>
@@ -40,6 +42,8 @@ const LeftSideBar = () => {
             </Link>
           </ul>
         </Link>
+
+    
       </div>
     </main>
   );

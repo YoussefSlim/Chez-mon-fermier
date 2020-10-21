@@ -1,5 +1,5 @@
-import React from "react";
-import "./style.scss";
+import React from 'react';
+import './style.scss';
 
 const MyAccount = () => {
   return (
@@ -7,9 +7,7 @@ const MyAccount = () => {
       <img src="maquette-web-01.png" className="picture" alt="" />
       <div class="mask">
         <div class="container py-5 my-5">
-          <h3 class="font-weight-bold text-center white-text pb-2">
-            Inscription
-          </h3>
+          <h3 class="font-weight-bold text-center white-text pb-2">Inscription</h3>
           <p class="lead text-center white-text pt-2 mb-5">
             Commencez à explorer notre site tout à fait gratuitement.
           </p>

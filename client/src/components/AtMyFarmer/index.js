@@ -1,37 +1,41 @@
-import React from "react";
+// npm
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
-import HomePage from "../HomePage";
-//import StaticHeader from "../StaticHeader";
-//import LeftSideBar from "../LeftSideBar";
+// imports routes
+import routes from '../Router';
 
-import BecomeAseller from "../Footer/BecomeAseller";
-import Contact from "../Footer/Contact";
-import LegalNotice from "../Footer/LegalNotice";
-import MyAccount from "../Footer/MyAccount";
-import OurTeam from "../Footer/OurTeam";
-import TermsOfSales from "../Footer/TermsOfSales";
-import TheConcept from "../Footer/TheConcept";
+import LeftSideBar from '../LeftSideBar';
+import StaticHeader from '../StaticHeader';
+import LegalNotice from '../LegalNotice';
+import ProjectTeam from '../ProjectTeam';
+import TermsAndConditions from '../TermsAndConditions';
+import TheConcept from '../TheConcept';
+import { HomePage } from '../HomePage';
+import ContactUs from '../ContactUs';
+import NotFound from '../NotFound';
 
-//import Footer from "../../components/Footer";
-
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
-import "./style.scss";
+import './style.scss';
 
 const AtMyFarmer = () => {
   return (
-    <Router>
+    <>
+      <StaticHeader />
+      <LeftSideBar />
       <Switch>
-        <Route path="/HomePage" component={HomePage} />
-        <Route path="/BecomeAseller" component={BecomeAseller} />
-        <Route path="/Contact" component={Contact} />
-        <Route path="/LegalNotice" component={LegalNotice} />
-        <Route path="/MyAccount" component={MyAccount} />
-        <Route path="/OurTeam" component={OurTeam} />
-        <Route path="/TermsOfSales" component={TermsOfSales} />
-        <Route path="/TheConcept" component={TheConcept} />
+        <Route exact path={routes.route1} component={HomePage} />
+        <Route exact path={routes.route3} component={LegalNotice} />
+        <Route exact path={routes.route4} component={TermsAndConditions} />
+        <Route exact path={routes.route5} component={TheConcept} />
+        <Route exact path={routes.route6} component={ProjectTeam} />
+        <Route exact path={routes.route7} component={HomePage} />
+        <Route exact path={routes.route8} component={HomePage} />
+        <Route exact path={routes.route9} component={ContactUs} />
+        <Route>
+          <NotFound />
+        </Route>
       </Switch>
-    </Router>
+    </>
   );
 };
 

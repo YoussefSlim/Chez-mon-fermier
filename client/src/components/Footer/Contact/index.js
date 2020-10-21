@@ -1,5 +1,5 @@
-import React from "react";
-import "./style.scss";
+import React from 'react';
+import './style.scss';
 
 const Contact = () => {
   return (
@@ -46,11 +46,7 @@ const Contact = () => {
           </div>
 
           <div class="custom-control custom-checkbox mb-4">
-            <input
-              type="checkbox"
-              class="custom-control-input"
-              id="defaultContactFormCopy"
-            />
+            <input type="checkbox" class="custom-control-input" id="defaultContactFormCopy" />
             <label class="custom-control-label" for="defaultContactFormCopy">
               Envoie moi une copie de ce message
             </label>
