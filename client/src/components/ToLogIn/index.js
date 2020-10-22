@@ -5,24 +5,24 @@ import './style.scss';
 
 const ToLogIn = () => {
   return (
-    <div className="modal-login">
+    <div class="modal-login">
       <div
-        className="modal fade"
+        class="modal fade"
         id="login"
         tabIndex="-1"
         role="dialog"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div className="modal-dialog modal-dialog-centered" role="document">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title">S'identifier</h5>
-              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">S'identifier</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div className="modal-body">
+            <div class="modal-body">
               <form class="px-4 py-3">
                 <div class="form-group">
                   <label for="exampleDropdownFormEmail1">Adresse email</label>
@@ -54,7 +54,7 @@ const ToLogIn = () => {
               </form>
               <div class="dropdown-divider"></div>
 
-              <Link to="/inscription" class="dropdown-item" id="histModal">
+              <Link to="/inscription" class="dropdown-item">
                 Nouveau par ici?
               </Link>
 
