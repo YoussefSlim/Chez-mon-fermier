@@ -10,6 +10,16 @@ const app = express();
 //the router
 const router = require('./app/router');
 const session = require('express-session');
+const multer = require('multer');
+const bodyParser = multer();
+
+app.use(session({
+    secret: 'keyboard cat',
+    resave:false,
+    saveUninitialized: true,
+    cookie: { secure: false }
+}));
+
 const PORT = process.env.PORT || 5050;
 
 //app.set('models', './app/models');
@@ -25,12 +35,7 @@ app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
 // et on rajoute la gestion des sessions
 
-app.use(session({
-    secret: 'keyboard cat',
-    resave:false,
-    saveUninitialized: true,
-    cookie: { secure: false }
-}));
+
 
 // et hop, notre middleware magique
 /*const userMiddleware = require('./app/middlewares/user');
@@ -45,6 +50,7 @@ app.use((req, res, next) => {
 next();
 });
 app.use(express.json());
+app.use(bodyParser.none());
 app.use(router);
 
 // lancement du serveur

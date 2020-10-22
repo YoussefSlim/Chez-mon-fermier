@@ -12,7 +12,6 @@ const userController = require('./controllers/userController');
 
 //const adminController = require('./controllers/adminController');
 
-
 /*
 // importer les middlewares
 const adminMiddleware = require('./middlewares/admin');
@@ -21,7 +20,6 @@ const router = express.Router();
 
 // home Page
 router.get('/', mainController.homePage);
-
 
 // product's detail page
 router.get('/product/:id', productController.getProductById);
@@ -47,8 +45,8 @@ router.get('/shop/:id', shopController.getShopById);
 router.get('/shops', shopController.getAllShops);
 
 // a corriger
-//router.get('/new-shops', shopController.getShopByCreatedDate);
-//router.get('/shops-by-department', shopController.getShopByDepartment);
+// router.get('/new-shops', shopController.getShopByCreatedDate);
+// router.get('/shops-by-department', shopController.getShopByDepartment);
 
 // custommers
 

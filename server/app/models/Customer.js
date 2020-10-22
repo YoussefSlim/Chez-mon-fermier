@@ -20,13 +20,13 @@ class Customer extends CoreModel {
     static async getCustomerById (customerId) {
         
         const customer = await client.query('SELECT * FROM customer WHERE id = $1', [customerId]);
-        return customer.rows[0];
+        return customer.rows;
     }
 
     static async getCustomerByEmail (email) {
         
-      const customer = await client.query('SELECT * FROM customer WHERE customer = $1', [email]);
-      return customer.rows[0];
+      const customer = await client.query('SELECT * FROM customer WHERE email = $1', [email]);
+      return customer.rows;
     }
 
     // updateCustomer(data){
