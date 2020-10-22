@@ -8,4 +8,5 @@ export default {
   route7: '/mon-compte',
   route8: '/devenir-vendeur',
   route9: '/contactez-nous',
+  route10: '/inscription',
 };

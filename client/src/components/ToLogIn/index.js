@@ -1,54 +1,76 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './style.scss';
 
 const ToLogIn = () => {
   return (
-    <>
-      <button
-        type="button"
-        className="btn btn-primary"
-        data-toggle="modal"
-        data-target="#exampleModal"
+    <div className="modal-login">
+      <div
+        className="modal fade"
+        id="login"
+        tabIndex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
       >
-        Launch demo modal
-      </button>
-      <div className="ui attached message">
-        <div className="header">Welcome to our site!</div>
-        <p>Fill out the form below to sign-up for a new account</p>
+        <div className="modal-dialog modal-dialog-centered" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title">S'identifier</h5>
+              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div className="modal-body">
+              <form class="px-4 py-3">
+                <div class="form-group">
+                  <label for="exampleDropdownFormEmail1">Adresse email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="exampleDropdownFormEmail1"
+                    placeholder="email@exemple.com"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="exampleDropdownFormPassword1">Mot de passe</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="exampleDropdownFormPassword1"
+                    placeholder="Password"
+                  />
+                </div>
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="dropdownCheck" />
+                  <label class="form-check-label" for="dropdownCheck">
+                    se souvenir de moi
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  se connecter
+                </button>
+              </form>
+              <div class="dropdown-divider"></div>
+
+              <Link to="/inscription" class="dropdown-item" id="histModal">
+                Nouveau par ici?
+              </Link>
+
+              <a class="dropdown-item" href="#">
+                Mot de passe oublié?
+              </a>
+            </div>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-secondary" data-dismiss="modal">
+                fermer
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-      <form className="ui form attached fluid segment">
-        <div className="two fields">
-          <div className="field">
-            <label>First Name</label>
-            <input placeholder="First Name" type="text" />
-          </div>
-          <div className="field">
-            <label>Last Name</label>
-            <input placeholder="Last Name" type="text" />
-          </div>
-        </div>
-        <div className="field">
-          <label>Username</label>
-          <input placeholder="Username" type="text" />
-        </div>
-        <div className="field">
-          <label>Password</label>
-          <input type="password" />
-        </div>
-        <div className="inline field">
-          <div className="ui checkbox">
-            <input type="checkbox" id="terms" />
-            <label for="terms">I agree to the terms and conditions</label>
-          </div>
-        </div>
-        <div className="ui blue submit button">Submit</div>
-      </form>
-      <div className="ui bottom attached warning message">
-        <i className="icon help"></i>
-        Already signed up? <a href="#">Login here</a> instead.
-      </div>
-    </>
+    </div>
   );
 };
 export default ToLogIn;

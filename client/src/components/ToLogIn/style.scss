@@ -13,3 +13,19 @@
     opacity: 0.6;
   }
 }
+.modal-login {
+  z-index: 4;
+  right: 72px;
+  top: 58px;
+}
+.btn__position {
+  background: none;
+  border: none;
+  position: absolute;
+  left: 111rem;
+  border-radius: 50%;
+  &:hover {
+    background-color: white;
+    animation: none;
+  }
+}

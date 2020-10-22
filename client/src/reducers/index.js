@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 
 import categories from './categories';
+import modal from './modal';
 
 // import counter from './counter';
 
@@ -9,4 +10,5 @@ import categories from './categories';
 // comme un reducer retourne toujours un state, on agrège ainsi les sous-state à notre state global
 export default combineReducers({
   categories,
+  modal,
 });

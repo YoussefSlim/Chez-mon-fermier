@@ -14,12 +14,15 @@ import TheConcept from '../TheConcept';
 import { HomePage } from '../HomePage';
 import ContactUs from '../ContactUs';
 import NotFound from '../NotFound';
+import SignUp from '../SignUp';
+import ToLogIn from '../ToLogIn';
 
 import './style.scss';
 
 const AtMyFarmer = () => {
   return (
     <>
+      <ToLogIn />
       <StaticHeader />
       <LeftSideBar />
       <Switch>
@@ -31,6 +34,7 @@ const AtMyFarmer = () => {
         <Route exact path={routes.route7} component={HomePage} />
         <Route exact path={routes.route8} component={HomePage} />
         <Route exact path={routes.route9} component={ContactUs} />
+        <Route exact path={routes.route10} component={SignUp} />
         <Route>
           <NotFound />
         </Route>
