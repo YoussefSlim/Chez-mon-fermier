@@ -1,0 +1,6 @@
+GET http://localhost:5050/products
+###
+GET http://localhost:5050/product/1
+###
+POST http://localhost:5050/product
+Content-Type: application/json
