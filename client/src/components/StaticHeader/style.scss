@@ -33,18 +33,19 @@
   font-size: 1.8rem;
 }
 .form-control.mr-sm-2 {
-  width: 50rem;
+  width: 60rem;
   border-radius: 30px;
 }
 
 .btn.btn-outline-success.my-2.my-sm-0 {
-  background-color: #41afb2;
-  color: #fff;
+  background-color: #41afb2 !important;
+  border-color: #41afb2 !important;
+  color: #fff !important;
   border-radius: 38px;
-  padding: 1px 17px;
+  padding: 4px 17px;
   position: absolute;
-  right: 28px;
-  bottom: 0.8rem;
+  right: 5px;
+  bottom: 0.25rem;
   border-color: #d3d3d3;
   &:hover {
     background-color: #338f92fa;
@@ -56,13 +57,30 @@
   margin-right: 1rem;
   color: #41afb2;
 }
-.btn.btn__position {
-  background: none;
-  border: none;
-  position: absolute;
-  left: 111rem;
-
+.position {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-left: 1rem;
+  border-color: #41afb2;
+}
+.login {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.far {
+  border-color: #4eb6b9 !important ;
+  background-color: #4eb6b9;
   &:hover {
-    background-color: white;
+    -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
   }
+}
+.navbar {
+  padding: 0 !important;
+  margin: 1rem !important;
+}
+.search_bar .search {
+  color: #fff !important;
 }

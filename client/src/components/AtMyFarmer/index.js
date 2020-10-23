@@ -3,28 +3,28 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 // imports routes
-import routes from '../Router';
+import routes from 'src/components/Router';
 
-import LeftSideBar from '../LeftSideBar';
-import StaticHeader from '../StaticHeader';
-import LegalNotice from '../LegalNotice';
-import ProjectTeam from '../ProjectTeam';
-import TermsAndConditions from '../TermsAndConditions';
-import TheConcept from '../TheConcept';
-import { HomePage } from '../HomePage';
-import ContactUs from '../ContactUs';
-import NotFound from '../NotFound';
-import SignUp from '../SignUp';
-import ToLogIn from '../ToLogIn';
+import LeftSideBar from 'src/components/LeftSideBar';
+import StaticHeader from 'src/components/StaticHeader';
+import LegalNotice from 'src/components/LegalNotice';
+import ProjectTeam from 'src/components/ProjectTeam';
+import TermsAndConditions from 'src/components/TermsAndConditions';
+import TheConcept from 'src/components/TheConcept';
+import HomePage from 'src/containers/HomePage';
+import ContactUs from 'src/components/ContactUs';
+import NotFound from 'src/components/NotFound';
+import SignUp from 'src/components/SignUp';
+import ToLogIn from 'src/components/ToLogIn';
 
 import './style.scss';
 
 const AtMyFarmer = () => {
   return (
     <>
+      <LeftSideBar />
       <ToLogIn />
       <StaticHeader />
-      <LeftSideBar />
       <Switch>
         <Route exact path={routes.route1} component={HomePage} />
         <Route exact path={routes.route3} component={LegalNotice} />

@@ -31,17 +31,19 @@ const StaticHeader = () => {
             </nav>
           </li>
           <li className="login">
-            <button
-              type="button"
-              className="btn__position  "
-              data-toggle="modal"
-              data-target="#login"
-            >
-              <i class="far fa-user "></i>
-            </button>
-            <div>
+            <div className="text-center">
+              <Link
+                to=""
+                className=" position "
+                data-toggle="modal"
+                data-target="#elegantModalForm"
+              >
+                <i className="far fa-user"></i>
+              </Link>
+            </div>
+            <div className=" position">
               <Link to="/panier">
-                <i class="fas fa-shopping-cart"></i>
+                <i className="far fas fa-shopping-cart"></i>
               </Link>
             </div>
           </li>

@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
-import HomePage from '../HomePage';
-import { fetchCategory } from '../../actions/categories';
+import HomePage from 'src/components/HomePage';
+import { fetchProducts } from 'src/actions/products';
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  products: state,
+});
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchCategory: () => {
-    console.log('je veux charger les données des category');
-    dispatch(fetchCategory());
+  fetchProducts: () => {
+    dispatch(fetchProducts());
   },
 });
 

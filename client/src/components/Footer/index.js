@@ -4,7 +4,7 @@ import './style.scss';
 
 const Footer = () => {
   return (
-    <footer className="page-footer font-small blue-grey lighten-5 ">
+    <footer className="  blue-grey lighten-5 ">
       <div className="container">
         <div className="row py-4 d-flex align-items-center container_bandeau">
           <div className="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">

@@ -5,72 +5,92 @@ import './style.scss';
 
 const ToLogIn = () => {
   return (
-    <div class="modal-login">
+    <>
       <div
-        class="modal fade"
-        id="login"
+        className="modal fade"
+        id="elegantModalForm"
         tabIndex="-1"
         role="dialog"
-        aria-labelledby="exampleModalLabel"
+        aria-labelledby="myModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">S'identifier</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <div className="modal-dialog" role="document">
+          <div className="modal-content form-elegant">
+            <div className="modal-header text-center">
+              <h3
+                className="modal-title w-100 dark-grey-text font-weight-bold my-3"
+                id="myModalLabel"
+              >
+                <strong>S'identifier</strong>
+              </h3>
+              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
-              <form class="px-4 py-3">
-                <div class="form-group">
-                  <label for="exampleDropdownFormEmail1">Adresse email</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="exampleDropdownFormEmail1"
-                    placeholder="email@exemple.com"
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="exampleDropdownFormPassword1">Mot de passe</label>
-                  <input
-                    type="password"
-                    class="form-control"
-                    id="exampleDropdownFormPassword1"
-                    placeholder="Password"
-                  />
-                </div>
-                <div class="form-check">
-                  <input type="checkbox" class="form-check-input" id="dropdownCheck" />
-                  <label class="form-check-label" for="dropdownCheck">
-                    se souvenir de moi
-                  </label>
-                </div>
-                <button type="submit" class="btn btn-primary">
-                  se connecter
+            <div className="modal-body mx-4">
+              <div className="md-form mb-5">
+                <input type="email" id="Form-email1" className="form-control validate" />
+                <label data-error="wrong" data-success="right" htmlFor="Form-email1">
+                  Votre email
+                </label>
+              </div>
+
+              <div className="md-form pb-3">
+                <input type="password" id="Form-pass1" className="form-control validate" />
+                <label data-error="wrong" data-success="right" htmlFor="Form-pass1">
+                  Votre mot de passe
+                </label>
+                <p className="font-small blue-text d-flex justify-content-end">
+                  <a href="#" className="blue-text ml-1">
+                    Mot de passe oublié?
+                  </a>
+                </p>
+              </div>
+
+              <div className="text-center mb-3">
+                <button
+                  type="button"
+                  className="btn blue-gradient btn-block btn-rounded z-depth-1a"
+                >
+                  Se connecter
                 </button>
-              </form>
-              <div class="dropdown-divider"></div>
+              </div>
+              <p className="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2">
+                ou se connecter avec:
+              </p>
 
-              <Link to="/inscription" class="dropdown-item">
-                Nouveau par ici?
-              </Link>
+              <div className="row my-3 d-flex justify-content-center">
+                <button type="button" className="btn btn-white btn-rounded mr-md-3 z-depth-1a">
+                  <i className="fab fa-facebook-f text-center"></i>
+                </button>
 
-              <a class="dropdown-item" href="#">
-                Mot de passe oublié?
-              </a>
+                <button type="button" className="btn btn-white btn-rounded mr-md-3 z-depth-1a">
+                  <i className="fab fa-twitter"></i>
+                </button>
+
+                <button type="button" className="btn btn-white btn-rounded z-depth-1a">
+                  <i className="fab fa-google-plus-g"></i>
+                </button>
+              </div>
             </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-dismiss="modal">
-                fermer
-              </button>
+
+            <div className="modal-footer mx-5 pt-3 mb-1">
+              <p className="font-small grey-text d-flex justify-content-end">
+                vous n'êtes pas membre?
+                <Link
+                  data-toggle="modal"
+                  data-target="#elegantModalForm"
+                  to="/inscription"
+                  className="blue-text ml-1"
+                >
+                  S'inscrire
+                </Link>
+              </p>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 export default ToLogIn;
