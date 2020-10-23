@@ -35,14 +35,15 @@ router.get('/shop/:id/product', productController.getProductsByShop);
 
 //router.post('/product/:id', productController.productAddCart);
 
-// category page
+// category section
 router.get('/category/:id', categoryController.getCategoryById);
-
-// all categories page
 router.get('/categories', categoryController.getAllCategory);
+router.post('/category',categoryController.newCategory);
 
+// shop section
 router.get('/shop/:id', shopController.getShopById);
 router.get('/shops', shopController.getAllShops);
+router.post('/shop', shopController.newShop);
 
 // a corriger
 // router.get('/new-shops', shopController.getShopByCreatedDate);

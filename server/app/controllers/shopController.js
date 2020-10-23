@@ -17,10 +17,24 @@ const shopController = {
         res.json(await Shop.findShopByCreatedDate(req.params));
     },
 
-    newShop: async (req,res)=> {
-        const newShop = new Shop(req.body);
-        await newShop.save();
-        res.json(newShop);
+    newShop: async (req,res) => {
+        try{
+            const newShop = new Shop(req.body);
+            console.log(req.body);
+            console.log(newShop);
+            const insertedShop = await Shop.saveShop(newShop);
+            if (insertedShop) {
+             
+                res.json(insertedShop);
+                
+            } else {
+                // la ressource en elle-même est trouvée, mais pas la catégorie, c'est ça que reflète le code 404 ici
+                res.status(404).json("Le vendeur n'a pas été enregistré");
+            }
+        } catch (error) {
+            console.log(error);
+            res.status(500).json(error);
+        }
     },
 
     editShop: async (req, res) => {
