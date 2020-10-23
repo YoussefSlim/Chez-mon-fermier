@@ -19,37 +19,60 @@ const customerController = {
     },
 
     newCustomer: async (req,res)=> {
+        try{
         const newCustomer = new Customer(req.body);
-        await newCustomer.saveCustomer();
+        await newCustomer.save();
         if (newCustomer.id) {
             res.json(newCustomer);
         } else {
             // la ressource en elle-même est trouvée, mais pas la catégorie, c'est ça que reflète le code 404 ici
             res.status(404).json(newCustomer);
         }
-        
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({error});
+    }
     },
     error404: (req, res) => {
         res.status(404).json("La page demandée n'existe pas");
     },
 
+// A corriger car non fonctionnelle
+
     editCustomer: async (req, res) => {
-        const customer = await Customer.getCustomerById(null, req.params.id);
+        try {
+        const customer = await Customer.getCustomerById(req.params.id);
 
         const customerToEdit = new Customer(customer);
-
-        customerToEdit.updateCustomer(req.body);
-        customerToEdit.saveCustomer();
-        res.json(customerToEdit);
+        if(!customer) {
+            res.status(404).json({error: "Utilisateur non-reconnu"});
+        } else {
+        await customerToEdit.updateCustomer(req.body);
+        customerToEdit.saveCustomer(req.params.id);
+        res.json(customer);
+        }
+        } catch (error) {
+        console.log(error);
+        res.status(500).json({error});
+    }
     }, 
 
     deleteCustomer: async (req,res)=> {
-        const customer = await Customer.getCustomerById(null, req.params.id);
+        const customer = await Customer.getCustomerById(req.params.id);
         // console.log(Customer.id);
             const customerToDelete = new Customer(customer);
-            await customerToDelete.deleteCustomer();
+            await customerToDelete.deleteCustomer(req.params.id);
             res.json ('suppression du client effectuée');
     },
+
+    loginCheck: (req, res) => {
+        if (req.session.customer) {
+            res.json({ logged: true, session: req.session.customer });
+        } else {
+            res.json({ logged: false, session: {} });
+        };
+    },
+
     customerLogin: async (req, res) => {
         const customer = await Customer.getCustomerByEmail(req.body.email)
         if (!customer){
@@ -73,33 +96,32 @@ const customerController = {
                     email: customer.email
                 }
 
-                if (req.body.remember) {
-                    req.cookie.expires = new Date (Date.now() + 60*60*24)
-                }
-                //ajouter un status 200
-                res.json(customer);
-                // res.redirect('/')
+                // if (req.body.remember) {
+                //     req.cookie.expires = new Date (Date.now() + 60*60*24)
+                // }
+                // //ajouter un status 200
+                // res.json(customer);
+                // // res.redirect('/')
+                res.status(200).json({ logged: true, session: req.session.customer });
+
             }            
         }
     },
-    signupPage: (req, res) => {
-        res.json('/signup');
+    
+    signupPage: async (req, res) => {
+        res.json('Veuillez vous inscrire !');
       },
 
     customerSignup: async (req, res) => {
         try {
             // les vérifs à faire : 
       
-            // - 1: l'utilisateur existe déjà
-            const customer = await Customer.getCustomerById({
-              where: {
-                email: req.body.email
-              }
-            });
+            // - 1: user is real
+            const customer = await Customer.getCustomerById(req.body.email);
             if (customer) {
               return res.json("Cet email est déjà utilisé par un utilisateur.");
             }
-            // - 2: format d'email valide
+            // - 2: form of email is not valid
             if (!emailValidator.validate(req.body.email)) {
               return res.json("Cet email n'est pas valide.");
             }
@@ -137,41 +159,9 @@ const customerController = {
           }
         },
       
-        loginPage: (req, res) => {
+        loginPage: async (req, res) => {
           res.json('veuillez vous connecter');
         },
-
-
-
-        // const customer = await Customer.getCustomerByEmail(req.body.email)
-        // if (customer) {
-        //     res.json ('cette adresse email existe déjà');
-        // } else {
-        //     if (req.body.password !== req.body.passwordConfirm) {
-        //         res.json('la confirmation du mot de passe est incorrecte');
-        //     } else {
-        //         const hashPwd = bcrypt.hashSync(req.body.password, 10);
-
-        //         const newCustomer = new Customer({
-        //             first_name: req.body.firstname,
-        //             last_name: req.body.lastname,
-        //             address: req.body.address,
-        //             additionnal_address: req.body.additional_address,
-        //             department: req.body.department,
-        //             postcode: req.body.postcode,
-        //             city: req.body.city,
-        //             phone_number: req.body.hone_number,
-        //             email: req.body.email,
-        //             password: hashPwd                     
-        //         });
-
-        //         await newCustomer.saveCustomer();
-
-        //         res.json('Inscription réussie');
-        //     }            
-        // }
-    //},
-
                
     logout: (req, res) => {
         req.session.customer = false;

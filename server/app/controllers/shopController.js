@@ -2,7 +2,7 @@ const Shop = require('../models/Shop');
 
 const shopController = {
     getShopById: async (req, res) => {
-        res.json(await Shop.findAllShops(req.params.id));
+        res.json(await Shop.findOneShop(req.params.id));
     },
 
     getAllShops: async (req, res) => {

@@ -1,18 +1,18 @@
-const db = require('../database');
+const client = require('../database');
 
 class CoreModel {
-    // _id;
-    // // _travel_id
+   // _id;
+    // _travel_id
 
-    // constructor (data) {
-    //    this._id = data.id;
+    constructor (data) {
+       this._id = data.id;
     
-    // }
+    }
 
-    // get id() {
-    //     return this._id ;
-    // }
-  
+    get id() {
+        return this._id ;
+    }
+    
 
     set id(value) {
         if (isNaN(parseInt(value,10))) {
@@ -21,37 +21,13 @@ class CoreModel {
         this._id = value;
     }
 
-    // static async findAllTravelComponent(travelId){
-    //     if (travelId) { 
-    //         const component = await db.query(`SELECT * FROM ${this.tableName} WHERE travel_id = $1 ;`, [travelId]);
-    //         return component.rows;
-    //     } else {
-    //         const component = await db.query(`SELECT * FROM ${this.tableName} ORDER BY id ASC`);
-    //         return component.rows;
-    //     }
-    // }
-
-    // static async findOneTravelComponent(travelId,componentId){
-    //     if (travelId) {
-    //         // console.log(`SELECT * FROM ${this.tableName} WHERE travel_id = ${travelId} id = ${componentId} ;`)
-    //         const component = await db.query(`SELECT * FROM ${this.tableName} WHERE travel_id = $1 AND id = $2 ;`, [travelId ,componentId]);
-
-    //         return component.rows[0]; 
-    //     }
-    //     else {
-    //         const component = await db.query(`SELECT * FROM ${this.tableName} WHERE id = $1 ;`, [componentId]);
-
-    //         return component.rows[0]; 
-    //     }
-    // }
-
     update(data){
         for(const prop in data){
             this[prop] = data[prop];
         }
     }
 
-    async saveCustomer(){ 
+    async save(){ 
         const fieldNames = [];
         const fieldIndex = [];
         const fieldValues = [];
@@ -74,13 +50,13 @@ class CoreModel {
         if (this.id) {
             fieldValues.push(this.id);
             // console.log(fieldValues);
-            await db.query(`
+            await client.query(`
             UPDATE ${this.constructor.tableName} SET ${fieldConcat.join(", ")} WHERE id = $${fieldNames.length + 1};`
             , fieldValues);
         }         
 
         else {
-            await db.query(`
+            await client.query(`
             INSERT INTO ${this.constructor.tableName} (${fieldNames.join(", ")})
             VALUES (${fieldIndex.join(", ")})
             RETURNING id;`
@@ -89,19 +65,13 @@ class CoreModel {
 
     }
 
-    // update(data){
-    //     for(const prop in data){
-    //         this[prop] = data[prop];
-    //     }
+    // async save() {
+
     // }
-
-    async save() {
-
-    }
 
     async delete() {
         // console.log(`DELETE FROM ${this.constructor.tableName} WHERE id = ${this.id} ;`)
-        await db.query(`DELETE FROM ${this.constructor.tableName} WHERE id = $1 ;`, [this.id]);
+        await client.query(`DELETE FROM ${this.constructor.tableName} WHERE id = $1 ;`, [this.id]);
     }
 }
 

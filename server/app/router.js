@@ -57,6 +57,7 @@ router.patch('/customer/:id', userController.editCustomer);
 router.delete('/customer/:id', userController.deleteCustomer);
 
 // user signup/login
+router.get('/signup', userController.signupPage);
 router.post('/signup', userController.customerSignup);
 router.post('/login', userController.customerLogin);
 router.post('/logout', userController.logout);
