@@ -26,7 +26,7 @@ router.get('/product/:id', productController.getProductById);
 
 // products catalog
 router.get('/products', productController.getAllProducts);
-
+router.post('/product', productController.newProduct);
 // router for see the products by the category id
 router.get('/category/:id/products', productController.getProductsByCategory);
 

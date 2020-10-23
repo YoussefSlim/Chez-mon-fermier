@@ -1,13 +1,13 @@
 const client = require('../database');
-const CoreModel = require ('../models/CoreModel');
+//const CoreModel = require ('../models/CoreModel');
 const tableName = 'customer';
 
-class Customer extends CoreModel {
+class Customer {
 
     //static tableName = 'customer';
 
     constructor(data = {}) {
-      super(data);
+     // super(data);
       for (const prop in data) {
           this[prop] = data[prop];
       }
@@ -37,39 +37,34 @@ class Customer extends CoreModel {
     // }
   
 
-        // static async saveCustomer () {
+        static async saveCustomer (customer) {
 
-    //     let insertedCustomer;
+        let insertedCustomer;
 
-    //     //if (this.id) {
-    //       insertedCustomer = await client.query (`
-    //       INSERT INTO customer (first_name, last_name, adress, additional_adress, postcode, department, city, phone_number, email, password)
-    //       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
-    //       RETURNING id;`, [
-    //         this.first_name,
-    //         this.last_name,
-    //         this.adress,
-    //         this.additional_adress,
-    //         this.postcode,
-    //         this.department,
-    //         this.city,
-    //         this.phone_number,
-    //         this.email,
-    //         this.password,
-    //         this.id            
-    //       ]);
-     
-    //     // on va se baser sur rowCount pour savoir si l'insertion a bien eu lieu
-    //     if (insertedCustomer.rowCount) {
-    //       this.id = insertedCustomer.rows[0].id;
-    //   }
-    // }
+        //if (customer.id) {
+          insertedCustomer = await client.query (`
+          INSERT INTO customer (first_name, last_name, address, additional_address, postcode, department, city, phone_number, email, password)
+          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+          RETURNING id;`, [
+            customer.first_name,
+            customer.last_name,
+            customer.address,
+            customer.additional_address,
+            customer.postcode,
+            customer.department,
+            customer.city,
+            customer.phone_number,
+            customer.email,
+            customer.password           
+          ]);        
+          return insertedCustomer.rows[0];      
+    }
 
-  //   async deleteCustomer (id) {
-  //     await client.query (`
-  //     DELETE FROM customer WHERE id=$1;`, [id]);
-  //     //return customerToDelete.rows[0];
-  //   }
+    async deleteCustomer (id) {
+      await client.query (`
+      DELETE FROM customer WHERE id=$1;`, [id]);
+      //return customerToDelete.rows[0];
+    }
    }
 
 module.exports = Customer;

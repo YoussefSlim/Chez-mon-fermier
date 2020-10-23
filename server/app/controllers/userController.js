@@ -20,14 +20,18 @@ const customerController = {
 
     newCustomer: async (req,res)=> {
         try{
-        const newCustomer = new Customer(req.body);
-        await newCustomer.save();
-        if (newCustomer.id) {
-            res.json(newCustomer);
-        } else {
-            // la ressource en elle-même est trouvée, mais pas la catégorie, c'est ça que reflète le code 404 ici
-            res.status(404).json(newCustomer);
-        }
+            const newCustomer = new Customer(req.body);
+            console.log(req.body);
+            console.log(newCustomer);
+            const insertedCustomer = await Customer.saveCustomer(newCustomer);
+            if (insertedCustomer) {
+             
+                res.json(insertedCustomer);
+                
+            } else {
+                // la ressource en elle-même est trouvée, mais pas la catégorie, c'est ça que reflète le code 404 ici
+                res.status(404).json("L'utilisateur n'a pas été enregistré");
+            }
     } catch (error) {
         console.log(error);
         res.status(500).json({error});
@@ -110,6 +114,7 @@ const customerController = {
     
     signupPage: async (req, res) => {
         res.json('Veuillez vous inscrire !');
+        res.redirect('/signup');
       },
 
     customerSignup: async (req, res) => {
@@ -167,7 +172,6 @@ const customerController = {
         req.session.customer = false;
         res.redirect('/');
     },
-       
 }   
           
 module.exports = customerController;
