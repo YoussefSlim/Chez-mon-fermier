@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 
 import products from 'src/reducers/products';
+import categories from 'src/reducers/categories';
 
 // import counter from './counter';
 
@@ -9,4 +10,5 @@ import products from 'src/reducers/products';
 // comme un reducer retourne toujours un state, on agrège ainsi les sous-state à notre state global
 export default combineReducers({
   products,
+  categories,
 });
