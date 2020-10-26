@@ -15,7 +15,13 @@ const productController = {
     },
 
     getProductsByShop: async (req, res) => {
+        try{
         res.json(await Product.findByShop(req.params.id));
+        }
+        catch (error) {
+            console.log(error);
+            res.status(500).json(error);
+        }
     },
 
     newProduct: async (req,res) => {
@@ -43,13 +49,20 @@ const productController = {
     },
 
     editProduct: async (req, res) => {
-        const product = await Product.findOne(null, req.params.id);
-
-        const productToEdit = new Product(product);
-
-        productToEdit.updateProduct(req.body);
-        productToEdit.saveProduct();
-        res.json(productToEdit);
+        try{
+            const product = await Product.findOne(req.params.id);
+            const productToEdit = new Product(product);
+            for(const prop in req.body) {
+                productToEdit[prop] = req.body[prop];
+            }
+            await Product.updateProduct(req.body);
+            //Product.save();
+            res.json(productToEdit);
+            
+        } catch (error) {
+            console.log(error);
+            res.status(500).json(error);
+        }
     }, 
 
     deleteProduct: async (req,res)=> {

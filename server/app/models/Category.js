@@ -46,6 +46,16 @@ class Category {
           ]);
      return insertedCategory.rows[0];
     }
+
+    static async updateCategory(data){
+      // we decomposed the SQL requeste with the informations we want to insert 
+      const sql = `UPDATE category SET "name" = $1, "description" = $2, "parent_id" = $3, "image" = $4, "updated_at" = now() WHERE "id" = $5 RETURNING "id", "name", "description", "parent_id", "image";`;
+      // we will connect to the db with us category, and we stock the complete request in the data for the return 
+      const dataUpdate = await client.query(sql, [data.name, data.description, data.parent_id, data.image, data.id]);
+      //dataUpdate.rows[0].message = 'Le produit est bien modifié';
+      // We send the new datas 
+      return dataUpdate.rows[0];
+    }
 };
 
 module.exports = Category;

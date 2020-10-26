@@ -38,14 +38,19 @@ const shopController = {
     },
 
     editShop: async (req, res) => {
-        const shop = await Shop.shopById(req.params.id);
-
-        const shopToEdit = new Shop(shop);
-
-        if (shopToEdit) {
-            shopToEdit.updateShop(req.body);
-            await shopToEdit.save();
-            res.json(shopToEdit)
+        try{
+            const shop = await Shop.findOneShop(req.params.id);
+            const shopToEdit = new Shop(shop);
+            for(const prop in req.body) {
+                shopToEdit[prop] = req.body[prop];
+            }
+            await Shop.updateShop(req.body);
+            //Shop.save();
+            res.json(shopToEdit);
+            
+        } catch (error) {
+            console.log(error);
+            res.status(500).json(error);
         }
     }, 
 

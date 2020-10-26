@@ -23,30 +23,32 @@ router.get('/', mainController.homePage);
 
 // product's detail page
 router.get('/product/:id', productController.getProductById);
-
 // products catalog
 router.get('/products', productController.getAllProducts);
-router.post('/product', productController.newProduct);
 // router for see the products by the category id
 router.get('/category/:id/products', productController.getProductsByCategory);
-
 // router for see the products by the shop id
 router.get('/shop/:id/product', productController.getProductsByShop);
-
+router.post('/product', productController.newProduct);
+router.patch('/product/:id', productController.editProduct);
+router.delete('/product/:id', productController.deleteProduct);
 //router.post('/product/:id', productController.productAddCart);
 
 // category section
 router.get('/category/:id', categoryController.getCategoryById);
 router.get('/categories', categoryController.getAllCategory);
 router.post('/category',categoryController.newCategory);
+router.patch('/category/:id', categoryController.editCategory);
+router.delete('/category/:id', categoryController.deleteCategory);
 
 // shop section
 router.get('/shop/:id', shopController.getShopById);
 router.get('/shops', shopController.getAllShops);
 router.post('/shop', shopController.newShop);
-
+router.patch('/shop/:id', shopController.editShop);
+router.delete('/shop/:id', shopController.deleteShop);
 // a corriger
-// router.get('/new-shops', shopController.getShopByCreatedDate);
+// router.get('/last-shops', shopController.getShopByCreatedDate);
 // router.get('/shops-by-department', shopController.getShopByDepartment);
 
 // custommers

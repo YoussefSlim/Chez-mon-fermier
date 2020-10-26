@@ -37,13 +37,20 @@ const CategoryController = {
     },
 
     editCategory: async (req, res) => {
-        const category = await Category.findOneCategory(null, req.params.id);
-
-        const categoryToEdit = new Category(category);
-
-        categoryToEdit.updateCategory(req.body);
-        categoryToEdit.saveCategory();
-        res.json(categoryToEdit);
+        try{
+            const category = await Category.findOneCategory(req.params.id);
+            const categoryToEdit = new Category(category);
+            for(const prop in req.body) {
+                categoryToEdit[prop] = req.body[prop];
+            }
+            await Category.updateCategory(req.body);
+            //Category.save();
+            res.json(categoryToEdit);
+            
+        } catch (error) {
+            console.log(error);
+            res.status(500).json(error);
+        }
     }, 
 
     deleteCategory: async (req,res)=> {

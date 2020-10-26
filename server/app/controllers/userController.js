@@ -41,24 +41,22 @@ const customerController = {
         res.status(404).json("La page demandée n'existe pas");
     },
 
-// A corriger car non fonctionnelle
 
     editCustomer: async (req, res) => {
-        try {
-        const customer = await Customer.getCustomerById(req.params.id);
-
-        const customerToEdit = new Customer(customer);
-        if(!customer) {
-            res.status(404).json({error: "Utilisateur non-reconnu"});
-        } else {
-        await customerToEdit.updateCustomer(req.body);
-        customerToEdit.saveCustomer(req.params.id);
-        res.json(customer);
-        }
+        try{
+            const customer = await Customer.getCustomerById(req.params.id);
+            const customerToEdit = new Customer(customer);
+            for(const prop in req.body) {
+                customerToEdit[prop] = req.body[prop];
+            }
+            await Customer.updateCustomer(req.body);
+            //Customer.save();
+            res.json(customerToEdit);
+            
         } catch (error) {
-        console.log(error);
-        res.status(500).json({error});
-    }
+            console.log(error);
+            res.status(500).json(error);
+        }
     }, 
 
     deleteCustomer: async (req,res)=> {
