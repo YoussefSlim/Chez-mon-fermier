@@ -6,13 +6,11 @@ const mainController = require('./controllers/mainController');
 const productController = require('./controllers/productController');
 //const cartController = require('./controllers/cartController');
 const categoryController = require('./controllers/categoryController');
-const { productsByShop } = require('./controllers/productController');
 const shopController = require('./controllers/shopController');
-//const orderController = require('./controllers/orderController');
+const orderController = require('./controllers/orderController');
 const userController = require('./controllers/userController');
 
 //const adminController = require('./controllers/adminController');
-
 
 /*
 // importer les middlewares
@@ -23,45 +21,65 @@ const router = express.Router();
 // home Page
 router.get('/', mainController.homePage);
 
-
 // product's detail page
-router.get('/product/:id', productController.productPage);
-
+router.get('/product/:id', productController.getProductById);
 // products catalog
-router.get('/products', productController.allProducts);
-
+router.get('/products', productController.getAllProducts);
 // router for see the products by the category id
-router.get('/product/category/:id', productController.productsByCategory);
-
+router.get('/category/:id/products', productController.getProductsByCategory);
 // router for see the products by the shop id
-router.get('/product/shop/:id', productController.productsByShop);
-
+router.get('/shop/:id/product', productController.getProductsByShop);
+router.post('/product', productController.newProduct);
+router.patch('/product/:id', productController.editProduct);
+router.delete('/product/:id', productController.deleteProduct);
 //router.post('/product/:id', productController.productAddCart);
 
-// category page
-router.get('/category/:id', categoryController.categoryPage);
+// category section
+router.get('/category/:id', categoryController.getCategoryById);
+router.get('/categories', categoryController.getAllCategory);
+router.post('/category',categoryController.newCategory);
+router.patch('/category/:id', categoryController.editCategory);
+router.delete('/category/:id', categoryController.deleteCategory);
 
-// all categories page
-router.get('/categories', categoryController.allCategories);
-
-router.get('/shop/:id', shopController.shopById);
-router.get('/shops', shopController.allShops);
-router.get('/new-shops', shopController.shopByCreatedDate);
-//router.get('/shops-by-department', shopController.shopByDepartment);
+// shop section
+router.get('/shop/:id', shopController.getShopById);
+router.get('/shops', shopController.getAllShops);
+router.post('/shop', shopController.newShop);
+router.patch('/shop/:id', shopController.editShop);
+router.delete('/shop/:id', shopController.deleteShop);
+// a corriger
+// router.get('/last-shops', shopController.getShopByCreatedDate);
+// router.get('/shops-by-department', shopController.getShopByDepartment);
 
 // custommers
 
 router.get('/customers', userController.allCustomers);
 router.get('/customer/:id', userController.customerById);
-router.post('/new-customer', userController.newCustomer);
-router.post('/edit-customer/:id', userController.editCustomer);
-router.post('/delete-customer', userController.deleteCustomer);
+router.post('/customer', userController.newCustomer);
+router.patch('/customer/:id', userController.editCustomer);
+router.delete('/customer/:id', userController.deleteCustomer);
 
 // user signup/login
+router.get('/signup', userController.signupPage);
 router.post('/signup', userController.customerSignup);
 router.post('/login', userController.customerLogin);
 router.post('/logout', userController.logout);
+
+// Customer account managed
 //router.get('/my-account', userController.profilePage);
+router.get('/my-account/customer/:id', userController.customerById);
+router.patch('/my-account/customer/:id', userController.editCustomer);
+router.get('/my-account/:id/my-orders', orderController.getOrdersByCustomer);
+router.patch('/order/:id', orderController.editOrder);
+
+// Customer account managed
+//router.get('/my-account', userController.profilePage);
+router.get('/my-shop/:id', userController.customerById);
+router.patch('/my-shop/:id', userController.editCustomer);
+//router.get('/my-account/:id/my-orders', orderController.getOrdersByShop);
+//router.patch('/order/:id', orderController.editOrder);
+
+
 /*// admin
 router.get('/admin', adminMiddleware, adminController.adminPage);
 */

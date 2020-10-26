@@ -1,4 +1,4 @@
-const productModel = require('../models/productModel');
+const Product = require('../models/Product');
 
 
 const cartController = {
@@ -45,9 +45,9 @@ const cartController = {
       return id === product.id;
     });
  
-    // If the product is not in the cart, retrieve the product from the database with productModel.getproductModelByID.
+    // If the product is not in the cart, retrieve the product from the database with Product.getProductByID.
     if (!foundProduct) {
-      productModel.getProductByID(id, (error, product) => {
+      Product.getProductByID(id, (error, product) => {
         // if there was an error
 
         if (error) {

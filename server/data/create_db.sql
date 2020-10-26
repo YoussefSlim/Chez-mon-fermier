@@ -22,7 +22,7 @@ CREATE TABLE "product" (
 );
 
 CREATE TABLE "category" (
-    "id" INT PRIMARY KEY,
+    "id" INTGENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "name" TEXT UNIQUE NOT NULL,
     "description" TEXT,
     "parent_id" int REFERENCES category(id),
@@ -38,6 +38,7 @@ CREATE TABLE "customer" (
     "address" TEXT NOT NULL,
     "additional_address" TEXT,
     "postcode" TEXT NOT NULL,
+    "department" INTEGER NOT NULL,
     "city" TEXT NOT NULL,
     "phone_number" TEXT NOT NULL,
     "email" TEXT NOT NULL,
@@ -88,4 +89,10 @@ CREATE TABLE "product_has_order" (
     "product_id" INT NOT NULL
 );
 
+CREATE TABLE "shop_has_order" (
+    "order_id" INT NOT NULL,
+    "shop_id" INT NOT NULL
+);
+
 COMMIT;
+
