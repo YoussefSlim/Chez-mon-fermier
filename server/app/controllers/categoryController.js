@@ -16,12 +16,12 @@ const CategoryController = {
     newCategory: async (req,res) => {
         try{
             const newCategory = new Category(req.body);
-            console.log(req.body);
-            console.log(newCategory);
+            // console.log(req.body);
+            // console.log(newCategory);
             const insertedCategory = await Category.saveCategory(newCategory);
             if (insertedCategory) {
              
-                res.json(insertedCategory);
+                res.status(200).json('La catégorie a bien été ajoutée');
                 
             } else {
                 res.status(404).json("La catégorie n'a pas été enregistré");
@@ -54,11 +54,11 @@ const CategoryController = {
     }, 
 
     deleteCategory: async (req,res)=> {
-        const category = await Category.findOneCategory(null, req.params.id);
+        const category = await Category.findOneCategory(req.params.id);
         // console.log(Category.id);
-            const categoryToDelete = new Category(category);
-            await categoryToDelete.deleteCategory();
-            res.json ('suppression du produit effectuée');
+        const categoryToDelete = new Category(category);
+        await Category.deleteCategory(req.params.id);
+        res.json ('Suppression de la catgorie réussi !');
     }
   };
   

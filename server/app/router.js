@@ -7,7 +7,7 @@ const productController = require('./controllers/productController');
 //const cartController = require('./controllers/cartController');
 const categoryController = require('./controllers/categoryController');
 const shopController = require('./controllers/shopController');
-//const orderController = require('./controllers/orderController');
+const orderController = require('./controllers/orderController');
 const userController = require('./controllers/userController');
 
 //const adminController = require('./controllers/adminController');
@@ -64,7 +64,22 @@ router.get('/signup', userController.signupPage);
 router.post('/signup', userController.customerSignup);
 router.post('/login', userController.customerLogin);
 router.post('/logout', userController.logout);
+
+// Customer account managed
 //router.get('/my-account', userController.profilePage);
+router.get('/my-account/customer/:id', userController.customerById);
+router.patch('/my-account/customer/:id', userController.editCustomer);
+router.get('/my-account/:id/my-orders', orderController.getOrdersByCustomer);
+router.patch('/order/:id', orderController.editOrder);
+
+// Customer account managed
+//router.get('/my-account', userController.profilePage);
+router.get('/my-shop/:id', userController.customerById);
+router.patch('/my-shop/:id', userController.editCustomer);
+//router.get('/my-account/:id/my-orders', orderController.getOrdersByShop);
+//router.patch('/order/:id', orderController.editOrder);
+
+
 /*// admin
 router.get('/admin', adminMiddleware, adminController.adminPage);
 */

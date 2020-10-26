@@ -82,13 +82,11 @@ class Product {
         
       }
 
-    static async deleteProduct () {
-      const shopToDelete = await client.query (`
-      DELETE FROM shop WHERE id=$1;
-      `, [
-          id
-      ]);
-      return shopToDelete.rows[0];
+    static async deleteProduct (id) {
+      const productToDelete = await client.query (`
+      DELETE FROM product WHERE id=$1;
+      `, [id]);
+      return productToDelete.rows[0];
 
     }
 };

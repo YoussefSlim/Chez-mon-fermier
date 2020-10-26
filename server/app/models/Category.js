@@ -56,6 +56,12 @@ class Category {
       // We send the new datas 
       return dataUpdate.rows[0];
     }
+
+    static async deleteCategory (id) {
+      const categoryToDelete = await client.query (`
+      DELETE FROM category WHERE id=$1;`, [id]);
+      return categoryToDelete.rows[0];
+    }
 };
 
 module.exports = Category;

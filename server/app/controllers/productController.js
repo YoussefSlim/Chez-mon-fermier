@@ -66,11 +66,11 @@ const productController = {
     }, 
 
     deleteProduct: async (req,res)=> {
-        const product = await Product.findOne(null, req.params.id);
+        const product = await Product.findOne(req.params.id);
         // console.log(Product.id);
             const productToDelete = new Product(product);
-            await productToDelete.deleteProduct();
-            res.json ('suppression du produit effectuée');
+            await Product.deleteProduct(req.params.id);
+            res.json ('Le produit a bien été supprimé');
     }
   };
   

@@ -69,10 +69,10 @@ class Customer {
       return dataUpdate.rows[0];
  }
 
-    async deleteCustomer (id) {
-      await client.query (`
+    static async deleteCustomer (id) {
+      const customerToDelete = await client.query (`
       DELETE FROM customer WHERE id=$1;`, [id]);
-      //return customerToDelete.rows[0];
+      return customerToDelete.rows[0];
     }
    }
 

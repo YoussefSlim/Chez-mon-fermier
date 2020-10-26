@@ -21,8 +21,8 @@ const customerController = {
     newCustomer: async (req,res)=> {
         try{
             const newCustomer = new Customer(req.body);
-            console.log(req.body);
-            console.log(newCustomer);
+           // console.log(req.body);
+          //  console.log(newCustomer);
             const insertedCustomer = await Customer.saveCustomer(newCustomer);
             if (insertedCustomer) {
              
@@ -37,8 +37,9 @@ const customerController = {
         res.status(500).json({error});
     }
     },
-    error404: (req, res) => {
-        res.status(404).json("La page demandée n'existe pas");
+
+    error404: (err, res) => {
+        res.status(404).json(err, "La page demandée n'existe pas");
     },
 
 
@@ -51,7 +52,7 @@ const customerController = {
             }
             await Customer.updateCustomer(req.body);
             //Customer.save();
-            res.json(customerToEdit);
+            res.json(customerToEdit, 'Le client a bien été modifié');
             
         } catch (error) {
             console.log(error);
@@ -62,9 +63,13 @@ const customerController = {
     deleteCustomer: async (req,res)=> {
         const customer = await Customer.getCustomerById(req.params.id);
         // console.log(Customer.id);
-            const customerToDelete = new Customer(customer);
-            await customerToDelete.deleteCustomer(req.params.id);
-            res.json ('suppression du client effectuée');
+        const message = 'Le compte est bien supprimer';
+        const customerToDelete = new Customer(customer);
+        await Customer.deleteCustomer(req.params.id);
+        res.status(200).json(message);
+            
+
+            // res.send('Le client a bien été supprimé');
     },
 
     loginCheck: (req, res) => {
@@ -112,7 +117,7 @@ const customerController = {
     
     signupPage: async (req, res) => {
         res.json('Veuillez vous inscrire !');
-        res.redirect('/signup');
+        //res.redirect('/signup');
       },
 
     customerSignup: async (req, res) => {

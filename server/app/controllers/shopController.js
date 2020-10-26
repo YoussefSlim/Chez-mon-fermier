@@ -20,12 +20,11 @@ const shopController = {
     newShop: async (req,res) => {
         try{
             const newShop = new Shop(req.body);
-            console.log(req.body);
-            console.log(newShop);
+            // console.log(req.body);
+            // console.log(newShop);
             const insertedShop = await Shop.saveShop(newShop);
             if (insertedShop) {
-             
-                res.json(insertedShop);
+            res.json(insertedShop);
                 
             } else {
                 // la ressource en elle-même est trouvée, mais pas la catégorie, c'est ça que reflète le code 404 ici
@@ -46,7 +45,7 @@ const shopController = {
             }
             await Shop.updateShop(req.body);
             //Shop.save();
-            res.json(shopToEdit);
+            res.json(shopToEdit, 'Le vendeur a bien été modifié');
             
         } catch (error) {
             console.log(error);
@@ -57,13 +56,9 @@ const shopController = {
     deleteShop: async (req,res)=> {
         const shop = await Shop.shopById(req.params.id);
         // console.log(shop.id);
-        if (shop) {
-            const shopToDelete = new Shop(shop);
-            await shopToDelete.deleteShop();
-            res.json ('suppression effectuée');
-        } else {
-            res.json('Suppression impossible')
-        };
+        const shopToDelete = new Shop(shop);
+        await Shop.deleteShop(req.params.id);
+        res.json(shopToDelete, 'Le vendeur a bien été supprimé');
     }
   };
   

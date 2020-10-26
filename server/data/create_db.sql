@@ -89,4 +89,10 @@ CREATE TABLE "product_has_order" (
     "product_id" INT NOT NULL
 );
 
+CREATE TABLE "shop_has_order" (
+    "order_id" INT NOT NULL,
+    "shop_id" INT NOT NULL
+);
+
 COMMIT;
+
