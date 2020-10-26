@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600);
 
 body{
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     margin: 0;
     background-color: white;
@@ -10,40 +10,77 @@ body{
 .admin-container{
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-flow: wrap;
+    position: relative;
 }
 
 .top{
    width: 100%;
    background-color: #31435B;
+   position: relative;
+    top: 0;
+    height: 6rem;
+
+}
+
+.form-inline{
+    width: 50%;
+}
+
+@media (min-width: 1180px){
+    .form-inline .form-control {
+        display: inline-block;
+        min-width: 85%;
+        vertical-align: middle;
+    }
+}
+
+.navbar__group-icons{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .icon-link{
     font-size: 1.8em;
     padding-right: 0.5em;
-    width: 9em;
     display: inline;
     vertical-align: middle;
-    color: white;
-    transition: background ease-in-out 2s linear;
+    color: #43A0AF;
+    transition: all 0.5s linear;
 }
 
-.jello-horizontal, .icon-link:hover{
+.jello-horizontal, .icon-link:hover, .btn-info:hover, .logo:hover, .card:hover{
 	-webkit-animation: jello-horizontal 0.9s both;
     animation: jello-horizontal 0.9s both;
+    
+}
+
+.icon-link:hover{
     color:#DB3855;
 }
 
 
-
-.btn-outline-info{ 
-        color: #43A0AF;
-        border-color: #43A0AF;
+.btn-marine{
+   background-color: #31435B!important;
+   color: white!important;
+   padding: .375rem 2rem!important;
 }
 
-.btn-outline-info:hover{ 
+.btn-marine:hover{
+    background-color: #0c1727!important;
+ }
+
+.btn-info{ 
+    color: white;
+    background-color: #43A0AF;
+}
+
+.btn-info:hover{ 
     color: white!important;
-    background-color: #43A0AF!important;
-    border-color: #43A0AF!important;
+    background-color: #DB3855!important;
+    border-color: #DB3855!important;
 }
 
 @-webkit-keyframes jello-horizontal {
@@ -110,12 +147,12 @@ body{
 .content{
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    height: 100%;
+    justify-content: flex-start;
+    /*height: 83%;*/
 }
 
 .content_left{
-    height: 100vh;
+    /*height: 84%;*/
 }
 
 /* -------------
@@ -124,19 +161,24 @@ Sidebar
 .sidebar {
     position: absolute;
     width: 18%;
-    height: 100%;
-    top: 0;
+    min-height: 89%;
+    top: 6rem;
+    /*top: 0;*/
     overflow: hidden;
     background-color: #31435B;
     -webkit-transform: translateZ(0);
     visibility: visible;
     -webkit-backface-visibility: hidden;
   }
-  .sidebar header {
+  .sidebar h3 {
     background-color: #43A0AF;
     width: 100%;
     display: block;
     padding: 0.75em	1em;
+    text-align: center;
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 0;
   }
   
   /* -------------
@@ -144,7 +186,7 @@ Sidebar
   ----------------*/
   .sidebar-nav {
     position: fixed;
-    background-color: #19222a;
+    background-color: #31435B;
     height: 100%;
     font-weight: 400;
     font-size: 1.2em;
@@ -153,6 +195,7 @@ Sidebar
     z-index: 9;
     overflow: hidden;
     -webkit-overflow-scrolling: touch;
+    font-weight: 700;
     /* -------------
     Chev elements
     ----------------*/
@@ -163,6 +206,7 @@ Sidebar
     Hover
     ----------------*/
   }
+
   .sidebar-nav ul {
     list-style: none;
     display: block;
@@ -178,7 +222,7 @@ Sidebar
     Sidebar: icons
     ----------------*/
   }
-  .sidebar-nav ul li a {
+  .sidebar-nav ul li a, .sidebar-nav ul li a:active {
     color: rgba(255, 255, 255, 0.9);
     font-size: 0.75em;
     padding: 1.05em	1em;
@@ -186,7 +230,7 @@ Sidebar
     display: block;
   }
   .sidebar-nav ul li a:hover {
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(9, 29, 47, 0.4);
     -webkit-transition: all 0.6s ease;
     -moz-transition: all 0.6s ease;
     transition: all 0.6s ease;
@@ -211,9 +255,9 @@ Sidebar
   }
   .sidebar-nav .nav-flyout {
     position: absolute;
-    background-color: #080D11;
+    background-color: #DB3855;
     z-index: 9;
-    left: 2.5em;
+    left: 2.9em;
     top: 0;
     height: 100vh;
     -webkit-transform: translateX(100%);
@@ -226,7 +270,7 @@ Sidebar
     transition: all 0.5s ease;
   }
   .sidebar-nav .nav-flyout a:hover {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.2);
   }
   .sidebar-nav ul > li:hover .nav-flyout {
     -webkit-transform: translateX(0);
@@ -240,7 +284,56 @@ Sidebar
   }
 
 .content_right{
-    margin-left: 1%;
+    margin-left: 19%;
     width: 80%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 7rem;
 }
 
+.admin-title{
+    color: #31435B;
+    padding: 2rem 0;
+    width: 100%;
+}
+
+.card{
+    width: 17%;
+    margin: 1%;
+    color: white;
+    border-radius: 50%!important;   
+}
+
+.link-card:hover{
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.card-body{
+    display: flex;;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.card-title{
+    font-weight: 900;
+}
+
+.icon-card{
+    font-size: 5rem!important;
+    color: white;
+    padding: 1rem;
+}
+
+.bottom{
+    background-color: #31435B;
+    width: 100%;
+    height: 3rem;
+    color: white;
+    text-align: center;
+    align-self: flex-end;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
