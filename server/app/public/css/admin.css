@@ -24,16 +24,8 @@ body{
 
 }
 
-.form-inline{
-    width: 50%;
-}
-
-@media (min-width: 1180px){
-    .form-inline .form-control {
-        display: inline-block;
-        min-width: 85%;
-        vertical-align: middle;
-    }
+.search-bar{
+  width: 960px!important;
 }
 
 .navbar__group-icons{
@@ -51,10 +43,14 @@ body{
     transition: all 0.5s linear;
 }
 
-.jello-horizontal, .icon-link:hover, .btn-info:hover, .logo:hover, .card:hover{
+.jello-horizontal, .icon-link:hover, .btn-info:hover, .card:hover{
 	-webkit-animation: jello-horizontal 0.9s both;
     animation: jello-horizontal 0.9s both;
     
+}
+
+.logo{
+  width: 90%;
 }
 
 .icon-link:hover{
@@ -148,11 +144,11 @@ body{
     width: 100%;
     display: flex;
     justify-content: flex-start;
-    /*height: 83%;*/
+    height: 100%;
 }
 
 .content_left{
-    /*height: 84%;*/
+    height: 100%;
 }
 
 /* -------------
@@ -161,7 +157,7 @@ Sidebar
 .sidebar {
     position: absolute;
     width: 18%;
-    min-height: 89%;
+    min-height: 100%;
     top: 6rem;
     /*top: 0;*/
     overflow: hidden;
@@ -294,9 +290,9 @@ Sidebar
 }
 
 .admin-title{
-    color: #31435B;
-    padding: 2rem 0;
-    width: 100%;
+  color: #31435B;
+  padding: 0 0 2rem 0;
+  width: 100%;
 }
 
 .card{

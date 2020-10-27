@@ -3,7 +3,7 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV !== 'production') {
 }
 
 const express = require('express');
-const cors = require('cors')
+const cors = require('cors');
 const sanitizeData = require('./app/middlewares/sanitizeData');
 const app = express();
 //const session = require('express-session');
@@ -12,10 +12,11 @@ const app = express();
 const router = require('./app/router');
 const session = require('express-session');
 const multer = require('multer');
-const bodyParser = multer();
+//const bodyParser = multer();
 
 app.use(session({
     secret: 'keyboard cat',
+    name: 'sessionId',
     resave:true,
     saveUninitialized: true,
     cookie: {
@@ -25,7 +26,7 @@ app.use(session({
     },
 }));
 
-const PORT = process.env.PORT || 5050;
+
 
 app.set('models', './app/models');
 /**/
@@ -34,12 +35,17 @@ app.set('views', 'app/views');
 app.set('view engine', 'ejs');
 // les statiques
 app.use(express.static('public'));
-app.use(cors());
+//app.use(cors());
+// Par exemple, je ne veux autoriser l'accès que depuis localhost, et mon serveur AWS
+app.use( cors({
+       credentials: true,
+    origin: ['http://localhost:5050', 'ec2-3-93-241-49.compute-1.amazonaws.com:5050']
+}));
 
-// on rajoute la gestion des POST body
+// middleware urlencoded (pour les body sur les routes POST et PATCH)
 app.use(express.urlencoded({extended: true}));
 // et on rajoute la gestion des sessions
-
+const PORT = process.env.PORT || 5050;
 
 
 // et hop, notre middleware magique
@@ -54,10 +60,16 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PATCH, DELETE');
 next();
 });
+
 app.use(express.json());
-app.use(bodyParser.none());
+// on utlise .none() pour dire qu'on attends pas de fichier, uniquement des inputs "classiques" !
+
+app.use( multer().none() );
 app.use(sanitizeData);
 app.use(router);
+
+// permet d'ajouter une sécurité en "cachant" que l'application tourne sur un server Express et donc plus difficile de lancer des attaques spécifiquement ciblées
+app.disable('x-powered-by');
 
 // lancement du serveur
 app.listen( PORT,  () => {
