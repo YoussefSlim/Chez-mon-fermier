@@ -83,13 +83,13 @@ const customerController = {
     customerLogin: async (req, res) => {
         const customer = await Customer.getCustomerByEmail(req.body.email)
         if (!customer){
-            res.json('Client non-reconnu');
+            res.status(404).json('Client non-reconnu');
         } else {
 
-            const validPwd = bcrypt.compareSync(req.body.password, customer.password); 
+            const validPwd = await bcrypt.compareSync(req.body.password, customer.password); 
             
             if (!validPwd){
-                res.json('le mot de passe est incorrect');                
+                res.status(401).json('le mot de passe est incorrect');                
             } else {
                 req.session.customer = {
                     first_name : customer.first_name,
@@ -123,9 +123,9 @@ const customerController = {
     customerSignup: async (req, res) => {
         try {
             // les vérifs à faire : 
-      
+      console.log(req.body);
             // - 1: user is real
-            const customer = await Customer.getCustomerById(req.body.email);
+            const customer = await Customer.getCustomerByEmail(req.body.email);
             if (customer) {
               return res.json("Cet email est déjà utilisé par un utilisateur.");
             }
@@ -146,21 +146,21 @@ const customerController = {
       
             // Si on est tout bon, on crée le Customer !
             const newCustomer = new Customer({
-                first_name: req.body.firstname,
-                last_name: req.body.lastname,
+                first_name: req.body.first_name,
+                last_name: req.body.last_name,
                 address: req.body.address,
                 additionnal_address: req.body.additional_address,
                 department: req.body.department,
                 postcode: req.body.postcode,
                 city: req.body.city,
-                phone_number: req.body.hone_number,
+                phone_number: req.body.phone_number,
                 email: req.body.email,
                 password: encryptedPassword 
             });
-      
             // on attend que l'utilisateur soit enregistré
-            await newCustomer.save();
-            res.redirect('/login');
+            await Customer.saveCustomer(newCustomer);
+            res.status(201).json({message: 'l\'utilisateur a bien été créé'});
+           // res.redirect('/login');
           }catch(err){
             console.trace(err);
             res.status(500).send(err);
