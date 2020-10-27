@@ -32,34 +32,32 @@ class Shop {
         return sql.rows;
     }
 
-    static async saveShop () {
+    static async saveShop (shop) {
 
         let insertedShop;
 
-        //if (this.categoryId) {
-          insertedShop = await db.query (`
-          INSERT INTO shop (name, adress, additional_adress, postcode, city, phone_number, email, password, logo, siret, tva, delivery_method, department_number)
+        //if (shop.categoryId) {
+          insertedShop = await client.query (`
+          INSERT INTO shop (name, address, additional_address, postcode, city, phone_number, email, password, logo, siret, tva, delivery_method, department_number)
           VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)
           RETURNING id;`, [
-            this.name,
-            this.adress,
-            this.additional_adress,
-            this.postcode,
-            this.city,
-            this.phone_number,
-            this.email,
-            this.password,
-            this.logo,
-            this.siret,
-            this.tva,
-            this.delivery_methgod,
-            this.department_number            
+            shop.name,
+            shop.address,
+            shop.additional_address,
+            shop.postcode,
+            shop.city,
+            shop.phone_number,
+            shop.email,
+            shop.password,
+            shop.logo,
+            shop.siret,
+            shop.tva,
+            shop.delivery_methgod,
+            shop.department_number            
           ]);
       
-        // on va se baser sur rowCount pour savoir si l'insertion a bien eu lieu
-        if (insertedShop.rowCount) {
-          this.id = insertedShop.rows[0].id;
-      }
+          return insertedShop.rows[0];      
+
     }
 
     static async deleteShop () {

@@ -1,12 +1,12 @@
 import { SAVE_PRODUCTS } from 'src/actions/products';
 
-export const initialState = [];
+export const initialState = { products: [] };
 
-const products = (state = initialState, action) => {
-  switch (action.type) {
+const products = (state = initialState, { type, products }) => {
+  switch (type) {
     case SAVE_PRODUCTS:
-      console.log(...action.products);
-      return [...action.products];
+      console.log({ ...state, products });
+      return { ...state, products };
     default:
       return state;
   }

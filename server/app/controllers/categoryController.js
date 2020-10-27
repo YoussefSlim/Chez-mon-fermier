@@ -13,17 +13,25 @@ const CategoryController = {
         res.json(await Category.findCategoryByParentId(req.params.id));
     },
 
-    newCategory: async (req,res)=> {
-        const newCategory = new Category(req.body);
-        await newCategory.saveCategory();
-        if (newCategory.id) {
-            res.json(newCategory);
-        } else {
-            // la ressource en elle-même est trouvée, mais pas la catégorie, c'est ça que reflète le code 404 ici
-            res.status(404).json(newCategory);
+    newCategory: async (req,res) => {
+        try{
+            const newCategory = new Category(req.body);
+            console.log(req.body);
+            console.log(newCategory);
+            const insertedCategory = await Category.saveCategory(newCategory);
+            if (insertedCategory) {
+             
+                res.json(insertedCategory);
+                
+            } else {
+                res.status(404).json("La catégorie n'a pas été enregistré");
+            }
+        } catch (error) {
+            console.log(error);
+            res.status(500).json(error);
         }
-        
     },
+
     error404: (req, res) => {
         res.status(404).json("La page demandée n'existe pas");
     },

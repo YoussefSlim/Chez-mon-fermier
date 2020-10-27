@@ -1,33 +1,24 @@
-// npm
+// == Import : npm
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router } from 'react-router-dom';
-import * as serviceWorker from './serviceWorker';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // == Import : local
-// Components
-import AtMyFarmer from './components/AtMyFarmer';
+// Composants
+import App from 'src/containers/App';
 // Store
-import store from './store';
-// styles
-import './styles/index.scss';
+import store from 'src/store';
 
 // == Render
+// 1. Élément React racine (celui qui contient l'ensemble de l'app)
+//    => crée une structure d'objets imbriqués (DOM virtuel)
 const rootReactElement = (
   <Provider store={store}>
-    <Router>
-      <AtMyFarmer />
-    </Router>
+    <App />
   </Provider>
 );
-
-// The DOM target
+// 2. La cible du DOM (là où la structure doit prendre vie dans le DOM)
 const target = document.getElementById('root');
-// React render trigger (virtual) => DOM (web page)
+// 3. Déclenchement du rendu de React (virtuel) => DOM (page web)
 render(rootReactElement, target);
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();

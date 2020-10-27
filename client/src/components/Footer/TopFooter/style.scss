@@ -1,0 +1,10 @@
+p.top-footer {
+  margin: 0.2rem 4rem;
+  color: #fff;
+}
+@media (max-width: 375px) {
+  .top-footer {
+    margin-left: -1rem !important;
+    margin-bottom: 1rem !important;
+  }
+}
