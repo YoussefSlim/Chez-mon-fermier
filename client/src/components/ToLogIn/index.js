@@ -41,9 +41,9 @@ const ToLogIn = () => {
                   Votre mot de passe
                 </label>
                 <p className="font-small blue-text d-flex justify-content-end">
-                  <a href="#" className="blue-text ml-1">
+                  <Link to="#" className="blue-text ml-1">
                     Mot de passe oublié?
-                  </a>
+                  </Link>
                 </p>
               </div>
 

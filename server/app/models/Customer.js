@@ -1,16 +1,18 @@
 const client = require('../database');
-const CoreModel = require ('./CoreModel');
+//const CoreModel = require ('../models/CoreModel');
+const tableName = 'customer';
 
-class Customer extends CoreModel {
+class Customer {
 
     //static tableName = 'customer';
 
-    constructor (data) {
-      super(data);
-      for (const prop in data){
+    constructor(data = {}) {
+     // super(data);
+      for (const prop in data) {
           this[prop] = data[prop];
       }
-  }
+    }
+
     static async getAllCustomers () {
         // 1. we writes the request
         const customers = await client.query(`SELECT * FROM customer`);
@@ -20,77 +22,49 @@ class Customer extends CoreModel {
     static async getCustomerById (customerId) {
         
         const customer = await client.query('SELECT * FROM customer WHERE id = $1', [customerId]);
-        return customer.rows[0];
+        return customer.rows;
     }
 
     static async getCustomerByEmail (email) {
         
-      const customer = await client.query('SELECT * FROM customer WHERE customer = $1', [email]);
-      return customer.rows[0];
+      const customer = await client.query ('SELECT * FROM customer WHERE email=$1', [email]);
+        return customer.rows[0];
     }
-
-    // updateCustomer(data){
-    //   for(const prop in data){
-    //       this[prop] = data[prop];
-    //   }
-    // },
+// A corriger car non fonctionnelle
+    // async updateCustomer(id){
+    //   const customer = await client.query (`UPDATE "customer" SET $1 = $1 WHERE id=$1`, [id]);
+    //     return customer.rows[0]
+    // }
   
-    static async saveCustomer () {
+
+        static async saveCustomer (customer) {
 
         let insertedCustomer;
 
-        //if (this.categoryId) {
-          insertedCustomer = await db.query (`
-          INSERT INTO customer (first_name, last_name, adress, additional_adress, postcode, department, city, phone_number, email, password)
-          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
+        //if (customer.id) {
+          insertedCustomer = await client.query (`
+          INSERT INTO customer (first_name, last_name, address, additional_address, postcode, department, city, phone_number, email, password)
+          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
           RETURNING id;`, [
-            this.first_name,
-            this.last_name,
-            this.adress,
-            this.additional_adress,
-            this.postcode,
-            this.department,
-            this.city,
-            this.phone_number,
-            this.email,
-            this.password,
-            this.categoryId            
-          ]);
-      // } else {
-      //     insertedCustomer = await db.query (`
-      //     INSERT INTO customer (first_name, last_name, adress, additional_adress, postcode, department, city, phone_number, email, password)
-      //     SELECT $1, $2, $3, $4, $5, $6, $7, $8, $9, $10
-      //     FROM category
-      //             WHERE label = $11
-      //             RETURNING customer.id;
-      //     `, [
-      //         this.first_name,
-      //         this.last_name,
-      //         this.adress,
-      //         this.additional_adress,
-      //         this.postcode,
-      //         this.department,
-      //         this.city,
-      //         this.phone_number,
-      //         this.email,
-      //         this.password            
-      //     ]);
-      // }
-        // on va se baser sur rowCount pour savoir si l'insertion a bien eu lieu
-        if (insertedCustomer.rowCount) {
-          this.id = insertedCustomer.rows[0].id;
-      }
+            customer.first_name,
+            customer.last_name,
+            customer.address,
+            customer.additional_address,
+            customer.postcode,
+            customer.department,
+            customer.city,
+            customer.phone_number,
+            customer.email,
+            customer.password           
+          ]);        
+          return insertedCustomer.rows[0];      
     }
 
-    static async deleteCustomer () {
-      const customerToDelete = await db.query (`
-      DELETE FROM customer WHERE id=$1;
-      `, [
-          id
-      ]);
-      return customerToDelete.rows[0];
-
+    async deleteCustomer (id) {
+      await client.query (`
+      DELETE FROM customer WHERE id=$1;`, [id]);
+      //return customerToDelete.rows[0];
     }
-  }
+   }
 
 module.exports = Customer;

@@ -12,7 +12,6 @@ const userController = require('./controllers/userController');
 
 //const adminController = require('./controllers/adminController');
 
-
 /*
 // importer les middlewares
 const adminMiddleware = require('./middlewares/admin');
@@ -22,13 +21,12 @@ const router = express.Router();
 // home Page
 router.get('/', mainController.homePage);
 
-
 // product's detail page
 router.get('/product/:id', productController.getProductById);
 
 // products catalog
 router.get('/products', productController.getAllProducts);
-
+router.post('/product', productController.newProduct);
 // router for see the products by the category id
 router.get('/category/:id/products', productController.getProductsByCategory);
 
@@ -47,8 +45,8 @@ router.get('/shop/:id', shopController.getShopById);
 router.get('/shops', shopController.getAllShops);
 
 // a corriger
-//router.get('/new-shops', shopController.getShopByCreatedDate);
-//router.get('/shops-by-department', shopController.getShopByDepartment);
+// router.get('/new-shops', shopController.getShopByCreatedDate);
+// router.get('/shops-by-department', shopController.getShopByDepartment);
 
 // custommers
 
@@ -59,6 +57,7 @@ router.patch('/customer/:id', userController.editCustomer);
 router.delete('/customer/:id', userController.deleteCustomer);
 
 // user signup/login
+router.get('/signup', userController.signupPage);
 router.post('/signup', userController.customerSignup);
 router.post('/login', userController.customerLogin);
 router.post('/logout', userController.logout);

@@ -18,17 +18,26 @@ const productController = {
         res.json(await Product.findByShop(req.params.id));
     },
 
-    newProduct: async (req,res)=> {
-        const newProduct = new Product(req.body);
-        await newProduct.saveProduct();
-        if (newProduct.id) {
-            res.json(newProduct);
-        } else {
-            // la ressource en elle-même est trouvée, mais pas la catégorie, c'est ça que reflète le code 404 ici
-            res.status(404).json(newProduct);
+    newProduct: async (req,res) => {
+        try{
+            const newProduct = new Product(req.body);
+            console.log(req.body);
+            console.log(newProduct);
+            const insertedProduct = await Product.saveProduct(newProduct);
+            if (insertedProduct) {
+             
+                res.json(insertedProduct);
+                
+            } else {
+                // la ressource en elle-même est trouvée, mais pas la catégorie, c'est ça que reflète le code 404 ici
+                res.status(404).json("Le produit n'a pas été enregistré");
+            }
+        } catch (error) {
+            console.log(error);
+            res.status(500).json(error);
         }
-        
     },
+
     error404: (req, res) => {
         res.status(404).json("La page demandée n'existe pas");
     },

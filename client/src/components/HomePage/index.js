@@ -1,7 +1,7 @@
-import Products from 'src/containers/Products';
 import React, { useEffect } from 'react';
 import Footer from 'src/components/Footer';
 import { Slides } from './Slides';
+import Products from 'src/containers/Products';
 
 import './style.scss';
 

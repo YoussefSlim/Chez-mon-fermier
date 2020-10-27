@@ -1,10 +1,9 @@
 const client = require('../database');
-const CoreModel = require ('./CoreModel');
+// const CoreModel = require ('./CoreModel');
 
-class Shop extends CoreModel {
+class Shop {
 
     constructor (data) {
-        super(data);
         for (const prop in data){
             this[prop] = data[prop];
         }
