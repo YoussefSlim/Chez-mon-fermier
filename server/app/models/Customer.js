@@ -59,11 +59,20 @@ class Customer {
           ]);        
           return insertedCustomer.rows[0];      
     }
+    static async updateCustomer(data){
+      // we decomposed the SQL requeste with the informations we want to insert 
+      const sql = `UPDATE customer SET "first_name" = $1, "last_name" = $2, "address" = $3, "additional_address" = $4,"postcode" = $5, "department" =$6, "city" = $7,  "phone_number" = $8, "email" = $9, "password" = $10, "updated_at" = now() WHERE "id" = $11 RETURNING "id", "first_name", "last_name", "address", "additional_address", "postcode", "department", "city", "phone_number", "email", "password";`;
+      // we will connect to the db with us customer, and we stock the complete request in the data for the return 
+      const dataUpdate = await client.query(sql, [data.first_name, data.last_name, data.address, data.additional_address, data.postcode, data.department, data.city, data.phone_number, data.email, data.password, data.id]);
+      //dataUpdate.rows[0].message = 'Le produit est bien modifié';
+      // We send the new datas 
+      return dataUpdate.rows[0];
+ }
 
-    async deleteCustomer (id) {
-      await client.query (`
+    static async deleteCustomer (id) {
+      const customerToDelete = await client.query (`
       DELETE FROM customer WHERE id=$1;`, [id]);
-      //return customerToDelete.rows[0];
+      return customerToDelete.rows[0];
     }
    }
 
