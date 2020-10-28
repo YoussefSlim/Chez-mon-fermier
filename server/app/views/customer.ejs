@@ -1,0 +1,23 @@
+<%- include ("partials/header") %>
+<%- include ("partials/sidenav") %>
+
+<section class="content_right">
+    <h1 class="admin-title">
+        Espace d'administration des clients
+    </h1>
+    <section class="member-list">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item" id="list-group-item">Prénom: <%= customer.first_name %></li>
+            <li class="list-group-item" id="list-group-item">Nom: <%= customer.last_name %></li>
+            <li class="list-group-item" id="list-group-item">Adresse: <%= customer.address %></li>
+            <li class="list-group-item" id="list-group-item">Comlément d'adresse: <%= customer.additional_address %></li>
+            <li class="list-group-item" id="list-group-item">Code postal: <%= customer.postcode %></li>
+            <li class="list-group-item" id="list-group-item">N° de Département: <%= customer.department %></li>
+            <li class="list-group-item" id="list-group-item">Ville: <%= customer.city %></li>
+            <li class="list-group-item" id="list-group-item">Téléphone: <%= customer.phone_number %></li>
+            <li class="list-group-item" id="list-group-item">Email: <%= customer.email %></li>
+    </ul>
+    
+    </section>
+</main>
+<%- include ("partials/footer") %>

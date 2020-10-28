@@ -2,7 +2,7 @@ const Customer = require('../models/Customer');
 const emailValidator = require('email-validator');
 const bcrypt = require('bcrypt');
 //const cookieParser = require('cookie-parser');
-//const session = require('express-session');
+const session = require('express-session');
 
 const customerController = {
     customerById: async (req, res) =>{
@@ -52,7 +52,8 @@ const customerController = {
             }
             await Customer.updateCustomer(req.body);
             //Customer.save();
-            res.json(customerToEdit, 'Le client a bien été modifié');
+            res.json(customerToEdit);
+            console.log('Le compte a bien été modifié')
             
         } catch (error) {
             console.log(error);
@@ -63,7 +64,7 @@ const customerController = {
     deleteCustomer: async (req,res)=> {
         const customer = await Customer.getCustomerById(req.params.id);
         // console.log(Customer.id);
-        const message = 'Le compte est bien supprimer';
+        const message = 'Le compte est bien supprimé';
         const customerToDelete = new Customer(customer);
         await Customer.deleteCustomer(req.params.id);
         res.status(200).json(message);
@@ -91,7 +92,8 @@ const customerController = {
             if (!validPwd){
                 res.status(401).json('le mot de passe est incorrect');                
             } else {
-                req.session.customer = {
+            //req.session.customer ne fonctionne pas
+                req.body.customer = {
                     first_name : customer.first_name,
                     last_name : customer.last_name,
                     address: customer.address,
@@ -102,15 +104,7 @@ const customerController = {
                     phone_number: customer.hone_number,
                     email: customer.email
                 }
-
-                // if (req.body.remember) {
-                //     req.cookie.expires = new Date (Date.now() + 60*60*24)
-                // }
-                // //ajouter un status 200
-                // res.json(customer);
-                // // res.redirect('/')
-                res.status(200).json({ logged: true, session: req.session.customer });
-
+                res.status(200).json(customer/*{ logged: true, session: req.session.customer }*/);
             }            
         }
     },

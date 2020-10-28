@@ -1,7 +1,7 @@
 const client = require('../database');
 
 
-const adminModel = {
+const Admin = {
     
   
 }

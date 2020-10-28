@@ -1,0 +1,217 @@
+<%- include ("partials/header") %>
+<%- include ("partials/sidenav") %>
+<!-- right content -->
+<section class="content_right">
+              
+
+    <!-- Begin Page Content -->
+<div class="container-fluid">
+<h1 class="admin-title">
+Bienvenue sur votre espace d'administration
+</h1>
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-green shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generer un rapport</a>
+</div>
+
+<!-- Content Row -->
+<div class="row">
+
+<!-- Earnings (Monthly) Card Example -->
+<div class="col-xl-3 col-md-6 mb-4">
+<div class="card border-left-primary shadow h-100 py-2">
+ <div class="card-body">
+   <div class="row no-gutters align-items-center">
+     <div class="col mr-2">
+       <div class="text-xs font-weight-bold text-blue text-uppercase mb-1">CA (Mensuel)</div>
+       <div class="h5 mb-0 font-weight-bold text-gray-800">4000,00€</div>
+     </div>
+     <div class="col-auto">
+       <i class="fas fa-calendar fa-2x text-gray-300"></i>
+     </div>
+   </div>
+ </div>
+</div>
+</div>
+
+<!-- Earnings (Monthly) Card Example -->
+<div class="col-xl-3 col-md-6 mb-4">
+<div class="card border-left-green shadow h-100 py-2">
+ <div class="card-body">
+   <div class="row no-gutters align-items-center">
+     <div class="col mr-2">
+       <div class="text-xs font-weight-bold text-green text-uppercase mb-1">CA (Annuel)</div>
+       <div class="h5 mb-0 font-weight-bold text-gray-800">215000,00€</div>
+     </div>
+     <div class="col-auto">
+       <i class="fas fa-euro-sign fa-2x text-gray-300"></i>
+     </div>
+   </div>
+ </div>
+</div>
+</div>
+
+<!-- Earnings (Monthly) Card Example -->
+<div class="col-xl-3 col-md-6 mb-4">
+<div class="card border-left-blue shadow h-100 py-2">
+ <div class="card-body">
+   <div class="row no-gutters align-items-center">
+     <div class="col mr-2">
+       <div class="text-xs font-weight-bold text-blue text-uppercase mb-1">Panier Validées</div>
+       <div class="row no-gutters align-items-center">
+         <div class="col-auto">
+           <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">80%</div>
+         </div>
+         <div class="col">
+           <div class="progress progress-sm mr-2">
+             <div class="progress-bar bg-blue" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+           </div>
+         </div>
+       </div>
+     </div>
+     <div class="col-auto">
+       <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+     </div>
+   </div>
+ </div>
+</div>
+</div>
+
+<!-- Pending Requests Card Example -->
+<div class="col-xl-3 col-md-6 mb-4">
+<div class="card border-left-yellow shadow h-100 py-2">
+ <div class="card-body">
+   <div class="row no-gutters align-items-center">
+     <div class="col mr-2">
+       <div class="text-xs font-weight-bold text-red text-uppercase mb-1">Messages Reçu</div>
+       <div class="h5 mb-0 font-weight-bold text-gray-800 text-red">18</div>
+     </div>
+     <div class="col-auto">
+       <i class="fas fa-comments fa-2x text-gray-300"></i>
+     </div>
+   </div>
+ </div>
+</div>
+</div>
+</div>
+
+<!-- Content Row -->
+
+<div class="row">
+
+<!-- Area Chart -->
+<div class="col-xl-8 col-lg-7">
+<div class="card shadow mb-4">
+ <!-- Card Header - Dropdown -->
+ <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between bg-blue">
+   <h6 class="m-0 font-weight-bold text-white">Graphique CA Annuel</h6>
+   <div class="dropdown no-arrow">
+     <a class="dropdown-toggle text-white" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+     </a>
+     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+       <div class="dropdown-header">Dropdown Header:</div>
+       <a class="dropdown-item" href="#">Action</a>
+       <a class="dropdown-item" href="#">Another action</a>
+       <div class="dropdown-divider"></div>
+       <a class="dropdown-item" href="#">Something else here</a>
+     </div>
+   </div>
+ </div>
+ <!-- Card Body -->
+ <div class="card-body">
+   <div class="chart-area">
+     <canvas id="myAreaChart"></canvas>
+   </div>
+ </div>
+</div>
+</div>
+
+<!-- Pie Chart -->
+<div class="col-xl-4 col-lg-5">
+<div class="card shadow mb-4">
+ <!-- Card Header - Dropdown -->
+ <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between bg-marine">
+   <h6 class="m-0 font-weight-bold text-white">Sources Visites</h6>
+   <div class="dropdown no-arrow">
+     <a class="dropdown-toggle text-white" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+     </a>
+     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+       <div class="dropdown-header">Dropdown Header:</div>
+       <a class="dropdown-item" href="#">Action</a>
+       <a class="dropdown-item" href="#">Another action</a>
+       <div class="dropdown-divider"></div>
+       <a class="dropdown-item" href="#">Something else here</a>
+     </div>
+   </div>
+ </div>
+ <!-- Card Body -->
+ <div class="card-body">
+   <div class="chart-pie pt-4 pb-2">
+     <canvas id="myPieChart"></canvas>
+   </div>
+   <div class="mt-4 text-center small">
+     <span class="mr-2">
+       <i class="fas fa-circle text-blue"></i> Visites directes
+     </span>
+     <span class="mr-2">
+       <i class="fas fa-circle text-green"></i> Réseaux sociaux
+     </span>
+     <span class="mr-2">
+       <i class="fas fa-circle text-blue"></i> Référencement payant
+     </span>
+   </div>
+ </div>
+</div>
+</div>
+</div>
+
+</div>
+<!-- /.container-fluid -->
+<div class="home-content_right_table">
+
+<div class="card bg-blue bulle">
+<div class="card-body">
+ <h5 class="card-title">Vendeurs</h5>
+ <i class="icon-card fas fa-store-alt"></i>
+ <a href="/admin/vendors" class="btn btn-white">Voir</a>
+</div>
+</div>
+
+<div class="card bg-marine bulle">
+<div class="card-body">
+   <h5 class="card-title">Clients</h5>
+   <i class="icon-card fas fa-user-cog"></i>
+   <a href="/admin/customers" class="btn btn-white">Voir</a>
+</div>
+</div>
+<div class="card bg-yellow bulle">
+<div class="card-body">
+   <h5 class="card-title">Produits</h5>
+   <i class="icon-card fas fa-carrot"></i>
+   <a href="/admin/products" class="btn btn-white">Voir</a>
+</div>
+</div>
+<div class="card bg-red bulle">
+<div class="card-body">
+   <h5 class="card-title">Catégories</h5>
+   <i class="icon-card fa fa-folder"></i>
+   <a href="/admin/categories" class="btn btn-white">Voir</a>
+</div>
+</div>
+
+<div class="card bg-green bulle">
+   <div class="card-body">
+       <h5 class="card-title">Commandes</h5>
+       <i class="icon-card fa fa-shopping-cart"></i>
+       <a href="/admin/orders" class="btn btn-white">Voir</a>
+   </div>
+</div>
+</div>
+</section>
+<!-- end of right content zone -->
+</main>
+<!-- end of main's content zone -->
+
+<%- include('partials/footer') %>
