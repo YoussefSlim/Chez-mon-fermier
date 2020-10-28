@@ -46,10 +46,12 @@ li{
 }
 
 a{
-    text-decoration: none;
+	text-decoration: none;
+	color: #31435B;
 }
 
 a:hover {
-    color: #0056b3;
-    text-decoration: none;
+    color: #0c1727;
+	text-decoration: none;
+	transition: all 1s linear;
 }
