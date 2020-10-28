@@ -22,7 +22,7 @@ CREATE TABLE "product" (
 );
 
 CREATE TABLE "category" (
-    "id" INTGENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "name" TEXT UNIQUE NOT NULL,
     "description" TEXT,
     "parent_id" int REFERENCES category(id),
