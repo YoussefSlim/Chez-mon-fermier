@@ -6,6 +6,7 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV !== "production") {
   const cors = require("cors");
   const sanitizeData = require("./app/middlewares/sanitizeData");
   const app = express();
+  const corsConfig = require('./app/config/cors')
   //const session = require('express-session');
   
   //the router
@@ -41,6 +42,8 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV !== "production") {
     })
   );
   
+  
+
   const PORT = process.env.PORT || 5050;
   
   app.set("models", "./app/models");
