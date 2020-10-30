@@ -33,9 +33,7 @@ const adminController = {
 
     customerById: async (req,res) => {
         const customer = await Customer.getCustomerById(req.params.id);
-        res.render('customer', {
-            customer: customer,
-        });
+        res.render('customer', {customer});
     },
 
     allCustomers: async (req,res) => {
@@ -50,46 +48,54 @@ const adminController = {
         res.json(customers);
     },
 
+    addCustomerPage: async(req, res) => {
+        res.render('addCustomer');
+    },
+
     newCustomer: async (req,res)=> {
         try{
-            const newCustomer = new Customer(req.body);
+            const customer = new Customer(req.body);
            // console.log(req.body);
-          //  console.log(newCustomer);
-            const insertedCustomer = await Customer.saveCustomer(newCustomer);
+          //  console.log(customer);
+            const insertedCustomer = await Customer.saveCustomer(customer);
             if (insertedCustomer) {
              
-                res.json(insertedCustomer);
+                res.render('addCustomer', {
+                    customer: customer,
+                });
                 
             } else {
                 // la ressource en elle-même est trouvée, mais pas la catégorie, c'est ça que reflète le code 404 ici
-                res.status(404).json("L'utilisateur n'a pas été enregistré");
+                res.status(404).render("404");
             }
     } catch (error) {
         console.log(error);
-        res.status(500).json({error});
+        res.status(500).render("500");
     }
     },
 
     error404: (err, res) => {
-        res.status(404).json(err, "La page demandée n'existe pas");
+        res.status(404).render(err, "404");
     },
 
 
     editCustomer: async (req, res) => {
-        try{
+       // try{
             const customer = await Customer.getCustomerById(req.params.id);
             const customerToEdit = new Customer(customer);
             for(const prop in req.body) {
                 customerToEdit[prop] = req.body[prop];
             }
             await Customer.updateCustomer(req.body);
-            //Customer.save();
-            res.json(customerToEdit, 'Le client a bien été modifié');
             
-        } catch (error) {
-            console.log(error);
-            res.status(500).json(error);
-        }
+            res.render('editCustomer', {
+                customer: customer,
+            });
+            
+        // } catch (error) {
+        //     console.log(error);
+        //     res.status(500).json(error);
+        // }
     }, 
 
     deleteCustomer: async (req,res)=> {
@@ -100,7 +106,6 @@ const adminController = {
         await Customer.deleteCustomer(req.params.id);
         res.status(200).json(message);
             
-
             // res.send('Le client a bien été supprimé');
     },
     // adminLogin: async (req, res) => {

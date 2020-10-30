@@ -2,11 +2,18 @@
 <%- include ("partials/sidenav") %>
 
 <section class="content_right">
+    <nav aria-label="breadcrumb" class="fil-ariane">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/admin">Accueil</a></li>
+          <li class="breadcrumb-item active">Clients</li>
+          
+        </ol>
+      </nav>
     <h1 class="admin-title">
         Espace d'administration des clients
     </h1>
     <table class="table" style="text-align: center;">
-        <thead class="bg-info">
+        <thead class="bg-info text-white">
           <tr>
             <th scope="col">N°</th>
             <th scope="col">Nom du client</th>
@@ -20,23 +27,27 @@
           </tr>
         </thead>
         <tbody>
-            <% for (const customer of customers){%>
-          <tr>
-            <th scope="row"><%= customer.id %></th>
+            <form id="formCustomerElement" data-card-id="???" action="" method="POST" ></form>
+            <% for (const customer of customers) { %>
+            <tr class="customerInfos" name="<%= customer.id %>">
+            <th scope="row" class="customerId"><%= customer.id %></th>
             <td><%= customer.first_name %> <%= customer.last_name %></td>
             <td><%= customer.email %></td>
             <td><%= customer.phone_number %></td>
             <td><%= customer.department %></td>
             <td><a href="#" data-toggle="modal" data-target="#exampleModal" class="text-dark"><i class="far fa-eye" aria-hidden="true"></i></a></td>            
-            <td><a href="/admin/add/customer" class="text-success"><i class="fa fa-plus-circle" aria-hidden="true"></i></a></td>
-            <td><a href="/admin/edit/customer/<%= customer.id %>" class="text-warning"><i class="fas fa-edit"></i></a></td>
-            <td><a href="/admin/delete/customer/<%= customer.id %>" class="text-danger"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+            <td><a href="/admin/addCustomer" class="text-success"><i class="fa fa-plus-circle" aria-hidden="true"></i></a></td>
+            <td><a href="/admin/editCustomer/<%= customer.id %>" class="text-warning"><i class="fas fa-edit"></i></a></td>
+            <td>
+             <button type="submit" class="btn text-danger deleteButton"><i class="fa fa-trash" aria-hidden="true"></i></button>
+            </td>
+
             <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel"><%= customer.first_name %> <%= customer.last_name %></h5>
+            <h5 class="ui bg-framboise ribbon label h5-title" id="exampleModalLabel"><%= customer.first_name %> <%= customer.last_name %></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -45,23 +56,24 @@
                 <ul class="list-group list-group-flush">
                     <!-- <li class="list-group-item" id="list-group-item">Prénom: <%= customer.first_name %></li>
                     <li class="list-group-item" id="list-group-item">Nom: <%= customer.last_name %></li> -->
-                    <li class="list-group-item" id="list-group-item"><i class="fas fa-map-marker-alt"></i>Adresse: <%= customer.address %></li>
-                    <li class="list-group-item" id="list-group-item"><i class="fas fa-map-pin"></i>Comlément d'adresse: <%= customer.additional_address %></li>
-                    <li class="list-group-item" id="list-group-item"><i class="fas fa-compass"></i>Code postal: <%= customer.postcode %></li>
-                    <li class="list-group-item" id="list-group-item"><i class="fas fa-map-signs"></i>N° de Département: <%= customer.department %></li>
-                    <li class="list-group-item" id="list-group-item"><i class="fas fa-city"></i>Ville: <%= customer.city %></li>
-                    <li class="list-group-item" id="list-group-item"><i class="fas fa-phone"></i>Téléphone: <%= customer.phone_number %></li>
-                    <li class="list-group-item" id="list-group-item"><i class="fas fa-envelope-open"></i>Email: <%= customer.email %></li>
+                    <li class="list-group-item" id="list-group-item"><i class="fas fa-map-marker-alt icon-modal text-red"></i> <span class="souligne">Adresse:</span><%= customer.address %></li>
+                    <li class="list-group-item" id="list-group-item"><i class="fas fa-map-pin icon-modal text-red"></i><span class="souligne">Complément d'adresse:</span><%= customer.additional_address %></li>
+                    <li class="list-group-item" id="list-group-item"><i class="fas fa-compass icon-modal text-marine"></i><span class="souligne">Code postal:</span><%= customer.postcode %></li>
+                    <li class="list-group-item" id="list-group-item"><i class="fas fa-map-signs icon-modal text-green"></i><span class="souligne">N° de Département:</span><%= customer.department %></li>
+                    <li class="list-group-item" id="list-group-item"><i class="fas fa-city icon-modal text-warning"></i><span class="souligne">Ville:</span><%= customer.city %></li>
+                    <li class="list-group-item" id="list-group-item"><i class="fas fa-phone icon-modal text-blue"></i><span class="souligne">Téléphone:</span><%= customer.phone_number %></li>
+                    <li class="list-group-item" id="list-group-item"><i class="fas fa-envelope-open icon-modal text-red"></i><span class="souligne">Email:</span><%= customer.email %></li>
             </ul>
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-marine" data-dismiss="modal">Annuler</button>
-            <button type="button" class="btn btn-blue">Modifier le client</button>
+            <a href="/admin/editCustomer/<%= customer.id %>" class="btn btn-blue">Modifier le client</a>
             </div>
         </div>
         </div>
     </div>
           </tr>
+        </form>
           <% } %>
           
         </tbody>

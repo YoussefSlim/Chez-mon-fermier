@@ -1,0 +1,115 @@
+<%- include ("partials/header") %>
+<%- include ("partials/sidenav") %>
+
+<!-- right content -->
+<section class="content_right">
+    <nav aria-label="breadcrumb" class="fil-ariane">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/admin">Accueil</a></li>
+          <li class="breadcrumb-item"><a href="/admin/customers">Clients</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Ajouter un client</li>
+        </ol>
+      </nav>
+    <div class="content_right_table">
+      <h1 class="admin-title">
+        <i class="fas fa-user-edit"></i> <br>Modication d'un client            
+      </h1>
+    <form id="editCustomerForm" action="" method="POST" name="<%= customer.id %>">
+        
+            <div class="row">
+                
+                <div class="col">
+                  <label for="lastName">Prénom*</label>
+                  <input type="text" class="form-control" placeholder="Prénom" name="first_name" value="<%= customer.first_name %>" required>
+                  <small id="firstNameHelp" class="form-text text-muted">Veuillez renseigner/modifier le prénom du client(*obligatoire).</small>
+                </div>
+                <div class="col">
+                    <label for="lastName">Nom*</label>
+                  <input type="text" class="form-control" placeholder="Nom" name="last_name" value="<%= customer.last_name %>" required>
+                  <small id="firstNameHelp" class="form-text text-muted">Veuillez renseigner/modifier le prénom du client(*obligatoire).</small>
+                </div>
+              </div>
+        
+        <div class="row">
+            <div class="col">
+                <label for="inputEmail4">Email*</label>
+              <input type="text" class="form-control" placeholder="Email" name="email" value="<%= customer.email %>" required>
+              <small id="telephoneHelp" class="form-text text-muted">
+                Veuillez renseigner/modifier une adresse email valide(*obligatoire).
+            </small>
+            </div>
+            <div class="col">
+                <label for="phone_number">N° de téléphone*</label>
+              <input type="number" class="form-control" placeholder="Téléphone" name="phone_number" value="<%= customer.phone_number %>" required minlength="10" maxlength="10">
+              <small id="telephoneHelp" class="form-text text-muted">
+                Veuillez renseigner/modifier un numéro de téléphone portable ou fixe valide(*obligatoire).
+            </small>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+              <label for="inputPassword4">Mot de passe*</label>
+              <input type="password" class="form-control" name="password" id="password" placeholder="Mot de passe">
+              <small id="titleHelp" class="form-text text-muted">
+                Veuillez renseigner/modifier le mot de passe (*obligatoire).
+              </small>
+            </div>
+            <div class="col">
+              <label for="inputPassword4">Confirmation mot de passe*</label>
+              <input type="password" class="form-control" id="confirmPassword" placeholder="Confirmez le mot de passe">
+              <small id="titleHelp" class="form-text text-muted">
+                Veuillez confirmer le mot de passe (*obligatoire).
+              </small>
+            </div>
+        </div>
+
+          <div class="row">
+            <div class="col">
+                <label for="address">Adresse de résidence*</label>
+                <input type="text" class="form-control" name="address"  id="address" placeholder="Adresse"  value="<%= customer.address %>">
+                <small id="titleHelp" class="form-text text-muted">
+                    Veuillez renseigner/modifier l'adresse de résidence (*obligatoire).
+                </small>
+            </div>
+            <div class="col">
+                <label for="additional_adress">Adresse complémentaire</label>
+                <input type="text" class="form-control" name="additional_address" value="<%= customer.additional_address %>" id="additional_address" placeholder="N° Appartement, lieu-dit, étage">
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col">
+                <label for="postcode">Code postal*</label>
+                <input type="number" class="form-control" name="postcode"  id="postcode" value="<%= customer.postcode %>" required minlength="5" maxlength="5">
+                <small id="titleHelp" class="form-text text-muted">
+                Veuillez renseigner/modifier le code postal de résidence (*obligatoire).
+                </small>
+              
+            </div>
+            <div class="col">
+                <label for="title">N° du département de résidence*</label>
+                <input type="number" class="form-control" name="department"  id="inputTitle" value="<%= customer.department %>" data-decimals="2" min="01" max="97" step="01" required maxlength="2"/>
+                <small id="titleHelp" class="form-text text-muted">
+                    Veuillez renseigner/modifier le département de résidence (*obligatoire).
+                </small>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col">
+                    <label for="city">Ville*</label>
+                    <input type="text" class="form-control" name="city" id="city" value="<%= customer.city %>" required>
+                    <small id="titleHelp" class="form-text text-muted">
+                      Veuillez renseigner/modifier la Ville de résidence (*obligatoire).
+                    </small>
+                </div>
+            </div>
+        <button type="submit" class="btn btn-green" id="sendButton">Enregistrer les modifications</button>
+      </form>
+    </div>
+</section>
+<!-- end of right content zone -->
+</main>
+<!-- end of main's content zone -->
+<%- include ("partials/footer") %>

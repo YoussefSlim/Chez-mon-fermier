@@ -1,0 +1,126 @@
+<%- include ("partials/header") %>
+<%- include ("partials/sidenav") %>
+
+<!-- right content -->
+<section class="content_right">
+    <nav aria-label="breadcrumb" class="fil-ariane">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/admin">Accueil</a></li>
+          <li class="breadcrumb-item"><a href="/admin/customers">Clients</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Ajouter un client</li>
+        </ol>
+      </nav>
+    <div class="content_right_table">
+      <h1 class="admin-title">
+            <i class="fa fa-user-plus"></i> <br>Ajout d'un client             
+      </h1>
+    <form id="addFormElement" action="/admin/addCustomer" method="POST">
+            <div class="row">
+                <div class="col">
+                  <label for="firstName">Prénom*</label>
+                  <input type="text" class="form-control" placeholder="Prénom" name='first_name' id='first_name' maxlength='50' required>
+                  <span id='missfirstName'></span><br>
+
+                  <small id="firstNameHelp" class="form-text text-muted">Veuillez renseigner le Prénom du client(*obligatoire).</small>
+                </div>
+                <div class="col">
+                    <label for="lastName">Nom*</label>
+                  <input type="text" class="form-control" placeholder="Nom" name='last_name' id='last_name' maxlength='50' required>
+                  <span id='misslastName'></span><br>
+                  <small id="lastNameHelp" class="form-text text-muted">Veuillez renseigner le Nom du client(*obligatoire).</small>
+                </div>
+              </div>
+        
+        <div class="row">
+            <div class="col">
+                <label for="inputEmail4">Email*</label>
+              <input type="email" class="form-control" placeholder="Email" name='email' id='email' required>
+              <span id='missEmail'></span><br>
+              <small id="emailHelp" class="form-text text-muted">
+                Veuillez renseigner une adresse email valide(*obligatoire).
+            </small>
+            </div>
+            <div class="col">
+                <label for="tel">N° de téléphone*</label>
+              <input class="form-control" placeholder="Téléphone" type="number" data-decimals="10" maxlength="10" minlenght="10" name='phone_number' id='phone_number' required>
+              <span id='missPhone'></span><br>
+              <small id="telephoneHelp" class="form-text text-muted">
+                Veuillez renseigner un numéro de téléphone portable ou fixe valide(*obligatoire).
+            </small>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+              <label for="inputPassword4">Mot de passe*</label>
+              <input type="password" name='password' id='password' maxlength='20' minlength='5'  class="form-control" placeholder="Mot de passe" required>
+              <span id='missPassword'></span><br>
+              <small id="passwordHelp" class="form-text text-muted">
+                Veuillez renseigner le mot de passe avec au minimum 5 à 20 caractères contenant au moins un chiffre, une majuscule et une minuscule(*obligatoire).
+              </small>
+            </div>
+            <div class="col">
+              <label for="confirmPassword">Confirmation mot de passe*</label>
+              <input type="password" class="form-control" name='confirmPassword' id='confirmPassword' maxlength='20' minlength='3' placeholder="Confirmez le mot de passe" required>
+              <span id='missConfirmPassword'></span><br>
+              <small id="passwordConfirmHelp" class="form-text text-muted">
+                Veuillez confirmer le mot de passe (*obligatoire).
+              </small>
+            </div>
+        </div>
+
+          <div class="row">
+            <div class="col">
+                <label for="inputAddress">Adresse de résidence*</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="Renseignez votre adresse" name="address" required>
+                <span id='missAddress'></span><br>
+                <small id="titleHelp" class="form-text text-muted">
+                    Veuillez renseigner l'adresse de résidence (*obligatoire).
+                </small>
+            </div>
+            <div class="col">
+                <label for="additionalAddress">Adresse complémentaire</label>
+                <input type="text" class="form-control" id="additionalAddress" placeholder="N° Appartement, lieu-dit, étage" name="additionalAddress">
+                
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col">
+                <label for="postcode">Code postal*</label>
+                <input type="number" data-decimals="5" maxlength="5" class="form-control" id="postcode" placeholder="Code postal" name="postcode" required>
+                <span id='missPostcode'></span><br>
+                <small id="titleHelp" class="form-text">
+                Veuillez renseigner le code postal de résidence (*obligatoire).
+                </small>
+              
+            </div>
+            <div class="col">
+                <label for="title">N° du département de résidence*</label>
+                <input type="number" class="form-control" id="department" data-decimals="2" min="01" max="97" step="01" placeholder="N° de département" name="department" required/>
+                <span id='missDepartment'></span><br>
+                <small id="departmentHelp" class="form-text text-muted">
+                    Veuillez renseigner le département de résidence (*obligatoire).
+                </small>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col">
+                    <label for="inputCity">Ville*</label>
+                    <input type="text" class="form-control" id="city" placeholder="Ville de résidence" name="city" required>
+                    <span id="missCity"></span><br>
+                    <small id="cityHelp" class="form-text text-muted">
+                      Veuillez renseigner la ville de résidence (*obligatoire).
+                    </small>
+                </div>
+            </div>
+            
+        <button type="submit" class="btn btn-green" id="sendButton">Créer un utilisateur</button>
+      </form>
+    </div>
+</section>
+<!-- end of right content zone -->
+</main>
+<!-- end of main's content zone -->
+<%- include ("partials/footer") %>

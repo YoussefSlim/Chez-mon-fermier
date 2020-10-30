@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600);
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
 body{
     width: 100%;
@@ -16,11 +17,12 @@ body{
 }
 
 .top{
-   width: 100%;
-   background-color: #31435B;
-   position: relative;
-    top: 0;
-    height: 6rem;
+  width: 100%;
+  background-color: #31435B;
+  position: fixed;
+  top: 0;
+  height: 6rem;
+  z-index: 2;
 
 }
 
@@ -43,7 +45,7 @@ body{
     transition: all 0.5s linear;
 }
 
-.jello-horizontal, .icon-link:hover, .btn-blue:hover, .bulle:hover{
+.jello-horizontal, .icon-link:hover, .btn-marine:hover, .btn-white:hover, .btn-blue:hover, .bulle:hover{
 	-webkit-animation: jello-horizontal 0.9s both;
     animation: jello-horizontal 0.9s both;
 }
@@ -56,13 +58,25 @@ body{
     color:#DB3855;
 }
 
+.icon-modal{
+  padding-right: 1rem;
+}
 
+.souligne{
+  text-decoration: underline;
+  padding-right: 0.5rem;
+}
+
+.h5-title{
+  font-size: 2rem!important;
+  font-family: 'Lobster', cursive;
+
+}
 .btn-marine{
    background-color: #31435B!important;
    color: white!important;
    padding: .375rem 2rem!important;
-   transition: all 1s linear;
-
+   transition: all 1s linear!important;
 }
 
 .btn-white{
@@ -152,8 +166,18 @@ body{
 
  .bg-red{
    background-color: #DB3855!important;
+   color: white!important;
    transition: all 1s linear;
  }
+ .bg-framboise{
+  background-color: #DB3855!important;
+  color: white!important;
+  transition: all 1s linear;
+}
+
+.modal-footer, .modal-header, .list-group-item{
+  border: none!important;
+}
 
  .bg-red:hover{
   background-color: #47111b!important;
@@ -256,7 +280,7 @@ body{
 Sidebar
 ----------------*/
 .sidebar {
-    position: absolute;
+  position: fixed;
     width: 18%;
     min-height: 100%;
     top: 6rem;
@@ -381,7 +405,7 @@ Sidebar
   }
 
 .content_right{
-    margin-left: 19%;
+    margin-left: 15%;
     width: 80%;
     display: flex;
     justify-content: space-between;
@@ -389,12 +413,18 @@ Sidebar
     position: absolute;
     top: 7rem;
     flex-direction: column;
+    z-index: 1;
+    padding-bottom: 10rem;
 }
 
 .fil-ariane{
     max-width: 50%;
     min-width: 15%;
     width: 100%;
+}
+
+.breadcrumb {
+  background-color: transparent!important;
 }
 
 .content_right_table{
@@ -454,13 +484,17 @@ Sidebar
 }
 
 .bottom{
-    background-color: #31435B;
-    width: 100%;
-    height: 3rem;
-    color: white;
-    text-align: center;
-    align-self: flex-end;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-color: #31435B;
+  width: 100%;
+  height: 3rem;
+  color: white;
+  text-align: center;
+  align-self: flex-end;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  /* top: 100%; */
+  z-index: 2;
 }

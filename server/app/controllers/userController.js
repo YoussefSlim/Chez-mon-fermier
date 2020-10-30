@@ -50,9 +50,9 @@ const customerController = {
             for(const prop in req.body) {
                 customerToEdit[prop] = req.body[prop];
             }
-            await Customer.updateCustomer(req.body);
+            const customerEdited = await Customer.updateCustomer(customerToEdit);
             //Customer.save();
-            res.json(customerToEdit);
+            res.status(200).json(customerEdited);
             console.log('Le compte a bien été modifié')
             
         } catch (error) {
