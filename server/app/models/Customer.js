@@ -30,14 +30,8 @@ class Customer {
       const customer = await client.query ('SELECT * FROM customer WHERE email=$1', [email]);
         return customer.rows[0];
     }
-// A corriger car non fonctionnelle
-    // async updateCustomer(id){
-    //   const customer = await client.query (`UPDATE "customer" SET $1 = $1 WHERE id=$1`, [id]);
-    //     return customer.rows[0]
-    // }
-  
 
-        static async saveCustomer (customer) {
+    static async saveCustomer (customer) {
 
         let insertedCustomer;
 

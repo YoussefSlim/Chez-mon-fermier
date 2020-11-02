@@ -2,7 +2,7 @@ const Customer = require('../models/Customer');
 const emailValidator = require('email-validator');
 const bcrypt = require('bcrypt');
 //const cookieParser = require('cookie-parser');
-//const session = require('express-session');
+const session = require('express-session');
 
 const customerController = {
     customerById: async (req, res) =>{
@@ -50,9 +50,10 @@ const customerController = {
             for(const prop in req.body) {
                 customerToEdit[prop] = req.body[prop];
             }
-            await Customer.updateCustomer(req.body);
+            const customerEdited = await Customer.updateCustomer(customerToEdit);
             //Customer.save();
-            res.json(customerToEdit, 'Le client a bien été modifié');
+            res.status(200).json(customerEdited);
+            console.log('Le compte a bien été modifié')
             
         } catch (error) {
             console.log(error);
@@ -63,7 +64,7 @@ const customerController = {
     deleteCustomer: async (req,res)=> {
         const customer = await Customer.getCustomerById(req.params.id);
         // console.log(Customer.id);
-        const message = 'Le compte est bien supprimer';
+        const message = 'Le compte est bien supprimé';
         const customerToDelete = new Customer(customer);
         await Customer.deleteCustomer(req.params.id);
         res.status(200).json(message);
@@ -91,7 +92,8 @@ const customerController = {
             if (!validPwd){
                 res.status(401).json('le mot de passe est incorrect');                
             } else {
-                req.session.customer = {
+            //req.session.customer ne fonctionne pas
+                req.body.customer = {
                     first_name : customer.first_name,
                     last_name : customer.last_name,
                     address: customer.address,
@@ -102,15 +104,7 @@ const customerController = {
                     phone_number: customer.hone_number,
                     email: customer.email
                 }
-
-                // if (req.body.remember) {
-                //     req.cookie.expires = new Date (Date.now() + 60*60*24)
-                // }
-                // //ajouter un status 200
-                // res.json(customer);
-                // // res.redirect('/')
-                res.status(200).json({ logged: true, session: req.session.customer });
-
+                res.status(200).json(customer/*{ logged: true, session: req.session.customer }*/);
             }            
         }
     },
@@ -122,29 +116,29 @@ const customerController = {
 
     customerSignup: async (req, res) => {
         try {
-            // les vérifs à faire : 
+           
       console.log(req.body);
             // - 1: user is real
             const customer = await Customer.getCustomerByEmail(req.body.email);
             if (customer) {
-              return res.json("Cet email est déjà utilisé par un utilisateur.");
+              return res.status(401).json("Cet email est déjà utilisé par un utilisateur.");
             }
             // - 2: form of email is not valid
             if (!emailValidator.validate(req.body.email)) {
-              return res.json("Cet email n'est pas valide.");
+              return res.status(404).json("Cet email n'est pas valide.");
             }
       
-            // - 3: le mdp et la confirmation ne correspondent pas
+            // - 3: the password and the password confir was different
             if (req.body.password !== req.body.passwordConfirm) {
-              return res.json("La confirmation du mot de passe ne correspond pas.");
+              return res.status(401).json("La confirmation du mot de passe ne correspond pas.");
             }
-            // - 4: Si on avait le courage, vérifier que le mdp répond aux recommendations CNIL...
+            // - 4: verify if the password is in the CNIL instruction...
       
-            // 5 - On crypt
+            // 5 - we crypt
             const salt = await bcrypt.genSalt(10);
             const encryptedPassword = await bcrypt.hash(req.body.password, salt);
       
-            // Si on est tout bon, on crée le Customer !
+            // If it's ok, we create the customer !
             const newCustomer = new Customer({
                 first_name: req.body.first_name,
                 last_name: req.body.last_name,
@@ -157,7 +151,7 @@ const customerController = {
                 email: req.body.email,
                 password: encryptedPassword 
             });
-            // on attend que l'utilisateur soit enregistré
+            // we await to customer was connected
             await Customer.saveCustomer(newCustomer);
             res.status(201).json({message: 'l\'utilisateur a bien été créé'});
            // res.redirect('/login');

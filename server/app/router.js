@@ -9,13 +9,9 @@ const categoryController = require('./controllers/categoryController');
 const shopController = require('./controllers/shopController');
 const orderController = require('./controllers/orderController');
 const userController = require('./controllers/userController');
+const adminController = require('./controllers/adminController');
 
-//const adminController = require('./controllers/adminController');
 
-/*
-// importer les middlewares
-const adminMiddleware = require('./middlewares/admin');
-*/
 const router = express.Router();
 
 // home Page
@@ -90,31 +86,34 @@ router.patch('/my-shop/:id', userController.editCustomer);
 //router.patch('/order/:id', orderController.editOrder);
 
 // Admin dashboard manage
-/*router.get('/admin', adminController.adminPage);
-router.get('/admin/customers', userController.allCustomers);
-router.patch('/admin/customer/:id', userController.editCustomer);
-router.post('/admin/customer', userController.newCustomer);
-router.patch('/admin/customer/:id', userController.editCustomer);
-router.delete('/admin/customer/:id', userController.deleteCustomer);
-router.get('/admin/categories', categoryController.getAllCategory);
-router.get('/admin/category/:id', categoryController.getCategoryById);
-router.post('/admin/category',categoryController.newCategory);
-router.patch('/admin/category/:id', categoryController.editCategory);
-router.delete('/admin/category/:id', categoryController.deleteCategory);
-router.get('/admin/order/:id', orderController.getOrderById);
-router.get('/admin/orders', orderController.getAllOrders);
-router.post('/admin/order', orderController.newOrder);
-router.patch('/admin/order/:id', orderController.editOrder);
-router.delete('/admin/order/:id', orderController.deleteOrder);
-router.get('/admin/customer/:id/order', orderController.getOrdersByCustomer);
-router.get('/admin/shop/:id/order', orderController.getOrdersByShop);
-router.get('/admin/shop/:id', shopController.getShopById);
-router.get('/admin/shops', shopController.getAllShops);
-router.post('/admin/shop', shopController.newShop);
-router.patch('/admin/shop/:id', shopController.editShop);
-router.delete('/admin/shop/:id', shopController.deleteShop);
-router.get('/admin/product/:id', productController.getProductById);
-router.get('/admin/products', productController.getAllProducts);
+router.get('/admin', adminController.dashboard);
+router.get('/admin/customers', adminController.allCustomers);
+router.get('/admin/customer/:id', adminController.customerById);
+router.patch('/admin/customer/:id', adminController.editCustomer);
+router.get('/admin/addCustomer', adminController.addCustomerPage);
+router.post('/admin/addCustomer', adminController.newCustomer);
+router.get('/admin/editCustomer/:id', adminController.editCustomer);
+router.patch('/admin/editCustomer/:id', adminController.editCustomer);
+router.delete('/admin/deleteCustomer/:id', adminController.deleteCustomer);
+// router.get('/admin/categories', categoryController.getAllCategory);
+// router.get('/admin/category/:id', categoryController.getCategoryById);
+// router.post('/admin/category',categoryController.newCategory);
+// router.patch('/admin/category/:id', categoryController.editCategory);
+// router.delete('/admin/category/:id', categoryController.deleteCategory);
+// router.get('/admin/order/:id', orderController.getOrderById);
+// router.get('/admin/orders', orderController.getAllOrders);
+// router.post('/admin/order', orderController.newOrder);
+// router.patch('/admin/order/:id', orderController.editOrder);
+// router.delete('/admin/order/:id', orderController.deleteOrder);
+// router.get('/admin/customer/:id/order', orderController.getOrdersByCustomer);
+// router.get('/admin/shop/:id/order', orderController.getOrdersByShop);
+// router.get('/admin/shop/:id', shopController.getShopById);
+// router.get('/admin/shops', shopController.getAllShops);
+// router.post('/admin/shop', shopController.newShop);
+// router.patch('/admin/shop/:id', shopController.editShop);
+// router.delete('/admin/shop/:id', shopController.deleteShop);
+// router.get('/admin/product/:id', adminController.getProductById);
+// router.get('/admin/products', productController.getAllProducts);
 // router for see the products by the category id
 router.get('/admin/category/:id/products', productController.getProductsByCategory);
 // router for see the products by the shop id
@@ -122,7 +121,7 @@ router.get('/admin/shop/:id/product', productController.getProductsByShop);
 router.post('/admin/product', productController.newProduct);
 router.patch('/admin/product/:id', productController.editProduct);
 router.delete('/admin/product/:id', productController.deleteProduct);
-*/
+
 /*// admin
 router.get('/admin', adminMiddleware, adminController.adminPage);
 */
