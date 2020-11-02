@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { changeValue, sendTheForm } from 'src/actions/signup';
 import SignUp from 'src/components/SignUp';
 
-const mapStateToProps = null;
+const mapStateToProps = (state) => ({ signup: state.signup.signUp });
 
 const mapDispatchToProps = (dispatch) => ({
   onChange: (value) => {

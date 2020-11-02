@@ -14,10 +14,11 @@ import SignUp from 'src/containers/SignUp';
 import Cart from 'src/containers/Cart';
 import Spins from 'src/components/Spins';
 import HeaderNav from '../../containers/headerNav';
+import SucessMessage from '../SucessMessage';
 
 // == Composant
-const App = ({ fetchProducts, fetchCategories, fetchShop, user, loading }) => {
-  console.log('je suis dans app component =>', loading);
+const App = ({ fetchProducts, fetchCategories, fetchShop, user, loading, signup }) => {
+  console.log('je suis dans app component =>', signup);
   useEffect(() => {
     fetchProducts();
     fetchCategories();
@@ -40,9 +41,9 @@ const App = ({ fetchProducts, fetchCategories, fetchShop, user, loading }) => {
             <Route path="/authentification">
               {user.isLogged ? <Redirect to="/" /> : <LoginForm />}
             </Route>
-
             <Route path="/panier" component={Cart} />
-            <Route path="/inscription">{user.isLogged ? <Redirect to="/" /> : <SignUp />}</Route>
+            <Route path="/inscription" component={SignUp} />
+
             <Route path="/" component={ContentPage} />
           </Switch>
           <Footer />
@@ -57,6 +58,7 @@ App.propTypes = {
   fetchProducts: PropTypes.func.isRequired,
   fetchShop: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
+  signup: PropTypes.bool,
   user: PropTypes.shape({
     isLogged: PropTypes.bool,
     pseudo: PropTypes.any,
@@ -64,6 +66,7 @@ App.propTypes = {
 };
 App.defaultProps = {
   isLogged: false,
+  signup: false,
 };
 
 // == Export
