@@ -116,29 +116,29 @@ const customerController = {
 
     customerSignup: async (req, res) => {
         try {
-            // les vérifs à faire : 
+           
       console.log(req.body);
             // - 1: user is real
             const customer = await Customer.getCustomerByEmail(req.body.email);
             if (customer) {
-              return res.json("Cet email est déjà utilisé par un utilisateur.");
+              return res.status(401).json("Cet email est déjà utilisé par un utilisateur.");
             }
             // - 2: form of email is not valid
             if (!emailValidator.validate(req.body.email)) {
-              return res.json("Cet email n'est pas valide.");
+              return res.status(404).json("Cet email n'est pas valide.");
             }
       
-            // - 3: le mdp et la confirmation ne correspondent pas
+            // - 3: the password and the password confir was different
             if (req.body.password !== req.body.passwordConfirm) {
-              return res.json("La confirmation du mot de passe ne correspond pas.");
+              return res.status(401).json("La confirmation du mot de passe ne correspond pas.");
             }
-            // - 4: Si on avait le courage, vérifier que le mdp répond aux recommendations CNIL...
+            // - 4: verify if the password is in the CNIL instruction...
       
-            // 5 - On crypt
+            // 5 - we crypt
             const salt = await bcrypt.genSalt(10);
             const encryptedPassword = await bcrypt.hash(req.body.password, salt);
       
-            // Si on est tout bon, on crée le Customer !
+            // If it's ok, we create the customer !
             const newCustomer = new Customer({
                 first_name: req.body.first_name,
                 last_name: req.body.last_name,
@@ -151,7 +151,7 @@ const customerController = {
                 email: req.body.email,
                 password: encryptedPassword 
             });
-            // on attend que l'utilisateur soit enregistré
+            // we await to customer was connected
             await Customer.saveCustomer(newCustomer);
             res.status(201).json({message: 'l\'utilisateur a bien été créé'});
            // res.redirect('/login');

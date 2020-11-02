@@ -1,4 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600);
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+
 body{
     width: 100%;
     height: 100vh;
@@ -26,7 +29,7 @@ body{
 
 /* ************************** DECO & BUTTON *************************** */
 
-.jello-horizontal, .top-icon-link:hover, .btn-marine:hover, .btn-white:hover, .btn-blue:hover, .bulle:hover, .icon-wichlist:hover{
+.jello-horizontal, .fakebg:hover, .top-icon-link:hover, .btn-marine:hover, .btn-white:hover, .btn-blue:hover, .bulle:hover, .icon-wichlist:hover{
 	-webkit-animation: jello-horizontal 0.9s both;
     animation: jello-horizontal 0.9s both;
 }
@@ -175,15 +178,26 @@ body{
 
  .text-red {
    color:#DB3855!important;
+   transition: all 1s linear;
+
  }
 
  .text-blue{
    color: #43A0AF!important;
+   transition: all 1s linear;
+
  }
+
+ .text-blue:hover{
+  color: #DB3855!important;
+
+}
 
 .btn-blue{ 
     color: white!important;
     background-color: #43A0AF!important;
+    transition: all 1s linear;
+
 }
 
 .btn-blue:hover{ 
@@ -404,3 +418,78 @@ body{
     /* top: 100%; */
     z-index: 2;
   }
+
+  /* ****************** TEAMSQUAD PAGE ****************** */
+
+.team-mozaic{
+    display: flex;
+    width: 1140px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 auto;
+
+}
+
+.devOne, .devTwo, .devThree{
+    display: flex;
+    width: 380px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.fakebg{
+  background-color: teal;
+  width: 380px;
+  height: 380px;
+}
+
+
+.jerrybg{
+  background-color: teal;
+  width: 380px;
+  height: 380px;
+  background-image: url('../images/team/jerry.png');
+  background-size: contain;
+  background-position: center;
+}
+
+.dev-info{
+  width: 380px;
+  height: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dev-name{
+  font-size: 2rem!important;
+  font-family: 'Lobster', cursive;
+  color: #DB3855!important;
+}
+
+
+.dev-description{
+  color: #31435B!important;
+
+}
+
+.kg-price
+.socialzone{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+}
+
+.social-icon{
+  font-size: 2rem;
+  /*color: #43A0AF;*/
+  padding: 0.5rem;
+}
+
+
+
