@@ -1,80 +1,69 @@
 // import npm
-import React from 'react';
+import PropTypes from 'prop-types';
+import React, { getState } from 'react';
 import { Link } from 'react-router-dom';
-import { ShoppingCartOutlined } from '@ant-design/icons';
-
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-
-// eslint-disable-next-line object-curly-newline
-import { Navbar, Container, Form, FormControl, Button, Row, Col } from 'react-bootstrap';
-import { Input, AutoComplete } from 'antd';
-import Login from 'src/containers/Login';
+import { ShoppingCartOutlined, UserOutlined, HeartOutlined } from '@ant-design/icons';
+import { Badge } from 'antd';
 
 import './style.scss';
+import SearchBar from './SearchBar';
+import LogoutButton from '../LogoutButton';
 
-const renderTitle = (title) => {
-  return (
-    <span>
-      {title}
-      <a
-        style={{
-          float: 'right',
-        }}
-        href="https://www.google.com/search?q=antd"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        more
-      </a>
-    </span>
-  );
-};
+const HeadBar = ({ isLogged, pseudo, counter, handleLogout }) => (
+  <div className="header">
+    <Link to="/">
+      <img src="/app_log.png" alt="logo" />
+    </Link>
+    <SearchBar />
+    <div className="link">
+      {isLogged && (
+        <>
+          <Badge className="badg-heart" count={0} showZero></Badge>
+          <Link to="/ma-liste-des-courses">
+            <div className="heart">
+              <HeartOutlined fontSize="large" />
+              <p className="icon">Ma liste des courses</p>
+            </div>
+          </Link>
 
-const renderItem = (title) => {
-  return {
-    value: title,
-    label: (
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-        }}
-      >
-        {title}
-      </div>
-    ),
-  };
-};
-const options = [
-  {
-    label: renderTitle('Libraries'),
-    options: [renderItem('Categories', 10000), renderItem('Products', 10600)],
-  },
-];
+          <div className="auth">
+            <UserOutlined title="Se connecter" />
+            <p className="icon">Bienvenue {pseudo.first_name}</p>
+            <p className="icon">
+              <LogoutButton handleLogout={handleLogout} />
+            </p>
+          </div>
+        </>
+      )}
 
-const HeadBar = () => (
-  <Container>
-    <Navbar sticky="top" bg="dark" expand="x-lg">
-      <Navbar.Brand href="#home">
-        <img src="/app_log.png" alt="logo" />
-      </Navbar.Brand>
+      {!isLogged && (
+        <Link to="/authentification">
+          <div className="auth-deco">
+            <UserOutlined title="Se connecter" />
+            <p className="icon-deco">S'identifier</p>
+          </div>
+        </Link>
+      )}
+      <Badge count={counter} showZero>
+        <Link to="/panier">
+          <div className="cart">
+            <ShoppingCartOutlined title="shopping" />
 
-      <AutoComplete
-        dropdownClassName="certain-category-search-dropdown"
-        dropdownMatchSelectWidth={500}
-        style={{
-          width: 250,
-        }}
-        options={options}
-      >
-        <Input.Search size="large" placeholder="chercher" />
-      </AutoComplete>
-      <Login />
-      <a href="#">
-        <ShoppingCartOutlined title="shopping" />
-      </a>
-    </Navbar>
-  </Container>
+            <p className="icon">Mon panier</p>
+          </div>
+        </Link>
+      </Badge>
+    </div>
+  </div>
 );
+
+HeadBar.propTypes = {
+  isLogged: PropTypes.bool,
+  pseudo: PropTypes.object.isRequired,
+  first_name: PropTypes.string,
+};
+HeadBar.defaultProps = {
+  isLogged: false,
+};
 
 export default HeadBar;

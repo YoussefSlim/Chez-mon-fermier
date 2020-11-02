@@ -1,0 +1,40 @@
+.cart {
+  margin: 0 35px;
+  padding: 0;
+  display: flex;
+  justify-content: space-evenly;
+}
+table {
+  width: 100%;
+}
+.cell {
+  text-align: center;
+}
+.cart div {
+  margin: 0 10px;
+}
+.cart p {
+  margin-top: 5px;
+}
+.cart li {
+  flex-grow: 1;
+  list-style-type: none;
+}
+.cart table th,
+.cart table tr {
+  height: 80px;
+}
+.order-summary .list-group-item {
+  background: #eee;
+}
+
+.qty {
+  width: 40px;
+  padding: 5px 0;
+}
+.white,
+.white:hover {
+  color: white;
+  text-decoration: none;
+}
+/* sidebar */

@@ -7,14 +7,14 @@ const Carrousel = () => (
   <div className="content-carousel">
     <Carousel>
       <Carousel.Item>
-        <img className="d-block w-100" src="/holder1.png" alt="First slide" />
+        <img className="d-block w-100" src="/slider1.jpg" alt="First slide" />
         <Carousel.Caption>
           <h3>First slide label</h3>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img className="d-block w-100" src="/holder2.png" alt="Third slide" />
+        <img className="d-block w-100" src="/slider1.jpg" alt="Third slide" />
 
         <Carousel.Caption>
           <h3>Second slide label</h3>
@@ -22,7 +22,7 @@ const Carrousel = () => (
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img className="d-block w-100" src="/holder3.png" alt="Third slide" />
+        <img className="d-block w-100" src="/slider1.jpg" alt="Third slide" />
 
         <Carousel.Caption>
           <h3>Third slide label</h3>

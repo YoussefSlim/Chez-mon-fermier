@@ -4,6 +4,7 @@ export const initialState = {
   email: '',
   password: '',
   isLogged: false,
+  pseudo: '',
 };
 
 const user = (state = initialState, action = {}) => {
@@ -17,8 +18,7 @@ const user = (state = initialState, action = {}) => {
     case SAVE_USER:
       return {
         ...state,
-        email: '',
-        password: '',
+        email: action.pseudo.email,
         isLogged: true,
         pseudo: action.pseudo,
       };

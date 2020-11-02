@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { changeValue, login, logout } from 'src/actions/user';
-import Login from '../../components/Login';
+import LoginForm from '../../components/LoginForm';
 
 const mapStateToProps = (state) => ({
   name: state.user.name,
@@ -11,16 +11,14 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  changeField: (value) => {
+  onChange: (value) => {
     console.log('je suis dans changeFild');
     dispatch(changeValue(value));
   },
   handleLog: (value) => {
+    console.log('je suis dans handlelog');
     dispatch(login(value));
-  },
-  handleLogout: () => {
-    dispatch(logout());
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
