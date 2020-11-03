@@ -1,4 +1,5 @@
 if (!process.env.NODE_ENV || process.env.NODE_ENV !== "production") {
+
   require("dotenv").config();
 }
 console.log(process.env.CLIENT_URL);
@@ -124,4 +125,5 @@ process.on("unhandledRejection", (err) => {
   console.log("Interception d'un rejet de promesse");
   console.error(err);
 });
-//module.exports = app;
+module.exports = app;
+

@@ -100,6 +100,7 @@ const customerController = {
           phone_number: customer.phone_number,
           email: customer.email,
         };
+
         res.status(200).json({ logged: true, session: req.session.customer });
       }
     }

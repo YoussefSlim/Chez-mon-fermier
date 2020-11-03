@@ -31,9 +31,13 @@ class Order {
          return sql.rows;
     }
        
-    static async findOrdersByShop(callback) {
+    static async findOrdersByShop(orderId) {
       try{  
-      const sql =  await client.query(`SELECT * FROM order JOIN customer ON (customer_id= customer.id) UNION (SELECT * from shop JOIN product ON shop_id = shop.id WHERE id=$1;`, [createdAt]);
+      const sql =  await client.query(`SELECT "order".id, "product".title, "shop".id FROM "order" 
+      JOIN "product_has_order" ON order_id = "order".id
+      JOIN "product" ON "product".id = "product_has_order".product_id
+      JOIN "shop" ON "product".shop_id = "shop".id
+      WHERE "shop".id = 1;`, [orderId]);
         return sql.rows;
       } catch (error) {
         console.log(error);
@@ -55,30 +59,24 @@ class Order {
 
         //if (order.id) {
             insertedOrder = await client.query (`
-          INSERT INTO order (title, description, quantity, price_ht, price_ttc, url, shop_id, category_id)
-          VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+          INSERT INTO order (order_number, amount, customer_id,)
+          VALUES ($1, $2, $3)
           RETURNING id;`, [
-            order.title,
-            order.description,
-            order.quantity,
-            order.price_ht,
-            order.price_ttc,
-            order.url,
-            order.shop_id,
-            order.category_id           
+            order.order_number,
+            order.amount,
+            order.customer_id,           
           ]);
      return insertedOrder.rows[0];
     }
 
       static async updateOrder(data){
            // we decomposed the SQL requeste with the informations we want to insert 
-           const sql = `UPDATE order SET "title" = $1, "description" = $2, "quantity" = $3, "price_ht" = $4, "price_ttc" = $5, "url" = $6, "shop_id" = $7, "category_id" = $8, "updated_at" = now() WHERE "id" = $9 RETURNING "id", "title", "description", "quantity", "price_ht", "price_ttc", "url", "shop_id", "category_id";`;
+           const sql = `UPDATE order SET "order_number" = $1, "amount" = $2, "customer_id" = $3, updated_at" = now() WHERE "id" = $4 RETURNING "id", "order_number", "amount", "cutomer_id";`;
            // we will connect to the db with us order, and we stock the complete request in the data for the return 
-           const dataUpdate = await client.query(sql, [data.title, data.description, data.quantity, data.price_ht, data.price_ttc, data.url, data.shop_id, data.category_id, data.id]);
+           const dataUpdate = await client.query(sql, [data.order_number, data.amount, data.customer_id, data.id]);
            //dataUpdate.rows[0].message = 'Le produit est bien modifié';
            // We send the new datas 
            return dataUpdate.rows[0];
-        
       }
 
     static async deleteOrder (id) {

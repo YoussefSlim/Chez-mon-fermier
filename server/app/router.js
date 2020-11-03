@@ -42,11 +42,13 @@ router.patch("/category/:id", categoryController.editCategory);
 router.delete("/category/:id", categoryController.deleteCategory);
 
 // shop section
+
 router.get("/shop/:id", shopController.getShopById);
 router.get("/shops", shopController.getAllShops);
 router.post("/shop", shopController.newShop);
 router.patch("/shop/:id", shopController.editShop);
 router.delete("/shop/:id", shopController.deleteShop);
+
 // a corriger
 // router.get('/last-shops', shopController.getShopByCreatedDate);
 // router.get('/shops-by-department', shopController.getShopByDepartment);
@@ -60,10 +62,21 @@ router.patch("/customer/:id", userController.editCustomer);
 router.delete("/customer/:id", userController.deleteCustomer);
 
 // user signup/login
+
 router.get("/signup", userController.signupPage);
 router.post("/signup", userController.customerSignup);
 router.post("/login", userController.customerLogin);
 router.post("/logout", userController.logout);
+
+
+// Order zone
+router.get('/order/:id', orderController.getOrderById);
+router.get('/orders', orderController.getAllOrders);
+router.get('/customer/:id/order', orderController.getOrdersByCustomer);
+router.get('/shop/:id/order', orderController.getOrdersByShop);
+router.post('/order', orderController.newOrder);
+router.patch('/order/:id', orderController.editOrder);
+router.delete('/order/:id', orderController.deleteOrder);
 
 // Customer account managed
 //router.get('/my-account', userController.profilePage);
@@ -72,7 +85,7 @@ router.patch("/my-account/customer/:id", userController.editCustomer);
 router.get("/my-account/:id/my-orders", orderController.getOrdersByCustomer);
 router.patch("/order/:id", orderController.editOrder);
 
-// Customer account managed
+// Vendor account managed
 //router.get('/my-account', userController.profilePage);
 router.get("/my-shop/:id", userController.customerById);
 router.patch("/my-shop/:id", userController.editCustomer);

@@ -22,7 +22,7 @@ class Customer {
     static async getCustomerById (customerId) {
         
         const customer = await client.query('SELECT * FROM customer WHERE id = $1', [customerId]);
-        return customer.rows;
+        return customer.rows[0];
     }
 
     static async getCustomerByEmail (email) {
