@@ -58,7 +58,7 @@ const PORT = process.env.PORT || 5050;
 app.set("models", "./app/models");
 /**/
 // réglages des views pour le back-office
-app.set("views", "app/views");
+app.set("views", "./app/views");
 app.set("view engine", "ejs");
 // les statiques
 app.use(express.static("public"));

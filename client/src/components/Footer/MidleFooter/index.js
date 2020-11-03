@@ -8,7 +8,7 @@ const MidleFooter = () => (
     <div className="container-bandeau">
       <div className="col-md-3 col-lg-4 col-xl-3  column-logo">
         <a href="/">
-          <img src="/app_log.png" className="logo-small jello-horizontal" alt="logo test" />
+          <img src="/app_log.png" className="logo-small" alt="logo test" />
         </a>
       </div>
       <div className=" col-lg-2 col-xl-2 mx-auto mb-4">
