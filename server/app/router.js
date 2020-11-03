@@ -125,9 +125,9 @@ router.delete('/admin/product/:id', productController.deleteProduct);
 /*// admin
 router.get('/admin', adminMiddleware, adminController.adminPage);
 */
-// router.get('/cart', cartController.cartPage);
-// router.get('/cart/add/:id', cartController.addProduct);
-// router.get('/cart/remove/:id', cartController.removeProduct);
+router.get('/cart', cartController.cartPage);
+router.get('/cart/add/:id', cartController.addProduct);
+router.get('/cart/remove/:id', cartController.removeProduct);
 // router.get('/admin', (req, res) => {
 //     // ici je vais tester si on s'est connecté ou pas
 //     // dès qu'on veut accéder aux données mémorisées pour un utilisateur on peut lire la session

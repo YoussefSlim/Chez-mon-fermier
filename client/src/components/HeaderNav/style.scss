@@ -1,0 +1,209 @@
+.form-inline {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-flow: row wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-flow: row;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.form-control {
+  display: block;
+  /* width: 100%; */
+  /* margin-right: 100px; */
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 1.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+    -webkit-box-shadow 0.15s ease-in-out;
+}
+@media (max-width: 375px) {
+  .form-control {
+    padding: 1.375rem 10rem;
+  }
+}
+.btn-outline-success {
+  color: #28a745;
+
+  position: absolute;
+  right: 0.9rem;
+}
+@media (max-width: 375px) {
+  .btn-outline-success {
+    right: 14px;
+  }
+}
+.container {
+  width: 100%;
+  height: 90%;
+  padding-right: 0;
+  padding-left: 0;
+  margin-right: 0;
+  margin-left: 0;
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 100vw !important;
+  }
+}
+
+@media (max-width: 375px) {
+  .top {
+    display: flex;
+    flex-direction: column !important;
+  }
+}
+.modal-content {
+  position: relative;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  width: 129%;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+  outline: 0;
+  margin-top: 10rem !important;
+  margin-left: -6rem !important;
+}
+.form-header {
+  padding: 0.9rem;
+  min-width: 58rem;
+  margin-left: -14rem;
+}
+.ant-input-group {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0;
+  color: rgba(16, 15, 15, 0.85);
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5715;
+  list-style: none;
+  -webkit-font-feature-settings: 'tnum';
+  font-feature-settings: 'tnum';
+  position: relative;
+  display: table;
+  width: 66rem;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-left: -28rem;
+  margin-top: 1.5rem;
+}
+// .anticon-shopping-cart {
+//   right: 43px;
+// }
+// .anticon-user {
+//   right: 43px;
+// }
+// .anticon-user .anticon-shopping-cart {
+//   display: inline-block;
+//   color: #fff;
+//   font-size: x-large;
+//   margin-right: 3rem;
+//   position: absolute;
+// }
+// .anticon {
+//   display: flex;
+//   justify-content: space-between;
+//   flex-direction: row;
+// }
+.header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  background-color: rgba(16, 15, 15, 0.85);
+  align-items: centre;
+}
+.link {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.cart {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 2rem;
+  font-size: 1.5rem;
+}
+.auth {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 2rem;
+  font-size: 1.5rem;
+}
+.heart {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 2rem;
+  color: #fff;
+  font-size: 1.5rem;
+}
+.icon {
+  font-size: 0.8rem;
+  color: cadetblue;
+}
+a:hover {
+  opacity: 0.5;
+  color: lightblue;
+  transition-duration: 0.5s;
+
+  text-decoration: none;
+}
+a {
+  text-decoration: none;
+  position: relative;
+}
+
+a:after {
+  border-radius: 1em;
+  border-top: 0.1em solid lightblue;
+  content: '';
+  position: absolute;
+  right: 100%;
+  bottom: 0.14em;
+  left: 0;
+  transition: right 0.4s cubic-bezier(0, 0.5, 0, 1);
+}
+
+// a:hover:after {
+//   right: 0;
+// }
+// .ant-badge-count,
+// .ant-badge-dot,
+// .ant-badge .ant-scroll-number-custom-component {
+//   position: absolute;
+//   top: 15px;
+//   right: 53px;
+//   -webkit-transform: translate(50%, -50%);
+//   transform: translate(50%, -50%);
+//   -webkit-transform-origin: 100% 0;
+//   transform-origin: 100% 0;
+// }
+.anticon svg {
+  display: inline-block;
+  color: white;
+}
+.auth-deco {
+  margin: 1rem;
+}
