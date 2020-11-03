@@ -1,0 +1,14 @@
+.bottom-footer {
+  display: flex;
+  justify-content: center !important;
+  font-style: italic;
+}
+
+@media (max-width: 375px) {
+  .bottom-footer {
+    display: block;
+    align-content: center;
+    width: 100vh;
+    margin-left: 2rem;
+  }
+}
