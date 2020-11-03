@@ -10,7 +10,7 @@ import Footer from 'src/components/Footer';
 import LoginForm from 'src/containers/LoginForm';
 import { routes } from 'src/components/Routes';
 import './styles.css';
-import PageProduct from 'src/Containers/ContentPage/Products/PageProduct';
+import PageProduct from 'src/containers/ContentPage/Products/PageProduct';
 import SignUp from 'src/containers/SignUp';
 import Cart from 'src/containers/Cart';
 import Spins from 'src/components/Spins';
