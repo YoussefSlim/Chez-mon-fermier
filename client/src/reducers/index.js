@@ -6,7 +6,7 @@ import categories from './categories';
 import user from './user';
 import signup from './signup';
 import shop from './shop';
-
+import cart from './cart';
 import app from './app';
 
 export default combineReducers({
@@ -16,7 +16,7 @@ export default combineReducers({
   user,
   signup,
   shop,
-
+  cart,
   session: sessionReducer,
   app,
 });

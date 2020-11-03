@@ -6,10 +6,12 @@ import { ShoppingCartOutlined, UserOutlined, HeartOutlined } from '@ant-design/i
 import { Badge } from 'antd';
 
 import './style.scss';
+import addToCart from 'src/components/ContentPage/Products/PageProduct/const';
 import SearchBar from './SearchBar';
 import LogoutButton from '../LogoutButton';
 
-const HeadBar = ({ isLogged, pseudo, counter, handleLogout }) => (
+const circle = (quantity) => <span className="circle">{quantity}</span>;
+const HeadBar = ({ isLogged, pseudo, counter, handleLogout, addToCart }) => (
   <div className="header">
     <Link to="/">
       <img src="/app_log.png" alt="logo" />
@@ -44,15 +46,14 @@ const HeadBar = ({ isLogged, pseudo, counter, handleLogout }) => (
           </div>
         </Link>
       )}
-      <Badge count={counter} showZero>
-        <Link to="/panier">
-          <div className="cart">
-            <ShoppingCartOutlined title="shopping" />
 
-            <p className="icon">Mon panier</p>
-          </div>
-        </Link>
-      </Badge>
+      <Link to="/panier">
+        <div className="cart">
+          <ShoppingCartOutlined title="shopping" />
+          {addToCart === true ? circle(counter) : null}
+          <p className="icon">Mon panier</p>
+        </div>
+      </Link>
     </div>
   </div>
 );

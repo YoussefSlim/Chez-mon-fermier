@@ -2,7 +2,9 @@
 /* eslint-disable camelcase */
 import PropTypes from 'prop-types';
 import React from 'react';
+import slugify from 'react-slugify';
 import { Card, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 import './style.scss';
 
@@ -15,6 +17,7 @@ const Products = ({ products }) =>
         <Card.Text>{price_ttc}€</Card.Text>
         <Card.Text>{index}€</Card.Text>
       </Card.Body>
+      <Link to={`/produits/${slugify(title)}`}>details de produit </Link>
     </Card>
   ));
 
