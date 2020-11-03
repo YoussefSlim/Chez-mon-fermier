@@ -8,6 +8,7 @@ import { fetchShop } from 'src/actions/shop';
 const mapStateToProps = (state) => ({
   user: state.user,
   loading: state.app.loading,
+  signup: state.signup.signUp,
 });
 
 const mapDispatchToProps = (dispatch) => ({

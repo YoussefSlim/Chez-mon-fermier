@@ -12,7 +12,7 @@ export const initialState = {
   email: '',
   password: '',
   passwordConfirm: '',
-  signUp: false,
+  signUp: true,
   message: '',
 };
 
@@ -24,7 +24,7 @@ const signup = (state = initialState, action = {}) => {
         ...action.value,
       };
     case CHECK_SIGNUP:
-      console.log('ici');
+      console.log('ici', state);
       return {
         ...state,
         signUp: true,

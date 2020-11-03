@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { Form, Input, Checkbox, Button } from 'antd';
 
 const formItemLayout = {
@@ -24,11 +25,23 @@ const tailFormItemLayout = {
   },
 };
 
-const SignUp = ({ onChange, handleForm }) => {
+const SignUp = ({ onChange, handleForm, signup }) => {
+  console.log(signup);
   const [form] = Form.useForm();
+
+  const history = useHistory();
+  const onclick = () => {
+    if (!signup) {
+      history.push('/authentification');
+    } else {
+      history.push('/inscription');
+    }
+  };
+
   const handleSend = (value) => {
     console.log('handlsend =>', value);
     handleForm(value);
+    onclick();
   };
   const handleChange = (value) => {
     console.log('handlechange =>', value);
