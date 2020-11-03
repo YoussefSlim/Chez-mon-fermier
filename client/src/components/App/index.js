@@ -1,24 +1,32 @@
 // == Import npm
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect, useParams, useRouteMatch } from 'react-router-dom';
 
 // == Import
 import ToolsBar from 'src/components/ToolsBar';
 import ContentPage from 'src/containers/ContentPage';
 import Footer from 'src/components/Footer';
 import LoginForm from 'src/containers/LoginForm';
-
+import { routes } from 'src/components/Routes';
 import './styles.css';
+import PageProduct from 'src/Containers/ContentPage/Products/PageProduct';
 import SignUp from 'src/containers/SignUp';
 import Cart from 'src/containers/Cart';
 import Spins from 'src/components/Spins';
 import HeaderNav from '../../containers/headerNav';
-import SucessMessage from '../SucessMessage';
+// import SucessMessage from '../SucessMessage';
+import Products from '../ContentPage/Products';
 
 // == Composant
-const App = ({ fetchProducts, fetchCategories, fetchShop, user, loading, signup }) => {
-  console.log('je suis dans app component =>', signup);
+const App = ({ fetchProducts, fetchCategories, fetchShop, user, loading, products }) => {
+  // const match = useRouteMatch({
+  //   path: '/products/:slug/',
+  //   isExact: true,
+  //   strict: true,
+  //   sensitive: true,
+  // });
+  console.log('je suis dans app component =>', routes);
   useEffect(() => {
     fetchProducts();
     fetchCategories();
@@ -38,13 +46,22 @@ const App = ({ fetchProducts, fetchCategories, fetchShop, user, loading, signup 
           <HeaderNav isLogged={user.isLogged} pseudo={user.pseudo} />
           <ToolsBar />
           <Switch>
-            <Route path="/authentification">
-              {user.isLogged ? <Redirect to="/" /> : <LoginForm />}
+            <Route exact path={routes.authentification}>
+              {user.isLogged ? <Redirect to={routes.acceuil} /> : <LoginForm />}
             </Route>
-            <Route path="/panier" component={Cart} />
-            <Route path="/inscription" component={SignUp} />
+            <Route exact path={routes.panier} component={Cart} />
+            <Route exact path={routes.inscription} component={SignUp} />
+            <Route exact path={routes.produits} component={Products} />
+            <Route exact path={routes.camembert} component={PageProduct} />
+            <Route exact path={routes.boeuf} component={PageProduct} />
+            <Route exact path={routes.veau} component={PageProduct} />
+            <Route exact path={routes.pommes} component={PageProduct} />
+            <Route exact path={routes.jambons} component={PageProduct} />
 
-            <Route path="/" component={ContentPage} />
+            <Route path={routes.acceuil} component={ContentPage} />
+            {/* <Route path="/produits/:slug">
+              {match ? <PageProduct match={match} /> : <Products />}
+            </Route> */}
           </Switch>
           <Footer />
         </>

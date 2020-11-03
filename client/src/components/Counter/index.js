@@ -25,7 +25,7 @@ Counter.propTypes = {
 };
 
 Counter.defaultProps = {
-  count: 0,
+  count: 1,
 };
 // == Export
 export default Counter;

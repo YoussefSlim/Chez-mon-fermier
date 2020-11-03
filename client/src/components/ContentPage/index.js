@@ -7,12 +7,14 @@ import Carousel from 'src/containers/ContentPage/Carousel';
 import Shop from 'src/containers/ContentPage/Shop';
 
 import './style.scss';
+import { Link } from 'react-router-dom';
 
 const ContentPage = () => (
   <div className="">
     <Carousel />
     <div className="products">
       <Products />
+      <Link to="/products">consulter les produits </Link>
     </div>
     <div className="categories">
       <Categories />

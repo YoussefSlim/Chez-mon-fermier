@@ -10,6 +10,7 @@ import products from 'src/middleware/products';
 import categories from 'src/middleware/categories';
 import auth from 'src/middleware/auth';
 import shop from 'src/middleware/shop';
+import cart from 'src/middleware/cart';
 
 import signup from 'src/middleware/signup';
 
@@ -29,7 +30,8 @@ const enhancers = composeEnhancers(
     categories,
     auth,
     shop,
-    signup
+    signup,
+    cart
     // secondMiddleware,
   )
 );
