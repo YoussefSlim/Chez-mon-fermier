@@ -110,23 +110,21 @@ Au niveau du langage nous utiliserons javascript grâce au framework Node.js et 
 - email-validator
 - cors
 - sanitizer
-- sequelize
+- ejs(pour le backoffice)
+- cookie-parser
+- express-session
+- multer
 
 ### Pour la partie BDD
 
 - PostgreSql
-- Sqitch
 
-### Pour la documentation
-
-- Swagger
-- Joi
 
 # 4) Le serveur localhost
 
 Côté back, nous utiliserons le serveur ```http://localhost:5050```
-Pour lancer le projet, il suffit de faire ```npm i```, puis de taper la commande ```nodemon index.js``` dans le terminal (bien vérifier que l'on se trouve dans le dossier du repo)
+Pour lancer le projet, il suffit de faire ```npm i```, puis de taper la commande ```nodemon run dev``` dans le terminal (bien vérifier que l'on se trouve dans le dossier du repo)
 
-Côté front, l'api sera consommer sur le serveur ```http://localhost:3000```
+Côté front, l'api sera consommer sur le serveur ```http://localhost:8080```
 
-Afin de lancer le serveur, il suffit de faire ```yarn add``` puis ``` yarn start```
+Afin de lancer le serveur, il suffit de faire ```yarn``` puis ``` yarn start``` pour lancer le server côté front

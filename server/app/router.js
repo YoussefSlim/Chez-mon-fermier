@@ -4,7 +4,7 @@ const express = require('express');
 const mainController = require('./controllers/mainController');
 
 const productController = require('./controllers/productController');
-//const cartController = require('./controllers/cartController');
+const cartController = require('./controllers/cartController');
 const categoryController = require('./controllers/categoryController');
 const shopController = require('./controllers/shopController');
 const orderController = require('./controllers/orderController');
