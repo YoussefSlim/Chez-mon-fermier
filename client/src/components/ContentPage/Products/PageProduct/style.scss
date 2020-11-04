@@ -6,12 +6,44 @@ body {
   background-color: white;
 }
 
-.admin-container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-flow: wrap;
-  position: relative;
+.product-container {
+  width: 1700px;
+  margin: 0 auto;
+}
+
+// .icon-stars{
+//   font-size: 0.5rem;
+//   color: #fccb3a;
+// }
+
+// .icon-vide{
+//   color: #CCC;
+// }
+.location {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1rem;
+}
+
+.encart-vendeur{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1rem;
+}
+
+.location p {
+  margin: 0;
+}
+
+.icon-coq{
+  color: #db3855;
+  width: 32px;
+}
+.nav-link-product-page{
+  color: black;
 }
 
 // .top {
@@ -266,7 +298,7 @@ body {
   height: 100%;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 1rem 1rem 5rem 1rem;
+  padding: 3rem 1rem 5rem 1rem;
 }
 
 .fil-ariane {
@@ -299,7 +331,7 @@ body {
 }
 
 .img-product {
-  width: 50%;
+  // width: 50%;
   border: 1px solid #ccc;
 }
 
@@ -307,15 +339,15 @@ body {
   width: 35%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .product-title {
   color: #31435b;
-  font-size: 2.5rem;
+  font-size: 2rem;
   /*padding: 0 0 2rem 0;
-     width: 100%; */
-  max-height: 20%;
+     width: 100%; 
+  max-height: 20%;*/
 }
 
 .product__quantity-zone {
@@ -331,6 +363,10 @@ body {
   text-align: center;
   width: 25%;
   margin-right: 2rem;
+}
+
+.onglet-page-produit{
+  padding: 1rem;
 }
 
 .product__price-zone {

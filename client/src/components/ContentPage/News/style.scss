@@ -95,7 +95,7 @@
   }
 }
 .card-news-img{
-  width: 60%;
+  width: 51%;
   border-radius: 0;
 }
 
@@ -109,4 +109,8 @@
 .card-news-infos{
   width: 30%;
   text-align: center;
+}
+
+.card-news ol{
+  margin: 0!important;
 }

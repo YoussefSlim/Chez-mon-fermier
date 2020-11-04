@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Counter from 'src/containers/Counter';
 import { addTocart } from 'src/actions/cart';
 import './style.scss';
+import { Card } from 'react-bootstrap';
 
 const PageProduct = ({ products }) => {
   console.log('je suis dans la page produit => ', products);
@@ -57,16 +58,14 @@ const PageProduct = ({ products }) => {
         <section className="content__left">
           <article className="product-content">
             <header className="product-top">
-              <img src="/holder3.png" className="img-product" />
+              <img src="/products/1.jpg" className="img-product" />
               <article className="product-info">
-                <h1 className="product-title">Ici se trouve le Nom du produit à afficher</h1>
+                <h1 className="product-title">Rôti de Boeuf</h1>
                 <div className="product__quantity-zone">
                   <div className="quantity-zone">
                     <label htmlFor="title">Quantité</label>
                     <Counter />
-                    <small id="titleHelp" className="form-text text-muted">
-                      Saisissez la quantité souhaitée.
-                    </small>
+                    
                   </div>
                   <a href="#" className="wishlist-btn">
                     <i className="fas fa-heart icon-wichlist" />
@@ -102,7 +101,7 @@ const PageProduct = ({ products }) => {
               <ul className="nav nav-tabs" id="myTab" role="tablist">
                 <li className="nav-item">
                   <a
-                    className="nav-link active"
+                    className="nav-link active nav-link-product-page"
                     id="home-tab"
                     data-toggle="tab"
                     href="#home"
@@ -115,7 +114,7 @@ const PageProduct = ({ products }) => {
                 </li>
                 <li className="nav-item">
                   <a
-                    className="nav-link"
+                    className="nav-link nav-link-product-page"
                     id="profile-tab"
                     data-toggle="tab"
                     href="#profile"
@@ -128,7 +127,7 @@ const PageProduct = ({ products }) => {
                 </li>
                 <li className="nav-item">
                   <a
-                    className="nav-link"
+                    className="nav-link nav-link-product-page"
                     id="contact-tab"
                     data-toggle="tab"
                     href="#contact"
@@ -142,7 +141,7 @@ const PageProduct = ({ products }) => {
               </ul>
               <div className="tab-content" id="myTabContent">
                 <div
-                  className="tab-pane fade show active"
+                  className="tab-pane fade show active onglet-page-produit"
                   id="home"
                   role="tabpanel"
                   aria-labelledby="home-tab"
@@ -159,7 +158,7 @@ const PageProduct = ({ products }) => {
                   role="tabpanel"
                   aria-labelledby="profile-tab"
                 >
-                  <ul>
+                  <ul className="onglet-page-produit">
                     <li>Précisez tous produits allergènes</li>
                     <li>Lactose</li>
                     <li>Gluten</li>
@@ -173,7 +172,7 @@ const PageProduct = ({ products }) => {
                   role="tabpanel"
                   aria-labelledby="contact-tab"
                 >
-                  <ul>
+                  <ul className="onglet-page-produit">
                     <li>Livraison à domicile : Prix €</li>
                     <li>Retrait en drive : Gratuit</li>
                   </ul>
@@ -191,23 +190,23 @@ const PageProduct = ({ products }) => {
                 className="card-img-top"
                 alt="Image du vendeur"
               />
-              <div className="card-body">
+              <div className="card-body encart-vendeur">
                 <h5 className="card-title">Nom du vendeur</h5>
-                <p className="card-text">Description courte du vendeur à ajouter ici</p>
+                
                 <div className="extra">
                   Indice de statisfaction:
-                  <i className="fa fa-star rating text-warning" data-rating="4"></i>
-                  <i className="fa fa-star rating text-warning" data-rating="4"></i>
-                  <i className="fa fa-star rating text-warning" data-rating="4"></i>
-                  <i className="fa fa-star rating text-warning" data-rating="4"></i>
-                  <i className="fa fa-star rating text-secondary" data-rating="4"></i>
+                  <img src="/icons/star-yellow.png" className="icon-stars"/>
+                  <img src="/icons/star-yellow.png" className="icon-stars"/>
+                  <img src="/icons/star-yellow.png" className="icon-stars"/>
+                  <img src="/icons/star-yellow.png" className="icon-stars"/>
+                  <img src="/icons/star-grey.png" className="icon-vide"/>
                 </div>
-                <address className="location">
-                  <i className="fas fa-map-marker-alt"></i>
-                  add
-                </address>
+                <div className="location">
+                  <img src="/icon-coq.png" className="icon-coq"/>
+                    <p>Clermont-Ferrand(63)</p>
+                </div>
                 <a href="#" className="btn btn-blue">
-                  Voir tous ses produits
+                  Voir les produits
                 </a>
               </div>
             </div>
@@ -215,6 +214,7 @@ const PageProduct = ({ products }) => {
         </section>
       </main>
     </div>
+    
   );
 };
 
