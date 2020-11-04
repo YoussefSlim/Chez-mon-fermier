@@ -3,10 +3,10 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV !== "production") {
 }
 console.log(process.env.CLIENT_URL);
 const express = require("express");
-const cors = require("cors");
+//const cors = require("cors");
 const sanitizeData = require("./app/middlewares/sanitizeData");
 const app = express();
-const corsConfig = require("./app/config/cors");
+//const corsConfig = require("./app/config/cors");
 
 const session = require("express-session");
 
@@ -17,43 +17,36 @@ const bodyParser = multer();
 
 // cors
 
-app.use(
-  cors(corsConfig)
-);
+// app.use(
+//   cors(corsConfig)
+// );
 
 //session
 
-app.use(
-  session({
-    secret: "keyboard cat",
-    resave: true,
-    saveUninitialized: true,
-    cookie: {
+app.use(session({
+  secret: 'keyboard cat',
+  resave: true,
+  saveUninitialized: true,
+  cookie: {
       httpOnly: true,
       secure: false,
       maxAge: 1000 * 60 * 60 * 24,
-    },
-  })
-);
+  },
+}));
 
-// header
+const PORT = process.env.PORT || 5050;
 
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:8080");
-  res.header("Access-Control-Allow-Credentials", true);
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested, Content-Type, Accept, Set-Cookie"
-  );
-  res.header("Access-Control-Allow-Methods", "GET, PUT, POST, PATCH, DELETE");
-
+  res.header('Access-Control-Allow-Origin', 'http://localhost:8080');
+  res.header('Access-Control-Allow-Credentials', true);
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PATCH, DELETE');
   next();
 });
 
 
 app.use(express.static(__dirname + "./app/public"));
 
-const PORT = process.env.PORT || 5050;
 
 app.set("models", "./app/models");
 /**/
@@ -68,7 +61,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.use(express.json());
-app.use(bodyParser.none());
+app.use(bodyParser.any());
 app.use(sanitizeData);
 app.use(router);
 

@@ -10,14 +10,14 @@ import './style.scss';
 
 const Products = ({ products }) =>
   products.map(({ id, title, price_ttc }, index) => (
-    <Card key={id} style={{ width: '30rem' }}>
+    <Card key={id} className="product-card">
       <Card.Img variant="top" src="holder3.png" />
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>{price_ttc}€</Card.Text>
         <Card.Text>{index}€</Card.Text>
       </Card.Body>
-      <Link to={`/produits/${slugify(title)}`}>details de produit </Link>
+      <Link className="btn btn-blue" to={`/produits/${slugify(title)}`}>details de produit </Link>
     </Card>
   ));
 

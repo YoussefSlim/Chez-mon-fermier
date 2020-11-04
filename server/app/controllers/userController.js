@@ -89,7 +89,7 @@ const customerController = {
         res.status(401).json("le mot de passe est incorrect");
       } else {
         //req.session.customer ne fonctionne pas
-        req.session.customer = {
+        req.body.customer = {
           first_name: customer.first_name,
           last_name: customer.last_name,
           address: customer.address,
@@ -101,7 +101,7 @@ const customerController = {
           email: customer.email,
         };
 
-        res.status(200).json({ logged: true, session: req.session.customer });
+        res.status(200).json(customer/*{ logged: true, session: req.session.customer }*/);
       }
     }
   },

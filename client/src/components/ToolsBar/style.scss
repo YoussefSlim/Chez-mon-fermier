@@ -1,3 +1,12 @@
+.top{
+  background-color:#334859!important;
+
+}
+
+.marine-light{
+  background-color:#334859!important;
+}
+
 .nav-iten {
   margin-left: 21rem !important;
   color: #fff;
@@ -11,6 +20,7 @@
 .navbar-light .navbar-nav .nav-link {
   color: #fff;
   font-size: 0.8rem;
+  font-weight: bold;
   &:hover {
     color: lightblue;
   }
@@ -21,8 +31,8 @@
 }
 .dropdown-toggle:hover {
   color: red !important;
-  margin: 0.5em -0.7em -1.2em;
-  border-bottom: 1px solid;
+  
+  
   content: '';
   display: block;
 }

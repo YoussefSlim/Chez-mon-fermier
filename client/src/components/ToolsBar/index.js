@@ -7,7 +7,7 @@ import './style.scss';
 
 const ToolsBar = () => (
   <div className="top">
-    <Navbar bg="dark" expand="md">
+    <Navbar expand="md" className="bg-marine-light">
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav>

@@ -3,7 +3,7 @@ import { LOGIN, saveUser, LOGOUT, CHECK_IS_LOGGED } from 'src/actions/user';
 
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 // axios.defaults.headers.post['Access-Control-Allow-Origin'] = 'http://localhost:5050';
-axios.defaults.withCredentials = true;
+// axios.defaults.withCredentials = true;
 const auth = (store) => (next) => (action) => {
   switch (action.type) {
     case LOGIN:

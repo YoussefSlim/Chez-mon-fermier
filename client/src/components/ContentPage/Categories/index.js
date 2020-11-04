@@ -4,7 +4,7 @@ import { Card, Button } from 'react-bootstrap';
 
 import './style.scss';
 
-const Categories = ({ categories }) =>
+ const Categories = ({ categories }) =>
   categories.map(({ id, name, description }) => (
     <Card key={id} style={{ width: '30rem' }}>
       <Card.Img variant="top" src="holder3.png" />
@@ -14,7 +14,7 @@ const Categories = ({ categories }) =>
         <Button variant="primary">faire un tour</Button>
       </Card.Body>
     </Card>
-  ));
+ ));
 
 Categories.propTypes = {
   categories: PropTypes.array.isRequired,

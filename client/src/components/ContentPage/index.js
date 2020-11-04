@@ -10,18 +10,18 @@ import './style.scss';
 import { Link } from 'react-router-dom';
 
 const ContentPage = () => (
-  <div className="">
+  <div className="hp-content">
     <Carousel />
     <div className="products">
       <Products />
       <Link to="/products">consulter les produits </Link>
     </div>
-    <div className="categories">
+    {/* <div className="categories">
       <Categories />
-    </div>
-    <div className="categories">
+    </div> */}
+    {/* <div className="categories">
       <Shop />
-    </div>
+    </div> */}
     <News />
   </div>
 );

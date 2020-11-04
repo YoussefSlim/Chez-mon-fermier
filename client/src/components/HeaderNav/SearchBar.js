@@ -9,7 +9,7 @@ const onSearch = (value) => console.log(value);
 
 const SearchBar = () => (
   <>
-    <Search placeholder="input search text" onSearch={onSearch} style={{ width: 200 }} />
+    <Search placeholder="input search text" onSearch={onSearch} />
   </>
 );
 

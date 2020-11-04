@@ -3,7 +3,7 @@ import { Card, Button } from 'react-bootstrap';
 import './style.scss';
 
 const News = () => (
-  <div className="news vibrate-1">
+  <div className="news">
     <Card style={{ width: '60rem' }}>
       <Card.Img variant="top" src="holder3.png" />
     </Card>
