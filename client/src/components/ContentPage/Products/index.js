@@ -9,15 +9,16 @@ import { Link } from 'react-router-dom';
 import './style.scss';
 
 const Products = ({ products }) =>
-  products.map(({ id, title, price_ttc }, index) => (
+  products.map(({ id, title, price_ttc }) => (
     <Card key={id} className="product-card">
-      <Card.Img variant="top" src="holder3.png" />
-      <Card.Body>
+      <Card.Img variant="top" src={`/products/${slugify(id)}.jpg`} />
+      <Card.Body className="card-product-info">
         <Card.Title>{title}</Card.Title>
-        <Card.Text>{price_ttc}€</Card.Text>
-        <Card.Text>{index}€</Card.Text>
+        <Card.Text className="card-price">{price_ttc}<sup className="devise"
+        >€</sup></Card.Text>
+        {/* <Card.Text>{index}€</Card.Text> */}
       </Card.Body>
-      <Link className="btn btn-blue" to={`/produits/${slugify(title)}`}>details de produit </Link>
+      <Link className="btn btn-blue" to={`/produits/${slugify(title)}`}>Voir le produit </Link>
     </Card>
   ));
 
