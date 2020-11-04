@@ -33,8 +33,8 @@ chez monfermier.fr casse les préjugés et vous permet de consommer des produits
       <Card.Body className="card-news-bloc">
         <a href="#" className="link-card-news-bloc"><img src="/devenez-vendeur.jpg" className="news-bloc" alt="devenez vendeur" /></a>
         <a href="#" className="link-card-news-bloc"><img src="/achetez-local.jpg" className="news-bloc" alt="achetez local" /></a>
-        <a href="#" className="link-card-news-bloc"><img src="/devenez-vendeur.jpg" className="news-bloc" alt="devenez vendeur" /></a>
-        <a href="#" className="link-card-news-bloc"><img src="/achetez-local.jpg" className="news-bloc" alt="achetez local" /></a>
+        <a href="#" className="link-card-news-bloc"><img src="/nos-recettes.jpg" className="news-bloc" alt="Consulter nos recettes" /></a>
+        <a href="#" className="link-card-news-bloc"><img src="/composez-panier.jpg" className="news-bloc" alt="Composez votre panier" /></a>
       </Card.Body>
     </Card>
   </div>

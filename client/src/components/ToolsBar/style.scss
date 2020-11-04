@@ -11,6 +11,28 @@
   margin-left: 21rem !important;
   color: #fff;
 }
+
+#basic-navbar-nav{
+  z-index: 10;
+}
+.navbar-light .navbar-nav .show>.nav-link {
+  color: #43a0af;
+}
+.dropdown-item:hover{
+  background-color: #43a0af;
+  color: white;
+}
+
+@media (min-width: 768px){
+  .navbar-expand-md .navbar-nav {
+      text-transform: uppercase;
+  }
+}
+
+.dropdown-menu{
+  margin-left: 4rem!important;
+}
+
 .navbar-nav .nav-link {
   padding-right: 0;
   padding-left: 0em;
@@ -30,7 +52,7 @@
   display: none;
 }
 .dropdown-toggle:hover {
-  color: red !important;
+  color: #43a0af!important;
   
   
   content: '';
