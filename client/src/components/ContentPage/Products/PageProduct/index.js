@@ -55,6 +55,15 @@ const PageProduct = ({ products }) => {
   return (
     <div className="product-container">
       <main className="content">
+      <nav aria-label="breadcrumb" class="fil-ariane">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="/">Accueil</a></li>
+                  <li class="breadcrumb-item"><a href="#">Boucherie - Charcuterie</a></li>
+                  <li class="breadcrumb-item"><a href="#">Boucherie</a></li>
+                  <li class="breadcrumb-item"><a href="#">Boeuf</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Rôti de Boeuf</li>
+                </ol>
+            </nav>
         <section className="content__left">
           <article className="product-content">
             <header className="product-top">
@@ -191,7 +200,7 @@ const PageProduct = ({ products }) => {
                 alt="Image du vendeur"
               />
               <div className="card-body encart-vendeur">
-                <h5 className="card-title">Nom du vendeur</h5>
+                <h5 className="card-title">La Ferme de Jeannot</h5>
                 
                 <div className="extra">
                   Indice de statisfaction:
