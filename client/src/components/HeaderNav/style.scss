@@ -250,25 +250,59 @@
   display: flex;
   margin: 0rem 2rem;
   flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* text-align: center; */
+  width: 25%;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+@media (max-width: 759px) {
+  .auth {
+    display: flex;
+    margin: 0rem 0.2rem;
+    flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
     /* text-align: center; */
-    width: 25%;
-  font-size: 1.5rem;
-  font-weight: bold;
-
+    width: 35%;
+    font-size: 1rem;
+    font-weight: bold;
+  }
 }
+@media (max-width:759px){
+  .link p{
+    display: none;
+  }
+}
+
+@media (max-width:759px){
+  .heart {
+    display: flex;
+    flex-direction: row;
+    margin: 0!important;
+    color: #fff;
+    width: 44%;
+    font-size: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-weight: bold;
+  }
+}
+
 .heart {
   display: flex;
   flex-direction: row;
   margin: auto 2rem;
   color: #fff;
-  width: 40%;
+  width: 44%;
   font-size: 1.5rem;
   flex-wrap: wrap;
   justify-content: center;
   font-weight: bold;
 }
+
 .icon {
   font-size: 1rem;
   color: white;
@@ -327,6 +361,7 @@ a:after {
     justify-content: flex-end;
   }
 }
+
 @media (min-width: 401px) {
   .link{
     width: 30%;
@@ -335,14 +370,22 @@ a:after {
     align-content: center;
   }
 }
+
 @media (max-width: 400px) {
   
   .link{
-    width: 75%;
+    width: 100%;
     display: flex;
-    justify-content: center;
-    padding-top: 1rem;
+    justify-content: space-between;
+    padding: 1rem;
     align-content: center;
+  }
+}
+
+@media (max-width: 759px) {
+  .icon-button {
+    margin-top: 0rem!important;
+    margin-left: -.7rem;
   }
 }
 

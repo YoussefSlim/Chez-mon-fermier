@@ -7,16 +7,16 @@ import './style.scss';
 const SocialMedia = () => (
   <div className="social-media ">
     <p className="top-footer ">Suivez-nous sur les réseaux sociaux</p>
-    <a href="https://www.facebook.com" className="facebook social jello-horizontal">
+    <a href="https://www.facebook.com" className="facebook social jello-horizontal text-blue">
       <FontAwesomeIcon icon={faFacebook} size="2x" />
     </a>
-    <a href="https://www.twitter.com" className="twitter social jello-horizontal">
+    <a href="https://www.twitter.com" className="twitter social jello-horizontal text-green">
       <FontAwesomeIcon icon={faTwitter} size="2x" />
     </a>
-    <a href="https://www.instagram.com" className="instagram social jello-horizontal">
+    <a href="https://www.instagram.com" className="instagram social jello-horizontal text-purple">
       <FontAwesomeIcon icon={faInstagram} size="2x" />
     </a>
-    <a href="https://www.youtube.com" className="youtube social jello-horizontal">
+    <a href="https://www.youtube.com" className="youtube social jello-horizontal text-red">
       <FontAwesomeIcon icon={faYoutube} size="2x" />
     </a>
   </div>

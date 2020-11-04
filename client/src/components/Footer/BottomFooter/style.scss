@@ -4,11 +4,31 @@
   font-style: italic;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 759px){
   .bottom-footer {
-    display: block;
-    align-content: center;
+    display: flex;
+    -ms-flex-line-pack: center;
+    align-items: center;
     width: 100%;
-    margin-left: 2rem;
+    /* margin-left: 2rem; */
+    text-align: center;
+    margin: auto 0;
+    background-color: #334859;
+    color: white;
+    padding-top: 0.5rem;
+  }
+}
+
+@media (min-width: 760px){
+  .bottom-footer {
+    display: flex;
+    -ms-flex-line-pack: center;
+    align-items: center;
+    width: 100%;
+    /* margin-left: 2rem; */
+    text-align: center;
+    background-color: #334859;
+    color: white;
+    padding-top: 0.5rem;
   }
 }
