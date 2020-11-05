@@ -6,7 +6,7 @@ const products = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_PRODUCTS:
       axios
-        .get('http://ec2-3-93-241-49.compute-1.amazonaws.com:5050/products')
+        .get('http://localhost:5050/products')
         .then((response) => {
           store.dispatch(saveProducts(response.data));
         })

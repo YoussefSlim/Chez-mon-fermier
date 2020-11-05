@@ -11,12 +11,14 @@ import LoginForm from 'src/containers/LoginForm';
 import { routes } from 'src/components/Routes';
 import './styles.css';
 import PageProduct from 'src/containers/ContentPage/Products/PageProduct';
+import TeamPage from 'src/components/TeamPage';
 import SignUp from 'src/containers/SignUp';
 import Cart from 'src/containers/Cart';
 import Spins from 'src/components/Spins';
 import HeaderNav from '../../containers/headerNav';
 // import SucessMessage from '../SucessMessage';
 import Products from '../ContentPage/Products';
+
 
 // == Composant
 const App = ({ fetchProducts, fetchCategories, fetchShop, user, loading, products }) => {
@@ -57,12 +59,13 @@ const App = ({ fetchProducts, fetchCategories, fetchShop, user, loading, product
             <Route exact path={routes.veau} component={PageProduct} />
             <Route exact path={routes.pommes} component={PageProduct} />
             <Route exact path={routes.jambons} component={PageProduct} />
-
+            
             <Route path={routes.acceuil} component={ContentPage} />
             {/* <Route path="/produits/:slug">
               {match ? <PageProduct match={match} /> : <Products />}
             </Route> */}
           </Switch>
+          <Route exact path={routes.team} component={TeamPage} />
           <Footer />
         </>
       )}

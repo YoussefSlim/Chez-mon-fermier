@@ -10,4 +10,5 @@ export const routes = {
   veau: '/produits/roti-de-veau',
   boeuf: '/produits/roti-de-boeuf',
   camembert: '/produits/camembert-veritable-de-normandie-a-la-piece',
+  team: '/team',
 };

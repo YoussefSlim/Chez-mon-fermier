@@ -2,7 +2,7 @@ import axios from 'axios';
 import { LOGIN, saveUser, LOGOUT, CHECK_IS_LOGGED } from 'src/actions/user';
 
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
-// axios.defaults.headers.post['Access-Control-Allow-Origin'] = 'http://ec2-3-93-241-49.compute-1.amazonaws.com:5050';
+// axios.defaults.headers.post['Access-Control-Allow-Origin'] = 'http://localhost:5050';
 // axios.defaults.withCredentials = true;
 const auth = (store) => (next) => (action) => {
   switch (action.type) {
@@ -16,7 +16,7 @@ const auth = (store) => (next) => (action) => {
 
       axios
         .post(
-          'http://ec2-3-93-241-49.compute-1.amazonaws.com:5050/login',
+          'http://localhost:5050/login',
 
           {
             email,
@@ -35,7 +35,7 @@ const auth = (store) => (next) => (action) => {
       // je me déconnecte en envoyant une requête
       // celle-ci va détruire la session côté server
       axios
-        .post('http://ec2-3-93-241-49.compute-1.amazonaws.com:5050/login')
+        .post('http://localhost:5050/login')
         .then((response) => console.log(response))
         .catch((error) => console.log(error));
 
@@ -44,7 +44,7 @@ const auth = (store) => (next) => (action) => {
       break;
     case CHECK_IS_LOGGED:
       axios
-        .post('http://ec2-3-93-241-49.compute-1.amazonaws.com:5050/isLogged')
+        .post('http://localhost:5050/isLogged')
         .then((response) => {
           // je teste si la propriété logged de la réponse est à true
           // si oui je sauvegarde le pseudo

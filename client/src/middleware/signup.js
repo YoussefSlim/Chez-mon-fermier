@@ -24,7 +24,7 @@ const signup = (store) => (next) => (action) => {
       } = store.getState();
 
       axios
-        .post('http://ec2-3-93-241-49.compute-1.amazonaws.com:5050/signup', {
+        .post('http://localhost:5050/signup', {
           first_name,
           last_name,
           address,

@@ -1,0 +1,148 @@
+/*  TEAMSQUAD PAGE */
+
+
+.team-mozaic{
+    display: flex;
+    width: 1140px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+  
+  .devOne, .devTwo, .devThree{
+    display: flex;
+    width: 380px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+  
+.text-marine{
+    color: #31435B!important;
+}
+
+  .fakebgone{
+    background-color: #31435B;
+    width: 380px;
+    height: 380px;
+    background-image: url('/team/youssef-avatar.png');
+    background-size: contain;
+    background-position: center;
+  }
+  
+  .fakebgtwo{
+    background-color:#43A0AF;
+    width: 380px;
+    height: 380px;
+    background-image: url('/team/tang-avatar.png');
+    background-size: contain;
+    background-position: center;
+  }
+  
+  .text-blue{
+    color: #43A0AF!important;
+}
+
+  .jerrybg{
+  background-color:#DB3855;
+  width: 380px;
+  height: 380px;
+  background-image: url('/team/jerry_avatar.png');
+  background-size: contain;
+  background-position: center;
+  }
+
+  .github {
+      background-image: url('/icons/github.png');
+      -webkit-transition: all 1s linear;
+    transition: all 1s linear;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 32px;
+    height: 32px;
+    color: transparent;
+  }
+
+.github:hover {
+      background-image: url('/icons/github-hover.png');
+}
+
+.linkedin {
+    background-image: url('/icons/linkedin.png');
+    -webkit-transition: all 1s linear;
+    transition: all 1s linear;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 32px;
+    height: 32px;
+    color: transparent;
+}
+
+.linkedin:hover {
+    background-image: url('/icons/linkedin-hover.png');
+}
+
+.code {
+    background-image: url(/icons/code.png);
+    -webkit-transition: all 1s linear;
+    transition: all 1s linear;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 32px;
+    height: 32px;
+    color: transparent;
+    border-radius: 4px;
+}
+
+.code:hover {
+    background-image: url('/icons/code-hover.png');
+}
+.jello-horizontal,
+.code:hover,
+.linkedin:hover,
+.github:hover {
+  -webkit-animation: jello-horizontal 0.9s both;
+  animation: jello-horizontal 0.9s both;
+}
+
+  .text-red{
+    color: #DB3855!important;
+}
+
+  .dev-info{
+  width: 380px;
+  height: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #e0e0e0;
+  }
+  
+  .dev-name{
+  font-size: 2rem!important;
+  font-family: 'Lobster', cursive;
+  }
+  
+  
+  .dev-description{
+  color: #31435B!important;
+  }
+  
+  .kg-price
+  .socialzone{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  }
+  
+  .social-icon{
+  font-size: 3rem;
+  //color: #43A0AF;
+  padding: 1rem;
+  width: 32px!important;
+  height: 32px;
+  }

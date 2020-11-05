@@ -14,8 +14,7 @@ const MidleFooter = () => (
       <div className=" col-lg-2 col-xl-2 mx-auto mb-4">
         <h5 className="text-uppercase font-weight-bold">Chez mon fermier</h5>
         <p className="info">
-          Lorem ipsum dolor sit amet consectetur adipisicing tenetur rem tempore aut numquam
-          distinctio quidem.
+          La marketplace qui vous permet de consommer des prouduits locaux du producteur directement à l'assiette.
         </p>
       </div>
 
@@ -38,9 +37,9 @@ const MidleFooter = () => (
           </a>
         </p>
         <p>
-          <a href="/notre-equipe" className="dark-grey-text">
+          <Link to="/team" className="dark-grey-text">
             Notre équipe
-          </a>
+          </Link>
         </p>
       </div>
 
