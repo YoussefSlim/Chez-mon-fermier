@@ -179,9 +179,10 @@
 }
 
 .ant-input-search>.ant-input-group>.ant-input-group-addon .ant-input-search-button:not(.ant-btn-primary) {
-  color: white;
-  background-color:  #41B1B2;
+  color: #fff;
+  background-color: #41b1b2;
   border-radius: 0 4px 4px 0;
+  height: 100%;;
 }
 .ant-btn:focus, .ant-btn:hover {
   color: #fff;
@@ -341,11 +342,16 @@ a:after {
   color: white;
 }
 
-.anticon-user, .anticon-shopping-cart {
+.icon-log-header, .anticon-shopping-cart {
   color: white;
   display: inline-block;
   font-size: 2rem;
-  
+}
+
+
+.icon-deco{
+font-size: 1rem!important;
+margin-bottom: 0!important;
 }
 @media (min-width: 1200px) {
   .link{

@@ -45,7 +45,7 @@ app.use((req, res, next) => {
 });
 
 
-app.use(express.static(__dirname + "./app/public"));
+app.use(express.static(__dirname + "/app/public"));
 
 
 app.set("models", "./app/models");
@@ -54,7 +54,7 @@ app.set("models", "./app/models");
 app.set("views", "./app/views");
 app.set("view engine", "ejs");
 // les statiques
-app.use(express.static("public"));
+//app.use(express.static("public"));
 
 // on rajoute la gestion des POST body
 app.use(express.urlencoded({ extended: true }));

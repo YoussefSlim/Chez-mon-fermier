@@ -20,9 +20,7 @@ const HeadBar = ({ isLogged, pseudo, counter, handleLogout, addToCart }) => (
     <div className="link">
       {isLogged && (
         <>
-          
           <Link to="/ma-liste-des-courses">
-          
             <div className="heart">
               <HeartOutlined fontSize="large" />
               <Badge className="badg-heart" count={0} showZero></Badge>
@@ -33,28 +31,22 @@ const HeadBar = ({ isLogged, pseudo, counter, handleLogout, addToCart }) => (
           <div className="auth">
             <UserOutlined title="Se connecter" />
             <p className="icon">Bienvenue {pseudo.first_name}</p>
-            
               <LogoutButton handleLogout={handleLogout} />
-           
           </div>
         </>
       )}
 
       {!isLogged && (
-        <Link to="/authentification" className="login-icon">
-         
+        <Link to="/authentification" className="login-icon icon-log-header">
             <UserOutlined title="Se connecter" />
             <p className="icon-deco">Connexion</p>
-          
         </Link>
       )}
 
       <Link to="/panier" className="cart">
-       
           <ShoppingCartOutlined title="shopping" />
           {addToCart === true ? circle(counter) : null}
           <p className="icon-deco">Mon panier</p>
-       
       </Link>
     </div>
   </div>

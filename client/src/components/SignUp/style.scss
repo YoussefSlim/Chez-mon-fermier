@@ -1,4 +1,85 @@
-h1.form-signup {
-  font-size: xx-large !important;
-  margin: 3rem 7rem;
+.title-form-signup {
+  font-size: 2.5rem!important;
+  text-align: center;
+  margin: 3rem 0 2rem 0;
+}
+
+
+.formulaire-inscription{
+  width: 768px!important;
+  margin: 1rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  // background-color: #e0e0e0;
+}
+
+.ant-form-item-label>label {
+  position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 32px;
+  color: rgba(0,0,0,.85);
+  font-size: 14px;
+  justify-content: center;
+}
+
+.signup{
+    background-color: #e0e0e0;
+    padding: 3rem 6rem 3rem 3rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    color: rgba(0,0,0,.85);
+    font-size: 1rem;
+    /* font-variant: tabular-nums; */
+    /* line-height: 1.5715; */
+    list-style: none;
+    -webkit-font-feature-settings: "tnum";
+    /* font-feature-settings: "tnum"; */
+    /*max-width: 100%;*/
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* align-items: center; */
+    width: 100%!important;
+    flex-wrap: wrap;
+    margin: 5rem 0!important;
+    max-width: 100%;
+    border-radius:10px!important;
+}
+
+.ant-checkbox-wrapper a{
+  color: #DB3855;
+}
+
+.ant-form-item{
+  width: 100%;
+}
+.input-formulaire-signup{
+  border-radius: 10px!important;
+}
+
+
+.icon-user-signup{
+  background-color: #e0e0e0;
+  border: 4px solid #43a0af;
+  padding: 3rem;
+  border-radius: 100%;
+  background-image: url(/icons/user.svg);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  position: absolute;
+  /* top: auto; */
+  margin-top: -123px;
+  width: 2rem!important;
+  height: 2rem;
+  background-size: 50%;
+  /* justify-content: center; */
+  /* display: flex; */
+  margin-left: 5rem;
 }

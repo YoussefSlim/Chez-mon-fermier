@@ -23,7 +23,10 @@ const LoginForm = ({ onChange, handleLog }) => {
   };
 
   return (
+
     <>
+        
+      <div className="formulaire-connexion">
       <Form
         name="normal_login"
         className="login-form"
@@ -32,39 +35,45 @@ const LoginForm = ({ onChange, handleLog }) => {
         onFinish={handleLogin}
         onFinishFailed={onFinish}
       >
+        <span src="/icons/user.png" className="icon-user-log"/>
         <Form.Item
           name="email"
-          rules={[{ required: true, message: 'Please input your Username!' }]}
+          rules={[{ required: true, message: 'Veuillez renseigner votre email!' }]}
+          className="input-login-formulaire"
         >
-          <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+          <Input prefix={<UserOutlined className="site-form-item-icon icon-log-form" />} placeholder="Email" />
         </Form.Item>
         <Form.Item
           name="password"
-          rules={[{ required: true, message: 'Please input your Password!' }]}
+          rules={[{ required: true, message: 'Entrez votre mot de passe' }]}
+          className="input-login-formulaire"
         >
           <Input
-            prefix={<LockOutlined className="site-form-item-icon" />}
+            prefix={<LockOutlined className="site-form-item-icon icon-log-pswd" />}
             type="password"
-            placeholder="Password"
+            placeholder="Mot de passe"
           />
+        </Form.Item>
+        
+
+        <Form.Item className="group-button-log">
+          <Button type="button" htmlType="submit" className="btn-marine btn btn-login-formulaire">
+            Connexion
+          </Button>
+           <p> ou </p>
+           <Button type="button" htmlType="submit" className="btn-green btn btn-login-formulaire"><a href="/inscription">Inscription</a></Button>
         </Form.Item>
         <Form.Item>
           <Form.Item name="remember" valuePropName="checked" noStyle>
-            <Checkbox>Remember me</Checkbox>
+            <Checkbox>Se souvenir de moi</Checkbox>
           </Form.Item>
 
           <a className="login-form-forgot" href="">
-            Forgot password
+            Mot de passe perdu ?
           </a>
         </Form.Item>
-
-        <Form.Item>
-          <Button type="primary" htmlType="submit" className="login-form-button">
-            Log in
-          </Button>
-          Or <Link to="/inscription">s'inscrire!</Link>
-        </Form.Item>
       </Form>
+      </div>
     </>
   );
 };

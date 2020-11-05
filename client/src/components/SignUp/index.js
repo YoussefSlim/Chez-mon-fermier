@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { Form, Input, Checkbox, Button } from 'antd';
+import './style.scss';
 
 const formItemLayout = {
   labelCol: {
@@ -50,8 +51,9 @@ const SignUp = ({ onChange, handleForm, signup }) => {
 
   return (
     <>
-      <h1 className="form-signup">Création de mon compte utilisateur</h1>
-      <Form
+      <div className="formulaire-inscription">
+      <h1 className="title-form-signup">Création de mon compte utilisateur</h1>
+      <Form 
         className="signup"
         {...formItemLayout}
         form={form}
@@ -59,57 +61,58 @@ const SignUp = ({ onChange, handleForm, signup }) => {
         onFinish={handleSend}
         onValuesChange={handleChange}
       >
+        <span src="/icons/user.png" className="icon-user-signup"/>
         <Form.Item
           name="first_name"
           label="Nom"
           rules={[{ required: true, message: 'Veuillez entrer votre nom!', whitespace: true }]}
         >
-          <Input />
+          <Input className="input-formulaire-signup" />
         </Form.Item>
         <Form.Item
           name="last_name"
           label="Prenom"
           rules={[{ required: true, message: 'Veuillez entrer votre prénom!', whitespace: true }]}
         >
-          <Input />
+          <Input className="input-formulaire-signup" />
         </Form.Item>
         <Form.Item
           name="address"
           label="Adresse"
           rules={[{ required: true, message: 'Veuillez entrer votre adresse!' }]}
         >
-          <Input />
+          <Input className="input-formulaire-signup" />
         </Form.Item>
         <Form.Item name="additional_address" label="Lieu-dit">
-          <Input />
+          <Input className="input-formulaire-signup" />
         </Form.Item>
         <Form.Item
           name="postcode"
           label="Code postal"
           rules={[{ required: true, message: 'Please input your phone number!' }]}
         >
-          <Input />
+          <Input className="input-formulaire-signup" />
         </Form.Item>
         <Form.Item
           name="department"
           label="Departement"
           rules={[{ required: true, message: 'Veuiller entre votre N° de departement!' }]}
         >
-          <Input />
+          <Input className="input-formulaire-signup" />
         </Form.Item>
         <Form.Item
           name="city"
           label="Ville"
           rules={[{ required: true, message: 'Please input your phone number!' }]}
         >
-          <Input />
+          <Input className="input-formulaire-signup" />
         </Form.Item>
         <Form.Item
           name="phone_number"
           label="N° de mobile"
           rules={[{ required: true, message: 'Please input your phone number!' }]}
         >
-          <Input />
+          <Input className="input-formulaire-signup" />
         </Form.Item>
         <Form.Item
           name="email"
@@ -125,7 +128,7 @@ const SignUp = ({ onChange, handleForm, signup }) => {
             },
           ]}
         >
-          <Input />
+          <Input className="input-formulaire-signup" />
         </Form.Item>
 
         <Form.Item
@@ -177,15 +180,16 @@ const SignUp = ({ onChange, handleForm, signup }) => {
           {...tailFormItemLayout}
         >
           <Checkbox>
-            I have read the <a href="">agreement</a>
+            Je reconnais avoir lu les <a href="">Conditions Générales de Ventes</a>
           </Checkbox>
         </Form.Item>
         <Form.Item {...tailFormItemLayout}>
-          <Button type="primary" htmlType="submit">
-            Register
+          <Button type="button" className="btn-green btn" htmlType="submit">
+            S'inscrire
           </Button>
         </Form.Item>
       </Form>
+      </div>
     </>
   );
 };
