@@ -1,101 +1,77 @@
-import React, { useState } from 'react';
-import Menu from 'src/components/Cart/menu';
+import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
 
-import Counter from 'src/containers/Counter';
+import Recipe from 'src/components/Cart/Recipe/recipes';
 
-const Cart = () => {
-  // GENERAL PRICE
-  const defaultGeneralPrice = 0 + '€';
-  const [generalPrice, setGeneralPrice] = useState(defaultGeneralPrice);
+import './style.scss';
 
-  // QUANTITY
-  const [quantity, setQuantaty] = useState(1);
+const Cart = ({ fetchCart, removeItem, addQuantity, subtractQuantity, list, total }) => {
+  useEffect(() => {
+    removeItem();
+  }, [fetchCart()]);
 
-  // DISCOUNT
-  let dafaultDiscount = 5;
-  // let defaultCouponDiscount = quantity * dafaultDiscount ;
-  const [couponDiscount, setCouponDiscount] = useState(dafaultDiscount);
-  console.log(couponDiscount);
-
-  // TOTAL PRICE
-  // let defaultTotalPrice = generalPrice * quantity - couponDiscount ;
-  // console.log(defaultTotalPrice);
-  const [totalPrice, setTotalPrice] = useState(generalPrice);
-
-  const [addToCart, setAddToCart] = useState(false);
-  console.log(`Add to cart button click ? ${addToCart}`);
-
-  function incrementQuentaty() {
-    // EVERYTIME WHEN CLICK PLUS BUTTON IT WILL INCREMENT BY ONE
-    // AND TOTAL PRICE WILL BE CHANGE
-    // PRICE * QUANITY = TOTAL
-    setQuantaty((prevQuantity) => prevQuantity + 1);
-    setTotalPrice((prevPrice) => prevPrice + generalPrice);
-  }
-  function decrementQuantity() {
-    setQuantaty((prevQuantity) => prevQuantity - 1);
-    setTotalPrice((prevPrice) => prevPrice - generalPrice);
-  }
-  function usingCouponDiscount(e) {
-    e.preventDefault();
-    console.log(e.target.value);
-    if (e.target.value === 123) {
-      console.log('set total price and coupon discount');
-      setCouponDiscount((prevDiscount) => prevDiscount);
-      setTotalPrice((prevPrice) => prevPrice - couponDiscount * quantity);
-    }
-  }
-
-  function handleClick(e) {
-    e.preventDefault();
-    setAddToCart((prevAddToCart) => (prevAddToCart = true));
-  }
-
-  return (
-    <div className="Cart">
-      <Menu quantity={quantity} addToCart={addToCart} />
-      <br />
-      <br />
-      <br />
-      <div className="box">
-        <div className="image-product">
-          <img src="/holder3.png" alt="" />
+  //to remove the item completely
+  const handleRemove = (id) => {
+    removeItem(id);
+  };
+  //to add the quantity
+  const handleAddQuantity = (id) => {
+    addQuantity(id);
+  };
+  //to substruct from the quantity
+  const handleSubtractQuantity = (id) => {
+    subtractQuantity(id);
+  };
+  const addedItems = list.length ? (
+    list.map((item) => (
+      <li key={item.id} className="collection-item avatar">
+        <div className="item-img">
+          <img src="/holder3.png" alt={item.title} className="" />
         </div>
-        <div className="detail">
-          <div className="title">FC Bayern München</div>
-          <div className="desc">
-            FC Bayern Munich First team squad First team squad Women's team The FC Bayern Women
-            represent the club in the Bundesliga and Women's Champions League.
-          </div>
-        </div>
-        <div className="set-quan set-bg">
-          <div className="quantaty">Quantaty {quantity}</div>
-          <div className="btns">
-            <Counter />
-          </div>
-        </div>
-        <div className="price">
-          <div className="gp">General price {generalPrice}$</div>
-          <div className="coupon set-bg">
-            Use Coupon
-            <form>
-              <input
-                onChange={usingCouponDiscount}
-                placeholder="Enter your coupon code"
-                type="text"
-              />
-            </form>
-          </div>
-          <div className="total-price">Total Price {totalPrice}$</div>
-        </div>
-        <div className="add set-bg">
-          <button className="btn" onClick={handleClick}>
-            Add to Cart
+
+        <div className="item-desc">
+          <span className="title">{item.title}</span>
+
+          <p>
+            <b>Price: {item.price_ttc}$</b>
+          </p>
+          <p>
+            <b>Quantity: {item.quantity}</b>
+          </p>
+
+          <button
+            className="waves-effect waves-light btn pink remove"
+            onClick={() => {
+              handleRemove(item.id);
+            }}
+          >
+            Remove
           </button>
         </div>
+      </li>
+    ))
+  ) : (
+    <p>Votre pannier est vide</p>
+  );
+  return (
+    <div className="container">
+      <div className="cart">
+        <h5>You have ordered:</h5>
+        <ul className="collection">{addedItems}</ul>
       </div>
+      <Recipe total={total} />
     </div>
   );
+};
+
+Cart.propTypes = {
+  addQuantity: PropTypes.func,
+  list: PropTypes.shape({
+    length: PropTypes.any,
+    map: PropTypes.func,
+  }),
+  removeItem: PropTypes.func,
+  subtractQuantity: PropTypes.func,
 };
 
 export default Cart;

@@ -207,3 +207,18 @@ a:after {
 .auth-deco {
   margin: 1rem;
 }
+.badg-heart {
+  background-color: red;
+  border-radius: 13rem;
+  /* border-top-left-radius: 56%; */
+  position: absolute;
+  top: 15px;
+  z-index: 1;
+  align-items: center;
+  font-size: 0.8rem;
+  right: 4rem;
+  padding-top: 1rem 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  color: aliceblue;
+}

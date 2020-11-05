@@ -1,56 +1,12 @@
+/* eslint-disable object-curly-newline */
+import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import Counter from 'src/containers/Counter';
-import { addTocart } from 'src/actions/cart';
+
 import './style.scss';
 
-const PageProduct = ({ products }) => {
-  console.log('je suis dans la page produit => ', products);
-  // GENERAL PRICE
-  const defaultGeneralPrice = 0 + '€';
-  const [generalPrice, setGeneralPrice] = useState(defaultGeneralPrice);
-
-  // QUANTITY
-  const [quantity, setQuantaty] = useState(1);
-
-  // DISCOUNT
-  let dafaultDiscount = 5;
-  // let defaultCouponDiscount = quantity * dafaultDiscount ;
-  const [couponDiscount, setCouponDiscount] = useState(dafaultDiscount);
-  console.log(couponDiscount);
-
-  // TOTAL PRICE
-  // let defaultTotalPrice = generalPrice * quantity - couponDiscount ;
-  // console.log(defaultTotalPrice);
-  const [totalPrice, setTotalPrice] = useState(generalPrice);
-
-  const [addToCart, setAddToCart] = useState(false);
-  console.log(`Add to cart button click ? ${addToCart}`);
-
-  function incrementQuentaty() {
-    // EVERYTIME WHEN CLICK PLUS BUTTON IT WILL INCREMENT BY ONE
-    // AND TOTAL PRICE WILL BE CHANGE
-    // PRICE * QUANITY = TOTAL
-    setQuantaty((prevQuantity) => prevQuantity + 1);
-    setTotalPrice((prevPrice) => prevPrice + generalPrice);
-  }
-  function decrementQuantity() {
-    setQuantaty((prevQuantity) => prevQuantity - 1);
-    setTotalPrice((prevPrice) => prevPrice - generalPrice);
-  }
-  function usingCouponDiscount(e) {
-    e.preventDefault();
-    console.log(e.target.value);
-    if (e.target.value === 123) {
-      console.log('set total price and coupon discount');
-      setCouponDiscount((prevDiscount) => prevDiscount);
-      setTotalPrice((prevPrice) => prevPrice - couponDiscount * quantity);
-    }
-  }
-
-  function handleClick(e) {
-    e.preventDefault();
-    setAddToCart((prevAddToCart) => (prevAddToCart = true));
-  }
+const PageProduct = ({ product, counter }) => {
+  console.log('je suis dans page product =>', counter);
   return (
     <div className="product-container">
       <main className="content">
@@ -59,10 +15,10 @@ const PageProduct = ({ products }) => {
             <header className="product-top">
               <img src="/holder3.png" className="img-product" />
               <article className="product-info">
-                <h1 className="product-title">Ici se trouve le Nom du produit à afficher</h1>
+                <h1 className="product-title">{product.title}</h1>
                 <div className="product__quantity-zone">
                   <div className="quantity-zone">
-                    <label htmlFor="title">Quantité</label>
+                    <label htmlFor="title">{product.quantity}</label>
                     <Counter />
                     <small id="titleHelp" className="form-text text-muted">
                       Saisissez la quantité souhaitée.
@@ -73,13 +29,44 @@ const PageProduct = ({ products }) => {
                   </a>
 
                   <div className="product__price-zone">
-                    <span className="kg-price">14.96 € / kg</span>
+                    <span className="kg-price">{product.price_ttc}/ kg</span>
                     <strong itemProp="price" className="ttc-price">
                       12€
                     </strong>
                   </div>
                 </div>
-                <button type="button" onClick={handleClick} className="btn btn-blue btn-add-cart">
+                <button
+                  type="button"
+                  onClick={() => {
+                    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    console.log('cart', cart);
+                    const findItem = cart.find((item) => item.id === product.id);
+                    console.log('findItem', findItem);
+                    if (!findItem) {
+                      localStorage.setItem(
+                        'cart',
+                        JSON.stringify([
+                          ...cart,
+                          {
+                            title: product.title,
+                            id: product.id,
+                            price_ttc: product.price_ttc,
+                            description: product.description,
+                            counter,
+                          },
+                        ])
+                      );
+                    } else {
+                      for (const i = 0; i < cart.length; i++) {
+                        if (product.id === cart[i].id) {
+                          cart[i].counter += 1;
+                          localStorage.setItem('cart', JSON.stringify(cart));
+                        }
+                      }
+                    }
+                  }}
+                  className="btn btn-blue btn-add-cart"
+                >
                   Ajouter au panier
                 </button>
                 <div className="product__social-zone">
@@ -147,11 +134,7 @@ const PageProduct = ({ products }) => {
                   role="tabpanel"
                   aria-labelledby="home-tab"
                 >
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro similique iusto
-                  praesentium cupiditate odio? Dolore tempore fugiat odio neque accusamus natus ad
-                  quia quidem! Cupiditate distinctio repellendus quae fugit voluptate recusandae ad
-                  nesciunt. Adipisci corporis consequatur culpa quas nulla, ut autem minima
-                  molestias, magnam recusandae distinctio ad? Suscipit, modi eius.
+                  {product.description}
                 </div>
                 <div
                   className="tab-pane fade"
@@ -216,6 +199,20 @@ const PageProduct = ({ products }) => {
       </main>
     </div>
   );
+};
+
+PageProduct.propTypes = {
+  addQuantity: PropTypes.any,
+  counterCart: PropTypes.shape({
+    value: PropTypes.number,
+  }),
+  description: PropTypes.any,
+  id: PropTypes.any,
+  price_ttc: PropTypes.any,
+  quantity: PropTypes.any,
+  removeItem: PropTypes.any,
+  subtractQuantity: PropTypes.any,
+  title: PropTypes.any,
 };
 
 export default PageProduct;

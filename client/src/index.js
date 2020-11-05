@@ -4,7 +4,7 @@ import { render } from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-
+import Spins from 'src/components/Spins';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // == Import : local
@@ -19,7 +19,7 @@ import { store, persistor } from 'src/store';
 const rootReactElement = (
   <Router>
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
+      <PersistGate loading={Spins} persistor={persistor}>
         <App />
       </PersistGate>
     </Provider>

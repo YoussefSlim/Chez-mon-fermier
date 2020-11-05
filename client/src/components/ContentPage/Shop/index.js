@@ -4,7 +4,7 @@ import { Card, Button } from 'react-bootstrap';
 
 const Shop = ({ shops }) => {
   console.log('je suis dans shop =>', shops);
-  return shops.map(({ id, name, address, city, phone_number, postcode }, index) => (
+  return shops.map(({ id, name, address, city, phone_number, postcode }) => (
     <Card key={id} style={{ width: '30rem' }}>
       <Card.Img variant="top" src="holder3.png" />
       <Card.Body>
@@ -20,11 +20,11 @@ const Shop = ({ shops }) => {
 
 Shop.propTypes = {
   shops: PropTypes.array.isRequired,
-  name: PropTypes.string.isRequired,
-  address: PropTypes.string.isRequired,
-  city: PropTypes.string.isRequired,
-  postcode: PropTypes.string.isRequired,
-  phone_number: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  address: PropTypes.string,
+  city: PropTypes.string,
+  postcode: PropTypes.string,
+  phone_number: PropTypes.string,
 };
 
 export default Shop;

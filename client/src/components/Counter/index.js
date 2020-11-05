@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import './styles.css';
 
 // == Composant
-const Counter = ({ count, increment, decrement }) => (
+const Counter = ({ count, increment, decrement, handleSubtractQuantity }) => (
   <div className="counter">
     <button type="button" onClick={decrement}>
       -

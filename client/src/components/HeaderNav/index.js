@@ -6,12 +6,10 @@ import { ShoppingCartOutlined, UserOutlined, HeartOutlined } from '@ant-design/i
 import { Badge } from 'antd';
 
 import './style.scss';
-import addToCart from 'src/components/ContentPage/Products/PageProduct/const';
 import SearchBar from './SearchBar';
 import LogoutButton from '../LogoutButton';
 
-const circle = (quantity) => <span className="circle">{quantity}</span>;
-const HeadBar = ({ isLogged, pseudo, counter, handleLogout, addToCart }) => (
+const HeadBar = ({ isLogged, pseudo, counter, handleLogout }) => (
   <div className="header">
     <Link to="/">
       <img src="/app_log.png" alt="logo" />
@@ -20,17 +18,17 @@ const HeadBar = ({ isLogged, pseudo, counter, handleLogout, addToCart }) => (
     <div className="link">
       {isLogged && (
         <>
-          <Badge className="badg-heart" count={0} showZero></Badge>
-          <Link to="/ma-liste-des-courses">
-            <div className="heart">
+          <div className="heart">
+            <span className="badg-heart">{0}</span>
+            <Link to="/ma-liste-des-courses">
               <HeartOutlined fontSize="large" />
               <p className="icon">Ma liste des courses</p>
-            </div>
-          </Link>
+            </Link>
+          </div>
 
           <div className="auth">
             <UserOutlined title="Se connecter" />
-            <p className="icon">Bienvenue {pseudo.first_name}</p>
+            <p className="icon">Bienvenue {pseudo}</p>
             <p className="icon">
               <LogoutButton handleLogout={handleLogout} />
             </p>
@@ -46,14 +44,14 @@ const HeadBar = ({ isLogged, pseudo, counter, handleLogout, addToCart }) => (
           </div>
         </Link>
       )}
-
-      <Link to="/panier">
-        <div className="cart">
+      <div className="cart">
+        <span className="badg-heart">{counter}</span>
+        <Link to="/panier">
           <ShoppingCartOutlined title="shopping" />
-          {addToCart === true ? circle(counter) : null}
+
           <p className="icon">Mon panier</p>
-        </div>
-      </Link>
+        </Link>
+      </div>
     </div>
   </div>
 );

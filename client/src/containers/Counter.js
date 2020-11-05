@@ -6,7 +6,7 @@ import Counter from 'src/components/Counter';
 
 // Action Creators
 import { increment, decrement } from '../actions';
-
+import { addQuantity, subtractQuantity } from 'src/actions/cart';
 /* === State (données) ===
  * - mapStateToProps retroune un objet de props pour le composant de présentation
  * - mapStateToProps met à dispo 2 params

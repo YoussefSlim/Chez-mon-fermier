@@ -4,7 +4,11 @@ import HeaderNav from 'src/components/HeaderNav';
 import { logout } from 'src/actions/user';
 import { addToCart } from '../../actions/cart';
 
-const mapStateToProps = (state) => ({ counter: state.counter.value, cart: state.addToCart });
+const mapStateToProps = (state) => ({
+  counter: state.counter.value,
+  cart: state.addToCart,
+  pseudo: state.user.first_name,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   handleLogout: () => {

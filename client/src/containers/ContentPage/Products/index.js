@@ -3,7 +3,10 @@ import Products from 'src/components/ContentPage/Products';
 
 import { fetchProducts } from 'src/actions/products';
 
-const mapStateToProps = ({ products: { products } }) => ({ products });
+const mapStateToProps = ({ products: { products }, counter: { counter } }) => ({
+  products,
+  counter,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   fetchProducts: () => {
