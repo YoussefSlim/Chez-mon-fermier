@@ -42,7 +42,12 @@ const adminController = {
             customers: customers,
         });
     },
-
+    getAllProducts: async (req, res) => {
+        const products = await Product.findAll(req.params.id);
+        res.render('products', {
+            products: products,
+        });
+    },  
     customerByEmail: async (req,res) => {
         const customers = await Customer.getCustomerByEmail(req.params.email);
         res.json(customers);
@@ -108,6 +113,36 @@ const adminController = {
             
             // res.send('Le client a bien été supprimé');
     },
+
+    editProduct: async (req, res) => {
+        // try{
+             const product = await Product.findOne(req.params.id);
+             const productToEdit = new Product(product);
+             for(const prop in req.body) {
+                productToEdit[prop] = req.body[prop];
+             }
+             await Product.updateProduct(req.body);
+             
+             res.render('editProduct', {
+                product: product,
+             });
+             
+         // } catch (error) {
+         //     console.log(error);
+         //     res.status(500).json(error);
+         // }
+     }, 
+ 
+     deleteProduct: async (req,res)=> {
+         const product = await Product.findOne(req.params.id);
+         // console.log(Product.id);
+         const message = 'Le compte est bien supprimé';
+         const productToDelete = new Product(product);
+         await Product.deleteProduct(req.params.id);
+         res.status(200).json(message);
+             
+             // res.send('Le client a bien été supprimé');
+     },
     // adminLogin: async (req, res) => {
     //     const customer = await Admin.getAdminByEmail(req.body.email)
     //     if (!customer){

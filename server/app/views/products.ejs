@@ -1,3 +1,6 @@
+<%- include ("partials/header") %>
+<%- include ("partials/sidenav") %>
+
 <!-- right content -->
 <section class="content_right">
     <h1 class="admin-title">
@@ -18,39 +21,20 @@
           </tr>
         </thead>
         <tbody>
+          <form id="formCustomerElement" data-card-id="???" action="" method="POST" ></form>
+          <% for (const product of products) { %>
           <tr>
-            <th scope="row">1</th>
-            <td>Toto</td>
-            <td>10€</td>
-            <td>12€</td>
-            <td>2</td>
-            <td><a href="#" class="text-dark"><i class="far fa-eye" aria-hidden="true"></i></a></td>
-            <td><a href="#" class="text-success"><i class="fa fa-plus-circle" aria-hidden="true"></i></a></td>
-            <td><a href="#" class="text-warning"><i class="fas fa-edit"></i></a></td>
-            <td><a href="#" class="text-danger"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+            <th scope="row"><%= product.id %></th>
+            <td><%= product.title %></td>
+            <td><%= product.price_ht %></td>
+            <td><%= product.price_ttc %></td>
+            <td><%= product.quantity %></td>
+            <td><a href="/admin/product/<%= product.id %>" class="text-dark"><i class="far fa-eye" aria-hidden="true"></i></a></td>
+            <td><a href="/admin/product" class="text-success"><i class="fa fa-plus-circle" aria-hidden="true"></i></a></td>
+            <td><a href="/admin/product/<%= product.id %>" class="text-warning"><i class="fas fa-edit"></i></a></td>
+            <td><a href="/admin/product/<%= product.id %>" class="text-danger"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Titi</td>
-            <td>10€</td>
-            <td>12€</td>
-            <td>2</td>
-            <td><a href="#" class="text-dark"><i class="far fa-eye" aria-hidden="true"></i></a></td>
-            <td><a href="#" class="text-success"><i class="fa fa-plus-circle" aria-hidden="true"></i></a></td>
-            <td><a href="#" class="text-warning"><i class="fas fa-edit"></i></a></td>
-            <td><a href="#" class="text-danger"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Tata</td>
-            <td>10€</td>
-            <td>12€</td>
-            <td>2</td>
-            <td><a href="#" class="text-dark"><i class="far fa-eye" aria-hidden="true"></i></a></td>
-            <td><a href="#" class="text-success"><i class="fa fa-plus-circle" aria-hidden="true"></i></a></td>
-            <td><a href="#" class="text-warning"><i class="fas fa-edit"></i></a></td>
-            <td><a href="#" class="text-danger"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
-          </tr>
+          <% } %>
         </tbody>
       </table>
 
@@ -61,3 +45,5 @@
 
 </main>
 <!-- end of main's content zone -->
+
+<%- include ("partials/footer") %>

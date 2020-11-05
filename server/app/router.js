@@ -113,14 +113,15 @@ router.delete('/admin/deleteCustomer/:id', adminController.deleteCustomer);
 // router.patch('/admin/shop/:id', shopController.editShop);
 // router.delete('/admin/shop/:id', shopController.deleteShop);
 // router.get('/admin/product/:id', adminController.getProductById);
-// router.get('/admin/products', productController.getAllProducts);
+router.get('/admin/products', adminController.getAllProducts);
 // router for see the products by the category id
 router.get('/admin/category/:id/products', productController.getProductsByCategory);
 // router for see the products by the shop id
 router.get('/admin/shop/:id/product', productController.getProductsByShop);
 router.post('/admin/product', productController.newProduct);
-router.patch('/admin/product/:id', productController.editProduct);
-router.delete('/admin/product/:id', productController.deleteProduct);
+router.get('/admin/product/:id', adminController.editProduct);
+router.patch('/admin/product/:id', adminController.editProduct);
+router.delete('/admin/product/:id', adminController.deleteProduct);
 
 /*// admin
 router.get('/admin', adminMiddleware, adminController.adminPage);

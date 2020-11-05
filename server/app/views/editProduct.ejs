@@ -5,8 +5,8 @@
 <section class="content_right">
     <nav aria-label="breadcrumb" class="fil-ariane">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="#">Accueil</a></li>
-          <li class="breadcrumb-item"><a href="#"><%= product.category_id %></a></li>
+          <li class="breadcrumb-item"><a href="/admin">Accueil</a></li>
+          <li class="breadcrumb-item"><a href="/admin/category/10"><%= product.category_id %></a></li>
           <li class="breadcrumb-item active" aria-current="page"><%= product.title %></li>
         </ol>
       </nav>
@@ -17,19 +17,19 @@
     <form>
         <div class="form-group">
           <label for="title">Titre du produit</label>
-          <input type="text" class="form-control" id="inputTitle" aria-describedby="titleHelp">
+          <input type="text" class="form-control" id="inputTitle" aria-describedby="titleHelp" value="<%= product.title %>">
           <small id="titleHelp" class="form-text text-muted">Veuillez renseinger ou modifier le titre du produit. Le titre est obligatoire !</small>
         </div>
         <div class="mb-3">
             <label for="validationTextarea">Description</label>
-            <textarea class="form-control" id="validationTextarea" placeholder="Tapez la description du produit"></textarea>
+            <textarea class="form-control" id="validationTextarea" placeholder="Tapez la description du produit" value="<%= product.description %>"></textarea>
             <small id="titleHelp" class="form-text text-muted">
                 Veuillez renseigner ou modifier la description du produit. La description, est obligatoire et vivement conseillée pour son référencement, et informer le client.
             </small>
         </div>
         <div class="form-group">
             <label for="title">Quantité en stock</label>
-            <input type="number" class="form-control" id="inputTitle" data-decimals="2" min="0" max="9" step="1"/>
+            <input type="number" class="form-control" id="inputTitle" data-decimals="2" min="0" max="9" step="1" value="<%= product.quantity %>"/>
             <small id="titleHelp" class="form-text text-muted">
                 Veuillez renseigner la quantité en stock de ce produit. La quantité de stock est obligatoire.
             </small>
@@ -38,7 +38,7 @@
             <label for="title">Prix H.T.</label>
             <div class="input-group mb-3">
                 
-                <input type="text" class="form-control" aria-label="Prix H.T. (en euros)">
+                <input type="text" class="form-control" aria-label="Prix H.T. (en euros)" value="<%= product.price_ht %>">
                 <div class="input-group-append">
                 <span class="input-group-text">€ H.T.</span>
                 </div>
@@ -51,7 +51,7 @@
         <div class="form-group">
             <label for="title">Prix T.T.C.</label>
             <div class="input-group mb-3">
-                <input type="text" class="form-control" aria-label="Prix T.T.C (en euros)">
+                <input type="text" class="form-control" aria-label="Prix T.T.C (en euros)" value="<%= product.price_ttc %>">
                 <div class="input-group-append">
                     <span class="input-group-text">€ T.T.C</span>
                 </div>   
@@ -62,7 +62,7 @@
         </div>
         <div class="form-group">
             <label for="title">Identifiant de la catégorie</label>
-            <input type="text" class="form-control" id="inputTitle" aria-describedby="titleHelp">
+            <input type="text" class="form-control" id="inputTitle" aria-describedby="titleHelp" value="<%= product.category_id %>">
             <small id="titleHelp" class="form-text text-muted">Veuillez renseinger ou modifier l'identifiant de la catégorie du produit. Il est obligatoire !</small>
         </div>
         <button type="submit" class="btn btn-green">Enregistrer les modifications</button>
