@@ -28,7 +28,7 @@ yarn
 # lance le serveur de developpement
 yarn start 
 
-# rdv sur http://localhost:8080/
+# rdv sur http://ec2-3-93-241-49.compute-1.amazonaws.com:8080/
 ```
 
 Voilà, le modèle tourne, mais en fait ça ne sert pas à grand chose. L'idée est de se _baser sur_ le modèle, mais de le faire tourner dans un autre projet.

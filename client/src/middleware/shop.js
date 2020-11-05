@@ -6,7 +6,7 @@ const shop = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_SHOP:
       axios
-        .get('http://localhost:5050/shops')
+        .get('http://ec2-3-93-241-49.compute-1.amazonaws.com:5050/shops')
         .then((response) => {
           console.log('je suis dans le midleware shop', response.data);
           store.dispatch(saveShop(response.data));

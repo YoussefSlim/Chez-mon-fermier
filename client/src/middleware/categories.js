@@ -6,7 +6,7 @@ const categories = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_CATEGORIES:
       axios
-        .get('http://localhost:5050/categories')
+        .get('http://ec2-3-93-241-49.compute-1.amazonaws.com:5050/categories')
         .then((response) => {
           console.log('je suis dans le midleware de catégories');
           store.dispatch(saveCategories(response.data));
